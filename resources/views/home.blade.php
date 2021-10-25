@@ -11,109 +11,14 @@
             </div>
             <div class="panel-body" style="display: block; overflow-x: auto; white-space: nowrap;">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card-box bg-blue">
-                                <div class="inner">
-                                    <h3> {{$hmembers->count()}} </h3>
-                                    <p> Total Members</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-users" aria-hidden="true"></i>
-                                </div>
-                                <a href="/members" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card-box bg-green">
-                                <div class="inner">
-                                    <h3> {{$hmembers->where('status','New Member')->count()}} </h3>
-                                    <p> New Members</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                </div>
-                                <a href="/members" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card-box bg-orange">
-                                <div class="inner">
-                                    <h3> {{$hmembers->where('status','Worker')->count()}} </h3>
-                                    <p> Workers </p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
-                                </div>
-                                <a href="/members" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card-box bg-red">
-                                <div class="inner">
-                                    <h3> {{$mytasks->count()}} </h3>
-                                    <p> Tasks / To Do </p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-tasks"></i>
-                                </div>
-                                <a href="/tasks" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                  
                    
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Church Attendance | Last 4 Weeks</h3>
-                </div>
-                <div class="panel-body">
-                    
-                    <div id="attendance-chart" style="height: 300px"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Upcoming Programmes/Events</h3>
-                </div>
-                <div class="panel-body">
-                    <table class="table">
-                        <thead>
-                            
-                            <tr>
-                               
-                                <th>Title</th>
-                                <th>Date</th>
-                                <th>Host/Organizer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($uprogrammes as $up)
-                                <tr>
-                                    <td>{{$up->title}}</td>
-                                    <td>{{$up->from==$up->to?$up->from:$up->from." to ".$up->to}}</td>
-                                    <td>{{$up->ministry}}</td>
-                                   
-                                </tr>
-                            @endforeach
-                            
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
     <style>
         body{
             background:#eee;    

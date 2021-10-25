@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
-use App\Models\housefellowhips;
-use App\Models\ministries;
-use App\Models\attendance;
+
 use App\Models\tasks;
 use App\Models\followups;
 use App\Models\programmes;
 use App\Models\settings;
+use App\Models\dscaptures;
+use App\Models\drcaptures;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -38,20 +38,8 @@ class HomeController extends Controller
     public function index()
     {
       
-        $attendance = attendance::where('activity','Sunday Service')->offset(0)->take(10)->get();
-
-        $midweek = attendance::select('men')->offset(0)->take(10)->get();
-
-        $uprogrammes = programmes::where('category','Upcoming')->select('id','title','from','to','ministry')->paginate(5);
-        
-
-        $dates = "'".$attendance[0]->date."','".$attendance[1]->date."','".$attendance[2]->date."','".$attendance[3]->date."','".$attendance[4]->date."','".$attendance[5]->date."','".$attendance[6]->date."','".$attendance[7]->date."','".$attendance[8]->date."','".$attendance[9]->date."'";
-        
-        $totals = $attendance[0]->total.",".$attendance[1]->total.",".$attendance[2]->total.",".$attendance[3]->total.",".$attendance[4]->total.",".$attendance[5]->total.",".$attendance[6]->total.",".$attendance[7]->total.",".$attendance[8]->total.",".$attendance[9]->total;
-
-        $midweek = $midweek[0]->men.",".$midweek[1]->men.",".$midweek[2]->men.",".$midweek[3]->men.",".$midweek[4]->men.",".$midweek[5]->men.",".$midweek[6]->men.",".$midweek[7]->men.",".$midweek[8]->men.",".$midweek[9]->men;
         // sleep(5);
-        return view('home', compact('dates','midweek','totals','uprogrammes'));
+        return view('home');
     }
 
     public function getUrl($url)
@@ -91,20 +79,66 @@ class HomeController extends Controller
     public function member($id)
     {
       $member = User::where('id',$id)->first();
-      $users = User::select('id','name','phone_number')->get();
-      $tasks = tasks::where('assigned_to',$id)->get();
-      $followups = followups::where('member',$id)->get();
-
-      return view('member', compact('member','users','tasks','followups'));
+    
+      return view('member', compact('member'));
     }
 
-    public function addNew()
-    {
-      $users = User::select('name','id')->get();
-      $house_fellowships = housefellowhips::select('name','id')->get();
-      $ministries = ministries::select('name','id')->get();
-      return view('add-new', compact('users','ministries','house_fellowships'));
 
+    public function dscaptures()
+    {
+      $dscaptures = dscaptures::orderBy('id','ASC')->get();
+      return view('dscaptures', compact('dscaptures'));
+    }
+
+    public function editdscapture($id){
+      $dscapture = dscaptures::where('id',$id)->first();
+      return view('add-newds', compact('dscapture'));
+    }
+
+
+    public function addNewds()
+    {
+      
+      return view('add-newds');
+
+    }
+
+    public function newds(request $request)
+    {
+     
+        dscaptures::updateOrCreate(['id'=>$request->id],
+          $request->all());
+     
+
+      return view('add-newds')->with(['message'=>'DS Capture Saved Successfully!']);
+
+    }
+
+    public function addNewdr()
+    {
+      return view('add-newdr');
+    }
+
+    public function newdr(request $request)
+    {
+    
+        drcaptures::updateOrCreate(['id'=>$request->id],
+          $request->all());
+      
+
+      return view('add-newdr')->with(['message'=>'DR Capture Saved Successfully!']);
+
+    }
+
+    public function drcaptures()
+    {
+      $drcaptures = drcaptures::orderBy('id','ASC')->get();
+      return view('drcaptures', compact('drcaptures'));
+    }
+
+    public function editdrcapture($id){
+      $drcapture = drcaptures::where('id',$id)->first();
+      return view('add-newdr', compact('drcapture'));
     }
 
     protected function create(request $request)
@@ -112,7 +146,7 @@ class HomeController extends Controller
 
         if($request->email==""){
 
-            $email = "crmadmin@crmfct.org";
+            $email = "admin@nigeriaqualtb.com";
             $password = Hash::make("prayer22");
         }else{
             $email = $request->email;
@@ -123,18 +157,14 @@ class HomeController extends Controller
         User::updateOrCreate(['id'=>$request->id],[
             'name' => $request->name,
             'email' => $email,
-            'gender' => $request->gender,
-            'dob' => $request->dob,
+           
             'age_group'=>$request->age_group,
             'phone_number'=>$request->phone_number,
             'password' => $password,
-            'about' => $request->about,
-            'address' => $request->address,
-            'location' => $request->location,
-            'house_fellowship' => $request->house_fellowship,
-            'invited_by' => $request->invited_by,
-            'assigned_to' => $request->assigned_to,
-            'ministry' => $request->ministry,
+         
+            'state' => $request->state,
+            'facility' => $request->facility,
+            
             'role'=>$request->role,
             'status'=>$request->status
             
@@ -147,18 +177,16 @@ class HomeController extends Controller
 
     public function editMember($id)
     {
-      $user = User::where('id',$id)->first();
-      $users = User::select('id','name')->get();
-      $house_fellowships = housefellowhips::select('name','id')->get();
-      $ministries = ministries::select('name','id')->get();
-      return view('edit-member', compact('user','users','ministries','house_fellowships'));
+      $users = User::all();
+     
+      return view('edit-member', compact('users'));
 
     }
 
     public function deleteMember($id)
     {
       $user = User::where('id',$id)->delete();      
-      $message = 'The member has been deleted!';
+      $message = 'The User has been deleted!';
       return redirect()->route('members')->with(['message'=>$message]);
 
     }

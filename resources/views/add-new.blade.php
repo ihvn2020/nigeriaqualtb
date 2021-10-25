@@ -1,7 +1,7 @@
 @extends('layouts.theme')
 
 @section('content')
-                    <h3 class="page-title">Add New Members </h3>
+                    <h3 class="page-title">Add New Users </h3>
 
                     <div class="panel">
 
@@ -13,7 +13,7 @@
                                     
                                 
                                     @csrf
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
             
                                     
                                         <div class="form-group row">
@@ -30,21 +30,7 @@
                                             
                                         </div>
 
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label for="dob" class="control-label sr-only">Date of Birth</label>
-                                                    <input id="dob" name="dob" type="text" class="form-control" placeholder="Date of Birth">
-                                            </div>
-    
-                                            <div class="form-group col-md-6">
-                                                <label for="gender"  class="control-label sr-only">Gender</label>
-                                                <select class="form-control" name="gender" id="gender">
-                                                    <option value="" selected>Gender</option>
-                                                    <option value="Male">Male</option>
-                                                    <option value="Female">Female</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                       
             
                                        
             
@@ -63,108 +49,28 @@
                                         </div>
             
                                         
-                                        <div class="form-group row">
-                                            <label for="about"  class="control-label sr-only">About Member</label>
-                                            <textarea name="about" id="about" class="form-control" placeholder="About Member" rows="4"></textarea>
-                                        </div>
-            
+                                        
                                     
             
                                         
                                     </div>
-                                    <div class="col-md-3  col-md-offset-1">
+                                    <div class="col-md-6">
                                         
 
+                                       
                                         <div class="form-group row">
-                                            <label for="address" class="control-label sr-only">Address</label>
-                                                <input id="address" name="address" type="text" class="form-control" placeholder="Address">
+                                            <label for="facility" class="control-label sr-only">Facility Name</label>
+                                                <input id="facility" name="facility" type="text" class="form-control" placeholder="facility">
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="location" class="control-label sr-only">Location</label>
-                                                <input id="location" name="location" type="text" class="form-control" placeholder="Location">
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="house_fellowship"  class="control-label sr-only">Closest House Fellowship</label>
-                                            <select class="form-control" name="house_fellowship" id="house_fellowship">
-                                            <option value="" selected>Closest House Fellowship</option>
-                                            <option value="None">None</option>
-                                            @foreach ($house_fellowships as $hfellowship)
-                                                <option value="{{$hfellowship->name}}">{{$hfellowship->name}}</option>
-                                            @endforeach
+                                            <label for="state"  class="control-label sr-only">State</label>
+                                            <select class="form-control" name="state" id="state">
+                                            <option value="" selected></option>
+                                            <option value="FCT">FCT</option>
+                                       
                                             
                                             
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="invited_by"  class="control-label sr-only">Invited By</label>
-                                            <select class="form-control" name="invited_by" id="invited_by">
-                                                <option value="None">None</option>
-                                                <option value="" selected>Invited By</option>
-                                                @foreach ($users as $user)
-                                                    <option value="{{$user->id}}">{{$user->name}}</option>
-                                                @endforeach                                          
-                                            
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="assigned_to"  class="control-label sr-only">Assigned To</label>
-                                            <select class="form-control" name="assigned_to" id="assigned_to">
-                                                <option value="" selected>Assigned To</option>
-                                                @foreach ($users as $user)
-                                                    <option value="{{$user->id}}">{{$user->name}}</option>
-                                                @endforeach
-                                                
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3 col-md-offset-1">
-
-
-                                        <div class="form-group row">
-                                            <label for="ministry"  class="control-label sr-only">Ministry</label>
-                                            <select class="form-control" name="ministry" id="ministry">
-                                            <option value="" disabled selected>Ministry</option>
-                                            <option value="None">None</option>
-                                            @foreach ($ministries as $ministry)
-                                                <option value="{{$ministry->name}}">{{$ministry->name}}</option>
-                                            @endforeach
-                                            
-                                            
-                                            </select>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="age_group"  class="control-label sr-only">Age Group</label>
-                                            <select class="form-control" name="age_group" id="age_group">
-                                                <option value="" selected>Age Group</option>
-                                                <option value="Children Also">Children Also</option>
-                                                <option value="Teenager">Teenager</option>
-                                                <option value="Youth">Youth</option>
-                                                <option value="CWL">CWL</option>
-                                                <option value="TKM">TKM</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="status"  class="control-label sr-only">Status</label>
-                                            <select class="form-control" name="status" id="status">
-                                                <option value="Set Status" selected>Current Status</option>
-                                                <option value="Member">Member</option>
-                                                <option value="Pastor">Pastor</option>
-                                                <option value="S.O">S.O</option>
-                                                <option value="New Member">New Member</option>
-                                                <option value="Evangelised">Evangelised</option>
-                                                <option value="Outreached">Outreached</option>
-                                                <option value="Minister">Minister</option>
-                                                <option value="Worker">Worker</option>
-                                                <option value="Security">Security</option>
-                                                <option value="Not Reachable">Not Reachable</option>
-                                                <option value="Backslided">Backslided</option>                                            
-                                                
                                             </select>
                                         </div>
 
@@ -207,25 +113,36 @@
                                         <div class="form-group row">
                                             <label for="role"  class="control-label sr-only">Role</label>
                                             <select class="form-control" name="role" id="role">
-                                                <option value="Member" selected>Member</option>
-                                                <option value="Admin">Admin</option>
-                                                <option value="Usher">Usher</option>
-                                                <option value="Followup">Followup</option>
-                                                <option value="Finance">Finance</option>
+                                                <option value="User" selected>User</option>
+                                                <option value="SAdmin">SAdmin</option>
+                                                <option value="FAdmin">SAdmin</option>
+                                                <option value="CAdmin">CAdmin</option>
+                                               
                                                 @if ($settings->mode=="Maintenance")
                                                 <option value="Super">Super</option>
                                                 @endif                                                
                                             </select>
                                         </div>
 
+                                        <div class="form-group row">
+                                            <label for="status"  class="control-label sr-only">Status</label>
+                                            <select class="form-control" name="status" id="status">
+                                                <option value="Active" selected>Active</option>
+                                                <option value="Inactive">Inactive</option>
+                                                       
+                                            </select>
+                                        </div>
 
+                                        
                                     </div>
+
+                                   
                                 </div>
         
                                 <div class="form-group row mb-0">
                                     
                                         <button type="submit" class="btn btn-primary pull-right">
-                                            {{ __('Add New Member') }}
+                                            {{ __('Add New User') }}
                                         </button>
                                     
                                 </div>

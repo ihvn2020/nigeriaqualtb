@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>CRM Church Manager | Dashboard</title>
+	<title>Nigeria QualTB | Dashboard</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -39,6 +39,17 @@
 				width: 100%;
 			}
 		}
+		.menuicon {
+				visibility:hidden;
+				display: none;
+		}
+
+		@media only screen and (max-width: 600px) {
+			.menuicon {
+				visibility:visible;
+				display: inline;
+			}
+		}
         #cover {
 			background: url("{{asset('/images/ajax-loader.gif')}}") no-repeat scroll center center #CCC;
 			position: absolute;
@@ -46,6 +57,29 @@
 			width: 100%;
 			z-index: 999999999;
 			opacity: 0.8;
+		}
+
+		.tab-content hr{
+			border-top: 1px solid green;
+		}
+
+		.form-row{
+			border-bottom: 0.5px solid green;
+			margin-bottom: 5px;
+		}
+
+		label{
+			color: darkgreen;
+			font-size: small;
+		}
+
+		.tab-content span{
+			margin-right: 7px;
+			font-size: smaller;
+			vertical-align:text-top;
+		}
+		.btnNext{
+			float: right;
 		}
 	</style>
 </head>
@@ -58,7 +92,9 @@
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
 				<a href="/"><img  src="/images/{{$settings->logo}}" alt="{{$settings->motto}}" class="img-responsive logo" style="height: 35px !important; float: left;"></a> {{$settings->ministry_name}}
+				<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-menu"></i></button>
 			</div>
+			
 			<div class="container-fluid" style="width: 100%">
 				
 
@@ -67,7 +103,7 @@
 				<form class="navbar-form navbar-left" action="{{ route('searchmembers') }}" method="post">
 					@csrf
 					<div class="input-group">
-						<input type="text" value="" name="keyword" class="form-control" placeholder="Search Members...">
+						<input type="text" value="" name="keyword" class="form-control" placeholder="Search Records...">
 						<span class="input-group-btn"><button type="submit" class="btn btn-primary">Go</button></span>
 					</div>
 				</form>
@@ -77,7 +113,7 @@
 				
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
-                    <li>
+                    <li class="menuicon">
                    
 					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-menu"></i></button>
 	
@@ -112,7 +148,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="lnr lnr-user"></i> <span>@auth {{ Auth::user()->name }} @endauth </span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a class="btn btn-success update-pro" href="/add-new" title="New Member" target="_blank" style="color: white; font-weight: bold;"><span class="fa fa-user-plus"></span> <span>New Member</span></a></li>
+								<li><a class="btn btn-success update-pro" href="/add-new" title="New Member" target="_blank" style="color: white; font-weight: bold;"><span class="fa fa-user-plus"></span> <span>New User</span></a></li>
 								<li><a href="/my_profile/{{$login_user->id ?? ''}}"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								<li><a href="/tasks"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 
@@ -137,79 +173,54 @@
 					<ul class="nav">
 						<li><a href="/home" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						
-						<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden !important;">
-							<a href="#subPages1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-calendar-full"></i> <span>Tasks/ To Do</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages1" class="collapse ">
-								<ul class="nav">
-									<li><a href="/tasks" class="">Manage Tasks/TODOs</a></li>
-								</ul>
-							</div>
-						</li>
+						
 						<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden;">
-							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>Members</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>DS Capture</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages2" class="collapse ">
 								<ul class="nav">
-									<li><a href="/members" class="">View Members</a></li>
-									<li><a href="/add-new" class="roledlink Worker,Admin,Followup,Pastor,Super">Add New</a></li>
 									
+									<li><a href="/add-newds" class="roledlink Worker Admin Followup Pastor Super">New DS Capture</a></li>
+									<li><a href="/dscaptures" class="roledlink Worker Admin Followup Pastor Super">DS Captures</a></li>
 								</ul>
 							</div>
 						</li>
 						<li class="roledlink Admin Super Pastor" style="visibility:hidden;">
-							<a href="#subPages3" data-toggle="collapse" class="collapsed"><i class="lnr lnr-briefcase"></i> <span>Ministries</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages3" data-toggle="collapse" class="collapsed"><i class="lnr lnr-briefcase"></i> <span>DR Capture</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages3" class="collapse ">
 								<ul class="nav">
-									<li><a href="/ministries" class="roledlink Admin Super Pastor">Manage Ministries</a></li>
-									
+									<li><a href="/add-newdr" class="roledlink Admin Super Pastor">New DR Capture</a></li>
+									<li><a href="/drcaptures" class="roledlink Worker Admin Followup Pastor Super">DR Captures</a></li>
 								</ul>
 							</div>
 						</li>
 						<li class="roledlink Admin Super Pastor" style="visibility:hidden;">
-							<a href="#subPages4" data-toggle="collapse" class="collapsed"><i class="lnr lnr-home"></i> <span>House Fellowships</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages4" data-toggle="collapse" class="collapsed"><i class="lnr lnr-home"></i> <span>Paediatrics Capture</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages4" class="collapse ">
 								<ul class="nav">
-									<li><a href="/house-fellowships" class="">Manage House Fellowships</a></li>
+									<li><a href="/add-newp" class="">New Paediatrics Capture</a></li>
 									
 									
 								</ul>
 							</div>
 						</li>
 						<li class="roledlink Admin Super Pastor" style="visibility:hidden;">
-							<a href="#subPages5" data-toggle="collapse" class="collapsed"><i class="lnr lnr-flag"></i> <span>Programs/Activities</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages5" data-toggle="collapse" class="collapsed"><i class="lnr lnr-flag"></i> <span>Non-Clinical Capture</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages5" class="collapse ">
 								<ul class="nav">
-									<li><a href="/programmes" class="">Manage Programmes</a></li>
+									<li><a href="/add-newn" class="">Add New Non-Clinical</a></li>
 									
 								</ul>
 							</div>
 						</li>
 						<li class="roledlink Admin Super Pastor Usher" style="visibility:hidden;">
-							<a href="#subPages6" data-toggle="collapse" class="collapsed"><i class="lnr lnr-checkmark-circle"></i> <span>Attendance</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages6" data-toggle="collapse" class="collapsed"><i class="lnr lnr-checkmark-circle"></i> <span>Report</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages6" class="collapse ">
 								<ul class="nav">
-									<li><a href="/attendance" class="">Manage Attendance</a></li>
+									<li><a href="/reports" class="">Manage Reports</a></li>
 								</ul>
 							</div>
 						</li>
-						<li class="roledlink Admin Super Super" style="visibility:hidden;">
-							<a href="#subPages7" data-toggle="collapse" class="collapsed"><i class="lnr lnr-list"></i> <span>Finance</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages7" class="collapse ">
-								<ul class="nav">
-									<li><a href="/transactions" class="">Financial Records</a></li>									
-									<li><a href="/account-heads" class="">Manage Account Heads</a></li>									
-
-								</ul>
-							</div>
-						</li>
-						<li class="roledlink Admin Super Pastor" style="visibility:hidden;">
-							<a href="#subPages8" data-toggle="collapse" class="collapsed"><i class="lnr lnr-envelope"></i> <span>Communication</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages8" class="collapse ">
-								<ul class="nav">
-									<li><a href="/communications" class="">Send Bulk SMS</a></li>
-									<li><a href="/sentmessages" class="">Sent Messages</a></li>									
-								</ul>
-							</div>
-						</li>
+						
 					</ul>
 				</nav>
 			</div>
@@ -238,7 +249,7 @@
 		<div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
-				<p class="copyright">&copy; {{date("Y")}} <a href="https://www.crmfct.org" target="_blank">CRM - FCT 2</a>. All Rights Reserved.</p>
+				<p class="copyright">&copy; {{date("Y")}} <a href="https://www.ihvnhi.org.ng" target="_blank">IHVN </a>. All Rights Reserved.</p>
 			</div>
 		</footer>
 	</div>
@@ -283,7 +294,7 @@
 				<input type="hidden" name="oldbackground" id="id" value="{{$settings->background}}">
                                 
                 <div class="form-group">
-                    <label for="ministry_name">Ministry / Church Name</label>
+                    <label for="ministry_name">Organization</label>
                     <input type="text" name="ministry_name" id="ministry_name" class="form-control" value="{{$settings->ministry_name}}">
                 </div>
 
@@ -342,56 +353,7 @@
 	<script src="{{asset('/js/highcharts.js')}}"></script>
 	
 
-	<script>
-		
-		$(function () {
-     
-			var dates = [<?php echo $dates; ?>];
-			var totals = [<?php echo $totals; ?>];
-			var midweek = [<?php echo $midweek; ?>];
-			
-
-			console.log(dates);
-			$('#attendance-chart').highcharts({
-				chart: {
-				type: 'line'
-				},
-				title: {
-				text: 'Sunday Service Attendance Chart'
-				},
-				xAxis: {
-				categories: dates
-				},
-				yAxis: {
-					title: {
-					text: 'Attendance'
-				}
-				},
-				series: [
-				{
-				name: 'Sunday Services',
-				data: totals
-				},
-				{
-				name: 'Men',
-				data: midweek
-				}]
-			});
-		});
-
-		/*
-
-		series: [{
-				name: 'Dates',
-				data: dates
-				},
-				{
-				name: 'Totals',
-				data: totals
-				}]
-			*/
-
-	</script>
+	
 @endif
 @if (isset($pagetype) && $pagetype=="report")
 
@@ -665,6 +627,14 @@
 
 		$(window).on('load', function(){
 			$('#cover').fadeOut(1000);
+		});
+
+		$('.btnNext').click(function(){
+			$('.nav-tabs > .active').next('li').find('a').trigger('click');
+		});
+
+		$('.btnPrevious').click(function(){
+			$('.nav-tabs > .active').prev('li').find('a').trigger('click');
 		});
 		
         

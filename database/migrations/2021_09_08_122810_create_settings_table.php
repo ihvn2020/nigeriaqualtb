@@ -15,23 +15,24 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('ministry_name');
-            $table->string('motto');
-            $table->string('logo');
-            $table->string('address');
-            $table->string('background');
-            $table->string('mode');
+            $table->string('ministry_name')->nullable();
+            $table->string('motto')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('address')->nullable();
+            $table->string('background')->nullable();
+            $table->string('mode')->nullable();
             $table->timestamps();
             
         });
 
         DB::table('settings')->insert(
             array(
-                'ministry_name' => 'Ministry Manager',
-                'motto' => 'Ministry Management System',
+                'ministry_name' => 'Nigeria QualTB',
+                'motto' => 'TB Quality Manager',
                 'logo' => 'logo-dark.png',
                 'background' => 'login-bg.jpg',
-                'mode' => 'Active'
+                'mode' => 'Active',
+                'address'=>'FCT'
             )
         );
 

@@ -16,18 +16,13 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('gender')->nullable();
-            $table->string('dob')->nullable();
-            $table->string('age_group')->nullable();
+          
             $table->string('phone_number')->nullable();
             $table->string('email')->nullable();
-            $table->text('about')->nullable();
-            $table->string('address')->nullable();
-            $table->string('location')->nullable();
-            $table->string('house_fellowship')->nullable();
-            $table->string('invited_by')->nullable();
-            $table->string('assigned_to')->nullable();
-            $table->string('ministry')->nullable();
+           
+            $table->string('state')->nullable();
+            $table->string('facility')->nullable();
+           
             $table->string('status')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
@@ -35,6 +30,18 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+            array(
+                'name' => 'QualTB Admin',
+                'email' => 'admin@nigeriaqualtb.com',
+                'password' => '$2y$10$kbHiVY5Tt31WQj/lTCTjoOQUGHFc7..6KxU8p8Vu0koVZsk3vK77.',
+                'role' => 'Super',
+                'status' => 'Active',
+                'facility' => 'Central',
+                'state' => 'Central'
+            )
+        );
     }
 
     /**
