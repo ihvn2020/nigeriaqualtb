@@ -6,7 +6,7 @@
             <div class="panel">
                 <div class="panel-heading">
                     
-                        <h4>Capture DS Record</h4>
+                        <h4>New Record</h4>
                     
                     
                 </div>
@@ -17,6 +17,7 @@
                             if($dscapture->id==1){
                                 $dscapture->id = 0;
                             }
+                            $users= \App\Models\User::select('id','name')->get();
                         }
                     @endphp
                     <form method="POST" action="{{ route('addnewds') }}">
@@ -27,14 +28,13 @@
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab1" data-toggle="tab">Patient <br>Demographics</a></li>
                             <li><a href="#tab2" data-toggle="tab">Patient <br>Classification</a></li>
-                            <li><a href="#tab3" data-toggle="tab">Baseline <br>Parameters</a></li>
-                            <li><a href="#tab4" data-toggle="tab">TB/HIV</a></li>
-                            <li><a href="#tab5" data-toggle="tab">Patient Treatment <br>Adherence</a></li>
+                            <li><a href="#tab3" data-toggle="tab">HIV /<br>ART Info</a></li>
+                            <li><a href="#tab4" data-toggle="tab">TB /<br> Drugs</a></li>
+                            <li><a href="#tab5" data-toggle="tab">Diagnosis <br>& Results</a></li>
                             <li><a href="#tab6" data-toggle="tab">Patient <br>Monitoring</a></li>
-                            <li><a href="#tab7" data-toggle="tab">Patient Status</a></li>
-                            <li><a href="#tab8" data-toggle="tab">Contact Tracing</a></li>
-                            <li><a href="#tab9" data-toggle="tab">Laboratory <br>Information</a></li>
-                            <li><a href="#tab10" data-toggle="tab">Documentation</a></li>
+                            <li><a href="#tab7" data-toggle="tab">Contact Tracing</a></li>
+                            <li><a href="#tab8" data-toggle="tab">Drugs Intake<br>& Adhrence</a></li>
+                            <li><a href="#tab9" data-toggle="tab">Treatment <br>Outcome</a></li>
                         </ul>
                         <div class="tab-content">
                             
@@ -245,9 +245,6 @@
                                
                                 <div class="row form-row">
                                 
-                                    
-                                    
-                                
                                     <div class="form-group col-md-6">
                                         <label>HIV Test Result</label>
                                         <div>
@@ -258,6 +255,11 @@
                                         <input type="radio" id="hiv_negative" {{$dscapture->hiv_result=='Negative' ? 'checked':''}} 
                                         name="hiv_result" value="Negative">
                                         <span for="hiv_negative">Negative</span>                                      
+                                        
+
+                                        <input type="radio" id="hiv_unknown" {{$dscapture->hiv_result=='Unknown' ? 'checked':''}} 
+                                        name="hiv_result" value="Unknown">
+                                        <span for="hiv_unknown">Unknown</span>                                      
                                         </div>
 
                                     </div>
@@ -277,12 +279,62 @@
                                     
                                     
                                 </div>
+                                <div class="row form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>HIV Status Info</label>
+                                        <div>
+                                        <input type="radio" id="previously_known" {{$dscapture->hiv_result=='Previously Known' ? 'checked':''}} 
+                                        name="hiv_status" value="Previously Known">
+                                        <span for="previously_known">Previously Known</span>
+                                    
+                                        <input type="radio" id="newly_tested" {{$dscapture->hiv_result=='Newly Tested' ? 'checked':''}} 
+                                        name="hiv_status" value="Newly Tested">
+                                        <span for="newly_tested">Newly Tested</span>                                      
+                                        
+
+                                        <input type="radio" id="end_of_treament" {{$dscapture->hiv_result=='End of Treatment' ? 'checked':''}} 
+                                        name="hiv_status" value="End of Treatment">
+                                        <span for="end_of_treament">End of Treatment</span>                                      
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>Type of Care</label>
+                                        <div>
+                                        <input type="radio" id="referred" {{$dscapture->type_of_care=='Reffered' ? 'checked':''}} 
+                                        name="type_of_care" value="Reffered">
+                                        <span for="referred">Referred</span>
+                                    
+                                        <input type="radio" id="on_art" {{$dscapture->type_of_care=='On ART' ? 'checked':''}} 
+                                        name="type_of_care" value="On ART">
+                                        <span for="on_art">On ART</span>                                      
+                                        
+
+                                        <input type="radio" id="on_cpt" {{$dscapture->type_of_care=='On CPT' ? 'checked':''}} 
+                                        name="type_of_care" value="On CPT">
+                                        <span for="on_cpt">On CPT</span>                                      
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label for="hiv_service_date">Care Started Date</label>
+                                        
+                                        <input type="date" id="hiv_service_date" value="{{$dscapture->hiv_service_date}}" 
+                                        name="hiv_service_date">
+                                                                       
+                                        
+
+                                    </div>
+                                </div>
+
 
                                 <a class="btn btn-primary btnPrevious" >Previous</a><a class="btn btn-primary btnNext" >Next</a>
                                 
                             </div>
                            
-                            <div class="tab-pane" id="tab5">
+                            <div class="tab-pane" id="tab4">
 
                                 <div class="row form-row">
 
@@ -318,7 +370,8 @@
                                 <a class="btn btn-primary btnPrevious" >Previous</a><a class="btn btn-primary btnNext" >Next</a>
                                 
                             </div>
-                            <div class="tab-pane" id="tab6">
+
+                            <div class="tab-pane" id="tab5">
 
                                 <div class="row form-row">
                                     <small>Diagnostic Tests</small>
@@ -357,7 +410,7 @@
                                 </div>
 
                                 <div class="row form-row">
-                                    <small>AFB Result</small>
+                                    <h4>AFB Result</h4>
 
                                     <div class="form-group col-md-4">
                                         <label for="afb_collected">Date sample collected</label>
@@ -382,15 +435,15 @@
                                             <option value="Negative" selected>Negative</option>
                                             <option value="Positive">Positive</option>
                                           </select>
-                                        </div>                                        
+                                                                               
 
                                     </div>
                                     
                                 </div>
 
                                 <div class="row form-row">
-                                    <small>Chest X-Ray Result</small>
-
+                                    
+                                    <h4>Chest X-Ray</h4>
                                     <div class="form-group col-md-4">
                                         <label for="xray_released">Date result released</label>
                                         <div>                                      
@@ -400,20 +453,20 @@
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <label for="xray_reuslt">X-Ray Result</label>
+                                        <label for="xray_result">X-Ray Result</label>
                                        
                                           <select class="form-control" name="xray_result" id="xray_result">
                                             <option value="Suggestive" selected>Suggestive</option>
                                             <option value="Not Suggestive">Not Suggestive</option>
                                           </select>
-                                        </div>                                        
+                                                                              
 
                                     </div>
                                     
                                 </div>
 
                                 <div class="row form-row">
-                                    <small>Tissue Biopsy Result</small>
+                                    <h4>Tissue Biopsy Result</h4>
 
                                     <div class="form-group col-md-4">
                                         <label for="tbiopsy_released">Date result released</label>
@@ -438,39 +491,38 @@
                                             <option value="Suggestive" selected>Suggestive</option>
                                             <option value="Not Suggestive">Not Suggestive</option>
                                           </select>
-                                        </div>                                        
+                                                                              
 
                                     </div>
                                     
                                 </div>
 
                                 <div class="row form-row">
-                                    <small>Other Tests (TB-Lamp, LF-Lam, etc)</small>
+                                    <h4>Other Tests (TB-Lamp, LF-Lam, etc)</h4>
 
                                     <div class="form-group col-md-4">
                                         <label for="othertests_released">Date result released</label>
                                         <div>                                      
-                                        <input type="date" id="othertests_released"  value="{{$dscapture ? $dsothertests->tbiopsy_released:''}}"
+                                        <input type="date" id="othertests_released"  value="{{$dscapture ? $dscapture->dsothertests_released:''}}"
                                         name="othertests_released" >      
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <label for="tbiotype_of_specimen">Type of Specimen</label>
+                                        <label for="others_testname">Enter Test Name</label>
                                         <div>                                      
-                                        <input type="date" id="tbiotype_of_specimen"  value="{{$dscapture ? $dscapture->tbiotype_of_specimen:''}}"
-                                        name="tbiotype_of_specimen" >      
+                                        <input type="text" id="others_testname"  value="{{$dscapture ? $dscapture->others_testname:''}}"
+                                        name="others_testname" placeholder="e.g. TB-Lamp, LF-Lam, etc" >      
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <label for="othertests_result">X-Ray Result</label>
-                                       
+                                        <label for="othertests_result">Result</label>
+
                                           <select class="form-control" name="othertests_result" id="othertests_result">
-                                            <option value="Suggestive" selected>Suggestive</option>
-                                            <option value="Not Suggestive">Not Suggestive</option>
-                                          </select>
-                                        </div>                                        
+                                            <option value="Positive" selected>Positive</option>
+                                            <option value="Negative">Negative</option>
+                                          </select>                                                                              
 
                                     </div>
                                     
@@ -479,140 +531,491 @@
                                 <a class="btn btn-primary btnPrevious" >Previous</a><a class="btn btn-primary btnNext" >Next</a>
                                 
                             </div>
-                            <div class="tab-pane" id="tab7">
+
+                            <div class="tab-pane" id="tab6">
                                 <div class="row form-row">
-                                
-                                    <div class="form-group col-md-4">
-                                    <label for="num_contacts_traced">Number of Contacts Traced</label>
-                                    <input type="number" name="num_contacts_traced" id="num_contacts_traced" class="form-control" value="{{$dscapture ? $dscapture->num_contacts_traced:''}}" placeholder="Number of Contacts Traced">                                  
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="num_children6less">No. of Contacts Who are Children Less Than 6 Years Old</label>
-                                        <input type="number" name="num_children6less" id="num_children6less" class="form-control" value="{{$dscapture ? $dscapture->num_children6less:''}}" placeholder="Number of Contacts Who are Children Less than 6 yrs old">                                  
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="num_contacts_screen">No of Contacts Screened</label>
-                                        <input type="number" name="num_contacts_screen" id="num_contacts_screen" class="form-control" value="{{$dscapture ? $dscapture->num_contacts_screen:''}}" placeholder="No of Contacts Screened">                                  
-                                    </div>
-                                
-                                    
+
+                                    <h4>Treatment Monitoring</h4>
+
+                                    <table class="table form-group">
+                                        <thead>
+                                            <tr>
+                                                <th>Month</th>
+                                                <th>0</th>
+                                                <th>2</th>
+                                                <th>3</th>
+                                                <th>5</th>
+                                                <th>6</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td scope="row">Weight (KG)</td>
+                                                <td scope="row"><input type="number" name="tmmonth0" id="tmmonth0" class="form-control" value="{{$dscapture ? $dscapture->tmmonth0:''}}"></td>
+                                                <td><input type="number" name="tmmonth2" id="tmmonth2" class="form-control" value="{{$dscapture ? $dscapture->tmmonth2:''}}"></td>
+                                                <td><input type="number" name="tmmonth3" id="tmmonth3" class="form-control" value="{{$dscapture ? $dscapture->tmmonth3:''}}"></td>
+                                                <td><input type="number" name="tmmonth5" id="tmmonth5" class="form-control" value="{{$dscapture ? $dscapture->tmmonth5:''}}"></td>
+                                                <td><input type="number" name="tmmonth6" id="tmmonth6" class="form-control" value="{{$dscapture ? $dscapture->tmmonth6:''}}"></td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td scope="row">Smear Result</td>
+                                                <td scope="row">
+                                                    <datalist id="smearresults">
+                                                        <option value="Positive">
+                                                        <option value="Negative">                                                   
+                                                    </datalist>
+                                                  </td>
+                                                <td><input type="text" list="smearresults" name="tmsmonth2" id="tmsmonth2" class="form-control" value="{{$dscapture ? $dscapture->tmsmonth2:''}}"></td>
+                                                <td><input type="text" list="smearresults" name="tmsmonth3" id="tmsmonth3" class="form-control" value="{{$dscapture ? $dscapture->tmsmonth3:''}}"></td>
+                                                <td><input type="text" list="smearresults" name="tmsmonth5" id="tmsmonth5" class="form-control" value="{{$dscapture ? $dscapture->tmsmonth5:''}}"></td>
+                                                <td><input type="text" list="smearresults" name="tmsmonth6" id="tmsmonth6" class="form-control" value="{{$dscapture ? $dscapture->tmsmonth6:''}}"></td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
                                 </div>
 
-                                <div class="row form-row">
-                                
-                                    <div class="form-group col-md-3">
-                                    <label for="num_contacts_traced">Presumtive TB Cases Identified?</label>
-                                        <div>
-                                        <input type="radio" id="ptb_case_identified_yes" {{$dscapture->ptb_case_identified=='Yes' ? 'checked':''}} 
-                                        name="ptb_case_identified" value="Yes">
-                                        <span for="ptb_case_identified_yes">Yes</span>
-                                    
-                                        <input type="radio" id="ptb_case_identified_no" {{$dscapture->ptb_case_identified=='No' ? 'checked':''}} 
-                                        name="ptb_case_identified" value="No">
-                                        <span for="ptb_case_identified_no">No</span>                                      
-                                        </div>                                  
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="num_ptb_identified">If Yes, No. of Presumptive TB identified specify</label>
-                                        <input type="number" name="num_ptb_identified" id="num_ptb_identified" class="form-control" value="{{$dscapture ? $dscapture->num_ptb_identified:''}}" placeholder="If Yes, No. of Presumptive TB identified specify">                                  
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="num_ptb_microscopy">No. of Presumptive TB Tested: Microscopy</label>
-                                        <input type="number" name="num_ptb_microscopy" id="num_ptb_microscopy" class="form-control" value="{{$dscapture ? $dscapture->num_ptb_microscopy:''}}" placeholder="Enter Microscopy">                                  
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="num_ptb_genexpert">No. of Presumptive TB Tested: GeneXpert</label>
-                                        <input type="number" name="num_ptb_genexpert" id="num_ptb_genexpert" class="form-control" value="{{$dscapture ? $dscapture->num_ptb_genexpert:''}}" placeholder="Enter GeneXpert">                                  
-                                    </div>
-                                
-                                    
-                                </div>
+                                <a class="btn btn-primary btnPrevious" >Previous</a><a class="btn btn-primary btnNext" >Next</a>
 
+                            </div>
+                                                        
+                            <div class="tab-pane" id="tab7">                                
                                 <div class="row form-row">
                                 
-                                
-                                    <div class="form-group col-md-6">
-                                        <label for="num_ptb_eligible_ipt">Number of Presumptive TB cases eligible for IPT</label>
-                                        <small>(Source document: INH register)</small>
-                                        <input type="number" name="num_ptb_eligible_ipt" id="num_ptb_eligible_ipt" class="form-control" value="{{$dscapture ? $dscapture->num_ptb_eligible_ipt:''}}" placeholder="Enter Here">                                  
+                                    <div class="form-group col-md-4">
+                                    <label for="contact_tracing_done">Contact Tracing Done?</label>
+                                    <select name="contact_tracing_done" class="form-control" id="contact_tracing_done">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="num_ptb_ipt_done">Number of Eligibile Presumptive TB Cases That Received IPT</label>
-                                        <input type="number" name="num_ptb_ipt_done" id="num_ptb_ipt_done" class="form-control" value="{{$dscapture ? $dscapture->num_ptb_ipt_done:''}}" placeholder="Enter Here">                                  
+                                    <div class="form-group col-md-4">
+                                        <label for="num_children5less">No. of Contacts Who are Children Less Than 5 Years Old</label>
+                                        <input type="number" name="num_children5less" id="num_children5less" class="form-control" value="{{$dscapture ? $dscapture->num_children5less:''}}" placeholder="Number of Contacts Who are Children Less than 6 yrs old">                                  
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="num_children5above">5 years and above</label>
+                                        <input type="number" name="num_children5above" id="num_children5above" class="form-control" value="{{$dscapture ? $dscapture->num_children5above:''}}" placeholder="No of Contacts Screened">                                  
                                     </div>
                                 
+                                    
                                 </div>
+                                <!--
+                                    <div class="row form-row">
+                                    
+                                        <div class="form-group col-md-3">
+                                        <label for="num_contacts_traced">Presumtive TB Cases Identified?</label>
+                                            <div>
+                                            <input type="radio" id="ptb_case_identified_yes" {{$dscapture->ptb_case_identified=='Yes' ? 'checked':''}} 
+                                            name="ptb_case_identified" value="Yes">
+                                            <span for="ptb_case_identified_yes">Yes</span>
+                                        
+                                            <input type="radio" id="ptb_case_identified_no" {{$dscapture->ptb_case_identified=='No' ? 'checked':''}} 
+                                            name="ptb_case_identified" value="No">
+                                            <span for="ptb_case_identified_no">No</span>                                      
+                                            </div>                                  
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="num_ptb_identified">If Yes, No. of Presumptive TB identified specify</label>
+                                            <input type="number" name="num_ptb_identified" id="num_ptb_identified" class="form-control" value="{{$dscapture ? $dscapture->num_ptb_identified:''}}" placeholder="If Yes, No. of Presumptive TB identified specify">                                  
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="num_ptb_microscopy">No. of Presumptive TB Tested: Microscopy</label>
+                                            <input type="number" name="num_ptb_microscopy" id="num_ptb_microscopy" class="form-control" value="{{$dscapture ? $dscapture->num_ptb_microscopy:''}}" placeholder="Enter Microscopy">                                  
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="num_ptb_genexpert">No. of Presumptive TB Tested: GeneXpert</label>
+                                            <input type="number" name="num_ptb_genexpert" id="num_ptb_genexpert" class="form-control" value="{{$dscapture ? $dscapture->num_ptb_genexpert:''}}" placeholder="Enter GeneXpert">                                  
+                                        </div>
+                                    
+                                        
+                                    </div>
+
+                                    <div class="row form-row">
+                                    
+                                    
+                                        <div class="form-group col-md-6">
+                                            <label for="num_ptb_eligible_ipt">Number of Presumptive TB cases eligible for IPT</label>
+                                            <small>(Source document: INH register)</small>
+                                            <input type="number" name="num_ptb_eligible_ipt" id="num_ptb_eligible_ipt" class="form-control" value="{{$dscapture ? $dscapture->num_ptb_eligible_ipt:''}}" placeholder="Enter Here">                                  
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="num_ptb_ipt_done">Number of Eligibile Presumptive TB Cases That Received IPT</label>
+                                            <input type="number" name="num_ptb_ipt_done" id="num_ptb_ipt_done" class="form-control" value="{{$dscapture ? $dscapture->num_ptb_ipt_done:''}}" placeholder="Enter Here">                                  
+                                        </div>
+                                    
+                                    </div>
+                                -->
 
                                 <a class="btn btn-primary btnPrevious" >Previous</a><a class="btn btn-primary btnNext" >Next</a>
                                 
                             </div>
                             <div class="tab-pane" id="tab8">
-                                <div class="row form-row">
-                                    
+                                <div class="row form-row">                                    
 
-                                    <div class="form-group col-md-6">
-                                        <label for="date_specimentrecievedlab">Date Specimen was Received in Lab(AFB)</label>
-                                        <div>                                      
-                                        <input type="date" id="date_specimentrecievedlab" value="{{$dscapture ? $dscapture->date_specimentrecievedlab:''}}" 
-                                        name="date_specimentrecievedlab" >      
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-group col-md-6">
-                                        <label for="labdateresult_released">Date result released</label>
-                                        <div>                                      
-                                        <input type="date" id="labdateresult_released" value="{{$dscapture ? $dscapture->labdateresult_released:''}}" 
-                                        name="labdateresult_released" >      
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="row form-row">
-                                
-                                    <div class="form-group col-md-6">
-                                    <label for="Reason">Reason?</label>
+                                    <div class="form-group col-md-12">
+                                        <label for="Reason">Select Regimen Line</label>
                                         <div>
-                                        <input type="radio" id="lab_reason_diagnosis" {{$dscapture->lab_reason=='Diagnosis' ? 'checked':''}} 
-                                        name="lab_reason" value="Diagnosis">
-                                        <span for="lab_reason_diagnosis">Diagnosis</span>
+                                        <input type="radio" id="regimen1" {{$dscapture->regimenline=='Regimen 1' ? 'checked':''}} 
+                                        name="regimenline" value="Regimen 1">
+                                        <span for="regimen1">Regimen 1</span>
                                     
-                                        <input type="radio" id="lab_reason_followup" {{$dscapture->lab_reason=='Follow-up' ? 'checked':''}} 
-                                        name="lab_reason" value="Follow-up">
-                                        <span for="lab_reason_followup">Follow-up</span>                                      
-                                        </div>                                  
+                                        <input type="radio" id="regimen2" {{$dscapture->regimenline=='Regimen 2' ? 'checked':''}} 
+                                        name="regimenline" value="Regimen 2">
+                                        <span for="regimen2">Regimen 2</span>                                      
+                                        </div>
+
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="ftwo">If Follow-up, indicate month(s) of Treatment</label>
-                                        <input type="checkbox" name="ftwo" id="ftwo"  {{$dscapture->fwto=='on' ? 'checked':''}}  ><span for="ftwo">Two(2)</span>
-                                        <input type="checkbox" name="ffive" id="ffive"  {{$dscapture->ffive=='on' ? 'checked':''}}  ><span for="ffive">Five(5)</span>
-                                        <input type="checkbox" name="fsix" id="fsix"  {{$dscapture->fsix=='on' ? 'checked':''}}  ><span for="fsix">Six(6)</span>                                    
-                                    </div>
-                                    
-                                
-                                    
+
                                 </div>
 
-                                <div class="row form-row">
-                                    
+                                
 
-                                    <div class="form-group col-md-6">
-                                        <label for="date_specimentrecievedlab">Date Specimen was Received in Lab(GeneXpert)(month 2)</label>
-                                        <div>                                      
-                                        <input type="date" id="date_specimentrecievedlabgx" value="{{$dscapture ? $dscapture->date_specimentrecievedlabgx:''}}" 
-                                        name="date_specimentrecievedlabgx" >      
-                                        </div>
+                                <div class="row form-row" style="overflow-y: scroll;">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Month</th><th>Year</th>
+                                                <th>1</th>
+                                                <th>2</th>
+                                                <th>3</th>
+                                                <th>4</th>
+                                                <th>5</th>
+                                                <th>6</th>
+                                                <th>7</th>
+                                                <th>8</th>
+                                                <th>9</th>
+                                                <th>10</th>
+                                                <th>11</th>
+                                                <th>12</th>
+                                                <th>13</th>
+                                                <th>14</th>
+                                                <th>15</th>
+                                                <th>16</th>
+                                                <th>17</th>
+                                                <th>18</th>
+                                                <th>19</th>
+                                                <th>20</th>
+                                                <th>21</th>
+                                                <th>22</th>
+                                                <th>23</th>
+                                                <th>24</th>
+                                                <th>25</th>
+                                                <th>26</th>
+                                                <th>27</th>
+                                                <th>28</th>
+                                                <th>29</th>
+                                                <th>30</th>
+                                                <th>31</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="padding: 0px !important;">
+                                                <td>
+                                                    
+                                                        
+                                                        <select name="month">
+                                                            <option value="" selected>Month</option>
+                                                            <option value="1">January</option>
+                                                            <option value="2">February</option>
+                                                            <option value="3">March</option>
+                                                            <option value="4">April</option>
+                                                            <option value="5">May</option>
+                                                            <option value="6">June</option>
+                                                            <option value="7">July</option>
+                                                            <option value="8">August</option>
+                                                            <option value="9">September</option>
+                                                            <option value="10">October</option>
+                                                            <option value="11">November</option>
+                                                            <option value="12">December</option>
+            
+                                                        </select>
+                                                </td>
+          
+                                                <td>
+                                                        
+                                                        <select name="year">
+                                                            <option value="">Year</option>
+                                                            @php
+                                                                for($yr = 2000; $yr<=date("Y"); $yr++){
+                                                                    echo '<option value="'.$yr.'">'.$yr.'</option>';
+                                                                }
+                                                            @endphp
+                                                            
+                                                            
+                
+                                                        </select>
+                                                    
+                                                </td>
+                                                @php
+                                                    $di = range(1, 31);
+                                                    $i = 1;
+                                                    
+                                                @endphp
+                                                <td><input type="checkbox" name="di[]" value="1" {{$di[$i-1]=='1' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="2" {{$di[$i++]=='2' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="3" {{$di[$i++]=='3' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="4" {{$di[$i++]=='4' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="5" {{$di[$i++]=='5' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="6" {{$di[$i++]=='6' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="7" {{$di[$i++]=='7' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="8" {{$di[$i++]=='8' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="9" {{$di[$i++]=='9' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="10" {{$di[$i++]=='10' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="11" {{$di[$i++]=='11' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="12" {{$di[$i++]=='12' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="13" {{$di[$i++]=='13' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="14" {{$di[$i++]=='14' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="15" {{$di[$i++]=='15' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="16" {{$di[$i++]=='16' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="17" {{$di[$i++]=='17' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="18" {{$di[$i++]=='18' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="19" {{$di[$i++]=='19' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="20" {{$di[$i++]=='20' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="21" {{$di[$i++]=='21' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="22" {{$di[$i++]=='22' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="23" {{$di[$i++]=='23' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="24" {{$di[$i++]=='24' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="25" {{$di[$i++]=='25' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="26" {{$di[$i++]=='26' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="27" {{$di[$i++]=='27' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="28" {{$di[$i++]=='28' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="29" {{$di[$i++]=='29' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="30" {{$di[$i++]=='30' ? '':'checked'}} ></td>
+                                                <td><input type="checkbox" name="di[]" value="31" {{$di[$i++]=='31' ? '':'checked'}} ></td>
+                                                
+                                            <tr>
+                                                <td>
+                                                    
+                                                        
+                                                    <select name="month2">
+                                                        <option value="" selected>Month</option>
+                                                        <option value="1">January</option>
+                                                        <option value="2">February</option>
+                                                        <option value="3">March</option>
+                                                        <option value="4">April</option>
+                                                        <option value="5">May</option>
+                                                        <option value="6">June</option>
+                                                        <option value="7">July</option>
+                                                        <option value="8">August</option>
+                                                        <option value="9">September</option>
+                                                        <option value="10">October</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">December</option>
+        
+                                                    </select>
+                                                </td>
+      
+                                                <td>
+                                                    
+                                                    <select name="year2">
+                                                        <option value="">Year</option>
+                                                        @php
+                                                            for($yr = 2000; $yr<=date("Y"); $yr++){
+                                                                echo '<option value="'.$yr.'">'.$yr.'</option>';
+                                                            }
+                                                        @endphp
+                                                        
+                                                        
+            
+                                                    </select>
+                                                
+                                                </td>
+                                                @php
+                                                    $di = range(1, 31);
+                                                    $i = 1;
+                                                    
+                                                @endphp
+                                               <td><input type="checkbox" name="di2[]" value="1" {{$di[$i-1]=='1' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="2" {{$di[$i++]=='2' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="3" {{$di[$i++]=='3' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="4" {{$di[$i++]=='4' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="5" {{$di[$i++]=='5' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="6" {{$di[$i++]=='6' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="7" {{$di[$i++]=='7' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="8" {{$di[$i++]=='8' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="9" {{$di[$i++]=='9' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="10" {{$di[$i++]=='10' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="11" {{$di[$i++]=='11' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="12" {{$di[$i++]=='12' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="13" {{$di[$i++]=='13' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="14" {{$di[$i++]=='14' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="15" {{$di[$i++]=='15' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="16" {{$di[$i++]=='16' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="17" {{$di[$i++]=='17' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="18" {{$di[$i++]=='18' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="19" {{$di[$i++]=='19' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="20" {{$di[$i++]=='20' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="21" {{$di[$i++]=='21' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="22" {{$di[$i++]=='22' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="23" {{$di[$i++]=='23' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="24" {{$di[$i++]=='24' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="25" {{$di[$i++]=='25' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="26" {{$di[$i++]=='26' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="27" {{$di[$i++]=='27' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="28" {{$di[$i++]=='28' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="29" {{$di[$i++]=='29' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="30" {{$di[$i++]=='30' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di2[]" value="31" {{$di[$i++]=='31' ? '':'checked'}} ></td>
+                                            </tr>
 
-                                    </div>
+                                            <tr>
+                                                <td>
+                                                    
+                                                        
+                                                    <select name="month3">
+                                                        <option value="" selected>Month</option>
+                                                        <option value="1">January</option>
+                                                        <option value="2">February</option>
+                                                        <option value="3">March</option>
+                                                        <option value="4">April</option>
+                                                        <option value="5">May</option>
+                                                        <option value="6">June</option>
+                                                        <option value="7">July</option>
+                                                        <option value="8">August</option>
+                                                        <option value="9">September</option>
+                                                        <option value="10">October</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">December</option>
+                                            
+                                                    </select>
+                                                </td>
+                                            
+                                                <td>
+                                                    
+                                                    <select name="year3">
+                                                        <option value="">Year</option>
+                                                        @php
+                                                            for($yr = 2000; $yr<=date("Y"); $yr++){
+                                                                echo '<option value="'.$yr.'">'.$yr.'</option>';
+                                                            }
+                                                        @endphp
+                                                        
+                                                        
+                                            
+                                                    </select>
+                                                
+                                                </td>
+                                                @php
+                                                    $di = range(1, 31);
+                                                    $i = 1;
+                                                    
+                                                @endphp
+                                               <td><input type="checkbox" name="di3[]" value="1" {{$di[$i-1]=='1' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="2" {{$di[$i++]=='2' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="3" {{$di[$i++]=='3' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="4" {{$di[$i++]=='4' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="5" {{$di[$i++]=='5' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="6" {{$di[$i++]=='6' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="7" {{$di[$i++]=='7' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="8" {{$di[$i++]=='8' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="9" {{$di[$i++]=='9' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="10" {{$di[$i++]=='10' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="11" {{$di[$i++]=='11' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="12" {{$di[$i++]=='12' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="13" {{$di[$i++]=='13' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="14" {{$di[$i++]=='14' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="15" {{$di[$i++]=='15' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="16" {{$di[$i++]=='16' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="17" {{$di[$i++]=='17' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="18" {{$di[$i++]=='18' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="19" {{$di[$i++]=='19' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="20" {{$di[$i++]=='20' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="21" {{$di[$i++]=='21' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="22" {{$di[$i++]=='22' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="23" {{$di[$i++]=='23' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="24" {{$di[$i++]=='24' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="25" {{$di[$i++]=='25' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="26" {{$di[$i++]=='26' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="27" {{$di[$i++]=='27' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="28" {{$di[$i++]=='28' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="29" {{$di[$i++]=='29' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="30" {{$di[$i++]=='30' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di3[]" value="31" {{$di[$i++]=='31' ? '':'checked'}} ></td>
+                                            </tr>
 
-                                    <div class="form-group col-md-6">
-                                        <label for="labdateresult_releasedgx">Date result released (Month 2)</label>
-                                        <div>                                      
-                                        <input type="date" id="labdateresult_releasedgx" value="{{$dscapture ? $dscapture->labdateresult_releasedgx:''}}" 
-                                        name="labdateresult_releasedgx" >      
-                                        </div>
-                                    </div>
+                                            <tr>
+                                                <td>
+                                                    
+                                                        
+                                                    <select name="month4">
+                                                        <option value="" selected>Month</option>
+                                                        <option value="1">January</option>
+                                                        <option value="2">February</option>
+                                                        <option value="3">March</option>
+                                                        <option value="4">April</option>
+                                                        <option value="5">May</option>
+                                                        <option value="6">June</option>
+                                                        <option value="7">July</option>
+                                                        <option value="8">August</option>
+                                                        <option value="9">September</option>
+                                                        <option value="10">October</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">December</option>
+                                            
+                                                    </select>
+                                                </td>
+                                            
+                                                <td>
+                                                    
+                                                    <select name="year4">
+                                                        <option value="">Year</option>
+                                                        @php
+                                                            for($yr = 2000; $yr<=date("Y"); $yr++){
+                                                                echo '<option value="'.$yr.'">'.$yr.'</option>';
+                                                            }
+                                                        @endphp
+                                                        
+                                                        
+                                            
+                                                    </select>
+                                                
+                                                </td>
+                                                @php
+                                                    $di = range(1, 31);
+                                                    $i = 1;
+                                                    
+                                                @endphp
+                                               <td><input type="checkbox" name="di4[]" value="1" {{$di[$i-1]=='1' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="2" {{$di[$i++]=='2' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="3" {{$di[$i++]=='3' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="4" {{$di[$i++]=='4' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="5" {{$di[$i++]=='5' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="6" {{$di[$i++]=='6' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="7" {{$di[$i++]=='7' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="8" {{$di[$i++]=='8' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="9" {{$di[$i++]=='9' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="10" {{$di[$i++]=='10' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="11" {{$di[$i++]=='11' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="12" {{$di[$i++]=='12' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="13" {{$di[$i++]=='13' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="14" {{$di[$i++]=='14' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="15" {{$di[$i++]=='15' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="16" {{$di[$i++]=='16' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="17" {{$di[$i++]=='17' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="18" {{$di[$i++]=='18' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="19" {{$di[$i++]=='19' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="20" {{$di[$i++]=='20' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="21" {{$di[$i++]=='21' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="22" {{$di[$i++]=='22' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="23" {{$di[$i++]=='23' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="24" {{$di[$i++]=='24' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="25" {{$di[$i++]=='25' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="26" {{$di[$i++]=='26' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="27" {{$di[$i++]=='27' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="28" {{$di[$i++]=='28' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="29" {{$di[$i++]=='29' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="30" {{$di[$i++]=='30' ? '':'checked'}} ></td>
+                                               <td><input type="checkbox" name="di4[]" value="31" {{$di[$i++]=='31' ? '':'checked'}} ></td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
 
                                 </div>
 
@@ -621,13 +1024,67 @@
                                 
                             </div>
                             <div class="tab-pane" id="tab9">
-                                <div class="alert">Thank you! you have completed the steps.</div>
-                            <button type="submit" class="btn btn-primary btnNext" >Submit</a>
+                                <h4>Treatment Outcome</h4>
+
+                                <div class="row form-row">
+                                    <div class="form-group col-md-12">
+                                        <label>Tick Appropriate Outcome</label>
+                                        <div>
+                                        <input type="radio" id="cured" {{$dscapture->outcome=='Cured' ? 'checked':''}} 
+                                        name="outcome" value="Cured">
+                                        <span for="cured">Cured</span>
+
+                                        <input type="radio" id="completed" {{$dscapture->outcome=='Treatment Completed' ? 'checked':''}} 
+                                        name="outcome" value="Treatment Completed">
+                                        <span for="completed">Treatment Completed</span>
+                                    
+                                        <input type="radio" id="ltfu" {{$dscapture->outcome=='Lost to Follow up' ? 'checked':''}} 
+                                        name="outcome" value="Lost to Follow up">
+                                        <span for="ltfu"> Lost to Follow up</span>
+                                        
+                                        <input type="radio" id="tfailed" {{$dscapture->outcome=='Treatment Failed' ? 'checked':''}} 
+                                        name="outcome" value="Treatment Failed">
+                                        <span for="tfailed">Treatment Failed</span>
+
+                                        <input type="radio" id="notevaluated" {{$dscapture->outcome=='Not Evaluated' ? 'checked':''}} 
+                                        name="outcome" value="Not Evaluated">
+                                        <span for="notevaluated">Not Evaluated</span>
+
+                                        <input type="radio" id="died" {{$dscapture->outcome=='Died' ? 'checked':''}} 
+                                        name="outcome" value="Died">
+                                        <span for="died">Died</span>
+
+                                        <input type="radio" id="removed" {{$dscapture->outcome=='Removed from the register' ? 'checked':''}} 
+                                        name="outcome" value="Removed from the register">
+                                        <span for="removed">Removed from the register</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row form-row">
+                                    
+                                    <div class="form-group col-md-6">
+                                    <label for="date_completed">Date Treament Completed</label>
+                                   
+                                        <input type="date" name="date_completed" id="date_completed" class="form-control" value="{{$dscapture ? $dscapture->date_completed:''}}">                                  
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="health_worker">Health Worker</label>
+                                        <select class="form-control" name="health_worker" id="health_worker">
+                                            <option value="" >Select Health Worker</option>
+                                            <option value="{{ $dscapture->completed_by }}" selected>{{ $dscapture->completed_by!="" ? \App\Models\User::select('name')->where('id',$dscapture->completed_by)->first()->name :'' }}</option>
+                                            @foreach ($users as $usr)
+                                                <option value="{{$usr->id}}">{{$usr->name}}</option>
+                                            @endforeach                                          
+                                        
+                                        </select>       
+                                </div>
+
+                                <a class="btn btn-primary btnPrevious" >Previous</a><button type="submit" class="btn btn-primary btnNext" >Submit</button>
                                 
                             </div>
-                            <div class="tab-pane" id="tab10">
-                                <a class="btn btn-primary btnPrevious" >Previous</a>
-                            </div>
+                            
                         </div>
 
                     </form>
