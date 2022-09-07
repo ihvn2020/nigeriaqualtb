@@ -91,7 +91,7 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="/"><img  src="/images/{{$settings->logo}}" alt="{{$settings->motto}}" class="img-responsive logo" style="height: 35px !important; float: left;"></a> {{$settings->ministry_name}}
+				<a href="home"><img  src="images/{{$settings->logo}}" alt="{{$settings->motto}}" class="img-responsive logo" style="height: 35px !important; float: left;"></a> {{$settings->ministry_name}}
 				<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-menu"></i></button>
 			</div>
 			
@@ -133,14 +133,14 @@
 							
 							<ul class="dropdown-menu notifications">
 								@foreach ($mytasks as $ts)									
-									<li><a href="/tasks" class="notification-item"><span class="dot bg-warning"></span>{{$ts->title}} | <i class="lnr lnr-clock"></i>{{$ts->date}}</a></li>
+									<li><a href="tasks" class="notification-item"><span class="dot bg-warning"></span>{{$ts->title}} | <i class="lnr lnr-clock"></i>{{$ts->date}}</a></li>
 								@endforeach
-								<li><a href="/tasks" class="more">See all notifications</a></li>
+								<li><a href="tasks" class="more">See all notifications</a></li>
 							</ul>
 						</li>
 						@endauth
 						<li>
-							<a href="/"><i class="lnr lnr-home"></i> <span>Home</span></a>
+							<a href="home"><i class="lnr lnr-home"></i> <span>Home</span></a>
 							
 						</li>
 
@@ -148,14 +148,14 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="lnr lnr-user"></i> <span>@auth {{ Auth::user()->name }} @endauth </span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a class="btn btn-success update-pro" href="/add-new" title="New Member" target="_blank" style="color: white; font-weight: bold;"><span class="fa fa-user-plus"></span> <span>New User</span></a></li>
-								<li><a href="/my_profile/{{$login_user->id ?? ''}}"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="/tasks"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
+								<li><a class="btn btn-success update-pro" href="add-new" title="New Member" target="_blank" style="color: white; font-weight: bold;"><span class="fa fa-user-plus"></span> <span>New User</span></a></li>
+								<li><a href="my_profile/{{$login_user->id ?? ''}}"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+								<li><a href="tasks"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
 
 								<li class="roledlink Admin Followup Super" style="visibility:hidden !important;"><a href="#"  data-toggle="modal" data-target="#settings"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-								<li><a href="/help"><i class="lnr lnr-bubble"></i> Basic Use</a></li>
-								<li><a href="/security"><i class="lnr lnr-lock"></i> Security</a></li>
-								<li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+								<li><a href="help"><i class="lnr lnr-bubble"></i> Basic Use</a></li>
+								<li><a href="security"><i class="lnr lnr-lock"></i> Security</a></li>
+								<li><a href="logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 							</ul>
 						</li>
 
@@ -171,52 +171,48 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="/home" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						
+						<li><a href="home" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						
 						<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden;">
-							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>DS Capture</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-magnifier"></i> <span>Screening</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages1" class="collapse ">
+								<ul class="nav">
+									
+									<li><a href="new-screening" class="roledlink Admin Super">New Screening</a></li>
+									<li><a href="screenings" class="roledlink Admin Super">Screening Records</a></li>
+								</ul>
+							</div>
+						</li>
+
+						<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden;">
+							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>TB Records</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages2" class="collapse ">
 								<ul class="nav">
 									
-									<li><a href="/add-newds" class="roledlink Worker Admin Followup Pastor Super">New DS Capture</a></li>
-									<li><a href="/dscaptures" class="roledlink Worker Admin Followup Pastor Super">DS Captures</a></li>
+									<li><a href="screenings" class="roledlink Admin Super">New TB Case</a></li>
+									<li><a href="dscaptures" class="roledlink Admin Super">TB Records</a></li>
 								</ul>
 							</div>
 						</li>
-						<li class="roledlink Admin Super Pastor" style="visibility:hidden;">
-							<a href="#subPages3" data-toggle="collapse" class="collapsed"><i class="lnr lnr-briefcase"></i> <span>DR Capture</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages3" class="collapse ">
-								<ul class="nav">
-									<li><a href="/add-newdr" class="roledlink Admin Super Pastor">New DR Capture</a></li>
-									<li><a href="/drcaptures" class="roledlink Worker Admin Followup Pastor Super">DR Captures</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="roledlink Admin Super Pastor" style="visibility:hidden;">
-							<a href="#subPages4" data-toggle="collapse" class="collapsed"><i class="lnr lnr-home"></i> <span>Paediatrics Capture</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages4" class="collapse ">
-								<ul class="nav">
-									<li><a href="/add-newp" class="">New Paediatrics Capture</a></li>
-									
-									
-								</ul>
-							</div>
-						</li>
-						<li class="roledlink Admin Super Pastor" style="visibility:hidden;">
-							<a href="#subPages5" data-toggle="collapse" class="collapsed"><i class="lnr lnr-flag"></i> <span>Non-Clinical Capture</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages5" class="collapse ">
-								<ul class="nav">
-									<li><a href="/add-newn" class="">Add New Non-Clinical</a></li>
-									
-								</ul>
-							</div>
-						</li>
+						
 						<li class="roledlink Admin Super Pastor Usher" style="visibility:hidden;">
 							<a href="#subPages6" data-toggle="collapse" class="collapsed"><i class="lnr lnr-checkmark-circle"></i> <span>Report</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages6" class="collapse ">
 								<ul class="nav">
-									<li><a href="/reports" class="">Manage Reports</a></li>
+									<li><a href="aggregate-report" class="">New Aggregate Report</a></li>
+									<li><a href="new-activity" class="">New Report</a></li>
+									<li><a href="aggreports" class="">View Aggregate Reports</a></li>
+									<li><a href="reports" class="">Manage Reports</a></li>
+								</ul>
+							</div>
+						</li>
+
+						<li class="roledlink Admin Super" style="visibility:hidden;">
+							<a href="#subPages7" data-toggle="collapse" class="collapsed"><i class="lnr lnr-home"></i> <span>Facilities</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages7" class="collapse ">
+								<ul class="nav">
+									<li><a href="facilities" class="">Facilities</a></li>
+									<li><a href="new-facility" class="">New Facility</a></li>
 								</ul>
 							</div>
 						</li>
@@ -233,7 +229,7 @@
 				<div class="container-fluid">
 					<!-----------------------------START YIELD PAGE CONTENT -->
 					@if (Session::get('message'))
-						<div class="alert alert-success alert-dismissible" role="alert">
+						<div class="alert alert-success alert-dismissible" role="alert" style="margin-top: 30px !important;">
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<i class="fa fa-check-circle"></i> {!!Session::get('message')!!}
 						</div>
@@ -262,7 +258,7 @@
 	<script src="{{asset('/assets/scripts/jquery-ui.js')}}"></script>
 	<script>
 		$( function() {
-		  $( "#date,#from,#to,#dob" ).datepicker({dateFormat: "yy/mm/dd"});
+		  $( "#date,#from,#to,#dob" ).datepicker({dateFormat: "yy-mm-dd"});
 
 		  $(".ui-datepicker, .ui-widget").draggable().selectable();
 		});
@@ -278,7 +274,7 @@
   
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Add New Post</h4>
+          <h4 class="modal-title">Settings</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
   
@@ -351,9 +347,6 @@
 
 @if (isset($pagename) && $pagename=="dashboard")
 	<script src="{{asset('/js/highcharts.js')}}"></script>
-	
-
-	
 @endif
 @if (isset($pagetype) && $pagetype=="report")
 
@@ -410,136 +403,32 @@
 	</script>
 @endif
 
-
 	<script>
-		function accountHead(accid){
-			
-				
-				
-					var title = $('#ach'+accid).attr("data-title");
-					var category = $('#ach'+accid).attr("data-category");
-					var type = $('#ach'+accid).attr("data-type");
-					var description = $('#ach'+accid).attr("data-description");
-					
-					$('#id').val(accid);
-					$('#title').val(title);
-					$('#category').val(category).attr("selected", "selected");
-					$('#type').val(type);
-					$('#description').val(description);
-				
-			
-		}
+		$('.tooltipped').tooltip();
 
-		function attendance(accid){
-			
-				
-				
-			var date = $('#ach'+accid).attr("data-date");
-			var activity = $('#ach'+accid).attr("data-activity");
-			var men = $('#ach'+accid).attr("data-men");
-			var women = $('#ach'+accid).attr("data-women");
-			var children = $('#ach'+accid).attr("data-children");
-			var remarks = $('#ach'+accid).attr("data-remarks");
-			
-			$('#id').val(accid);
-			$('#date').val(date);
-			$('#activity').val(activity).attr("selected", "selected");
-			$('#men').val(men);
-			$('#women').val(women);
-			$('#children').val(children);
-			$('#remarks').val(remarks);
-			
-		}
+		$( function() {
+		$( "#date,#from,#to,#dob,.date" ).datepicker({dateFormat: "yy-mm-dd"});
 
-		function transaction(accid){
-			
-				
-			var title = $('#ach'+accid).attr("data-title");
-			var date = $('#ach'+accid).attr("data-date");
-			var account_head = $('#ach'+accid).attr("data-account_head");
-			var amount = $('#ach'+accid).attr("data-amount");
-			var reference_no = $('#ach'+accid).attr("data-reference_no");
-			var detail = $('#ach'+accid).attr("data-detail");
-			var from = $('#ach'+accid).attr("data-from");
-			var to = $('#ach'+accid).attr("data-to");
-			var approved_by = $('#ach'+accid).attr("data-approved_by");
-			var recorded_by = $('#ach'+accid).attr("data-recorded_by");
-			
-			$('#title').val(title);
-			$('#id').val(accid);
-			$('#date').val(date);
-			$('#account_head').val(account_head).attr("selected", "selected");
-			$('#amount').val(amount);
-			$('#reference_no').val(reference_no);
-			$('#detail').val(detail);
-			$('#from').val(from).attr("selected", "selected");
-			$('#to').val(to).attr("selected", "selected");
-			$('#approved_by').val(approved_by).attr("selected", "selected");
-			$('#recorded_by').val(recorded_by).attr("selected", "selected");
-			
-		}
+		$(".ui-datepicker, .ui-widget").draggable().selectable();
+		});
 
-		function ministry(accid){
+		function compareDeno(num){
+			// alert("Stop");
+			var denoid = "ddstb"+num;
+			//var lastchar = denoid.substr(denoid.length - 2); 
 			
-				
-				
-			var name = $('#ach'+accid).attr("data-name");
-			var details = $('#ach'+accid).attr("data-details");
-			var leader = $('#ach'+accid).attr("data-leader");
-			var activities = $('#ach'+accid).attr("data-activities");
-			
-			$('#id').val(accid);
-			$('#name').val(name);
-			$('#details').val(details);
-			$('#leader').val(leader).attr("selected", "selected");
-			$('#activities').text(activities);
-			
-		}
+			var numeid = "ndstb"+num+"u"			
+			var deno = $("#"+denoid).val();
+			var nume = $("#"+numeid).val();
 
-		function hfellowship(accid){
-			
-				
-				
-			var name = $('#ach'+accid).attr("data-name");
-			var about = $('#ach'+accid).attr("data-about");
-			var location = $('#ach'+accid).attr("data-location");
-			var about = $('#ach'+accid).attr("data-about");
+			if(nume==""){
+				alert("The Numerator can not be empty!");
+			}
+			var res = deno-nume;
+			if(res<0){				
+				alert("The Numerator: "+nume+" can not be greater than the Denominator: "+deno+"!");
+			}
 
-			var leader = $('#ach'+accid).attr("data-leader");
-			var activities = $('#ach'+accid).attr("data-activities");
-			
-			$('#id').val(accid);
-			$('#name').val(name);
-			$('#location').val(location);
-			$('#address').val(address);
-			$('#about').val(about);
-			$('#leader').val(leader).attr("selected", "selected");
-			$('#activities').text(activities);
-			
-		}
-
-		function programme(accid){
-			
-				
-				
-			var title = $('#ach'+accid).attr("data-title");
-			var type = $('#ach'+accid).attr("data-type");
-			var from = $('#ach'+accid).attr("data-from");
-			var to = $('#ach'+accid).attr("data-to");
-
-			var details = $('#ach'+accid).attr("data-details");
-			var category = $('#ach'+accid).attr("data-category");
-			var ministry = $('#ach'+accid).attr("data-ministry");
-			
-			$('#id').val(accid);
-			$('#title').val(title);
-			$('#type').val(type).attr("selected", "selected");
-			$('#from').val(from);
-			$('#to').val(to);
-			$('#details').val(details);
-			$('#category').val(category).attr("selected", "selected");
-			$('#ministry').val(ministry).attr("selected", "selected");
-			
 		}
 
 		function addnumber(number){

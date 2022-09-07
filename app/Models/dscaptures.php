@@ -10,4 +10,10 @@ class dscaptures extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function screening()
+    {
+        return $this->belongsTo(screening::class, 'id', 'screenid');
+    }
 }
+

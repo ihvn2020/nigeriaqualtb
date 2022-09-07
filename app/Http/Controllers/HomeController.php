@@ -7,11 +7,11 @@ use Auth;
 use App\Models\User;
 
 use App\Models\tasks;
-use App\Models\followups;
-use App\Models\programmes;
 use App\Models\settings;
 use App\Models\dscaptures;
-use App\Models\drcaptures;
+use App\Models\screening;
+use App\Models\aggreport;
+use App\Models\facilities;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -39,7 +39,8 @@ class HomeController extends Controller
     {
       
         // sleep(5);
-        return view('home');
+        $countscreenings = screening::all()->count();
+        return view('home',compact('countscreenings'));
     }
 
     public function getUrl($url)
@@ -92,25 +93,61 @@ class HomeController extends Controller
 
     public function editdscapture($id){
       $dscapture = dscaptures::where('id',$id)->first();
-      return view('add-newds', compact('dscapture'));
+      $scinfo = screening::where('id',$dscapture->screenid)->first();
+      return view('add-newds', compact('dscapture','scinfo'));
     }
 
 
     public function addNewds()
-    {
-      
+    {      
       return view('add-newds');
+    }
 
+    public function NewdsCapture($screenid){
+      $scinfo = screening::where('id',$screenid)->first();
+      return view('add-newds',compact('scinfo'));
     }
 
     public function newds(request $request)
     {
-     
-        dscaptures::updateOrCreate(['id'=>$request->id],
-          $request->all());
-     
+      
+       $lastrecord = dscaptures::updateOrCreate(['id'=>$request->id],
+          $request->except('month1','year1','di1','month2','year2','di2','month3','year3','di3','month4','year4','di4'));
+          
+          $dday=$month=$year = "";
 
-      return view('add-newds')->with(['message'=>'DS Capture Saved Successfully!']);
+          for($i=0;$i<=3;$i++){
+            $iy = $i+1;
+            $mon = "month".$iy;
+            $yr = "year".$iy;
+            $day = "di".$iy;
+
+            if(!isset($request->$mon) || !isset($request->$yr) ){
+             
+              continue;
+
+            }else{            
+               $days = $request->$day;
+               $month = $request->$mon;
+               $year = $request->$yr;
+               
+              for($ii=0;$ii<=count($days)-1;$ii++){
+                   $dday.= $days[$ii].",";  
+              }
+              
+              $lastrecord->$day = $dday;
+              $lastrecord->$mon = $month;
+              $lastrecord->$yr = $year;
+
+              echo $year." ".$month." ".$dday;
+
+              // 'month1','year1','di1','month2','year2','di2','month3','year3','di3','month4','year4','di4'
+              $lastrecord->save();
+              $dday = "";
+            }            
+          }
+          
+      return redirect()->route('dscaptures')->with(['message'=>'DS Capture Saved Successfully!']);
 
     }
 
@@ -139,6 +176,55 @@ class HomeController extends Controller
     public function editdrcapture($id){
       $drcapture = drcaptures::where('id',$id)->first();
       return view('add-newdr', compact('drcapture'));
+    }
+
+    public function newActivity()
+    {      
+      return view('new-activity');
+
+    }
+
+    public function newAreport(){
+      $facilities = facilities::select('id','facility_name')->get();
+      return view('aggregate_reports',compact('facilities'));
+    }
+
+    public function newReport(request $request)
+    {      
+      $from = $request->from;
+      $to = $request->to;
+
+      $screenings = screening::whereBetween('visit_date', [$from, $to])->get();
+      $allreports = dscaptures::query()->whereBetween('treatment_startdate', [$from, $to]);
+
+      // dd("Talute ".$allreports->where('age','<',10)->get()->count());
+      return view('reports',compact('allreports','screenings','from','to'));
+
+    }
+
+    public function newAggReport(request $request)
+    {      
+      
+      $lastrecord = aggreport::updateOrCreate(['id'=>$request->id],
+          $request->all());          
+          
+      return redirect()->back()->with(['message'=>'Aggregate Report Saved Successfully!']);
+
+    }
+
+    public function viewReport($id){
+      $report = aggreport::where('id',$id)->first();
+      return view('aggregate_reportsheet', compact('report'));
+    }
+
+    public function viewReportpdf($id){
+      $report = aggreport::where('id',$id)->first();
+
+      $pdf_doc = \PDF::loadView('aggregate_reportpdf', compact('report'));
+        
+      return $pdf_doc->save('public/pdf/'.$report->title.'.pdf')->stream($report->title.'.pdf');
+
+      // return view('aggregate_reportpdf', compact('report'));
     }
 
     protected function create(request $request)
@@ -175,140 +261,6 @@ class HomeController extends Controller
 
     }
 
-    public function editMember($id)
-    {
-      $users = User::all();
-     
-      return view('edit-member', compact('users'));
-
-    }
-
-    public function deleteMember($id)
-    {
-      $user = User::where('id',$id)->delete();      
-      $message = 'The User has been deleted!';
-      return redirect()->route('members')->with(['message'=>$message]);
-
-    }
-
-    public function communications()
-    {
-      ini_set('allow_url_fopen',1);
-
-      $response = null;
-      // system("ping -c 1 google.com", $response);
-      if(!checkdnsrr('google.com'))
-      {
-          return redirect()->back()->with(['message'=>'Please connect your internect before going to communications page <a href="/communications">Retry</a>']);
-      }else{
-
-      
-
-        $session = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=login&owneremail=gcictng@gmail.com&subacct=CRMAPP&subacctpwd=@@prayer22");
-        $sessionid = ltrim(substr($session,3),' ');
-
-        \Cookie::queue('sessionidd', $sessionid, 30);
-
-        $cbal = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=querybalance&sessionid=".$sessionid);
-
-        $creditbalance = ltrim(substr($cbal,3),' ');
-
-        $members = User::select('name','status','ministry','phone_number')->get();
-        $allnumbers = "";
-        $lastrecord = end($members);
-        $lastkey = key($lastrecord);
-
-        foreach($members as $key => $mnumber){
-          $number = $mnumber->phone_number;
-          if($number=="")
-            continue;
-
-          if(substr($number,0,1)=="0")
-            $number="234".ltrim($number,'0');
-
-          $allnumbers.=$number.",";
-          /*
-          if($key !== $lastkey){
-            $allnumbers.=$number.",";
-          }else{
-            $allnumbers.=$number;
-          }
-          */
-
-        }
-        $allnumbers = substr($allnumbers,0,-1);
-        return view('communications', compact('members','allnumbers','creditbalance'));
-      }
-    }
-
-    public function sendSMS(request $request){
-      ini_set('allow_url_fopen',1);
-
-      // 2 Jan 2008 6:30 PM   sendtime - date format for scheduling 
-      if(\Cookie::get('sessionidd')){
-        $sessionid = \Cookie::get('sessionidd');
-      }else{
-        $session = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=login&owneremail=gcictng@gmail.com&subacct=CRMAPP&subacctpwd=@@prayer22");
-        $sessionid = ltrim(substr($session,3),' ');
-      }
-
-      $sessionid = \Cookie::get('sessionidd');
-      $recipients = $request->recipients;
-      $body = $request->body;
-      
-
-      $message = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=sendmsg&sessionid=".$sessionid."&message=".urlencode($body)."&sender=CHURCH&sendto=".$recipients."&msgtype=0");
-      
-
-      // v20ylRY3Gp6jYEAvpaDtOQQTqwoCqc1n4CUG3IBboIMTciDeVk	  -  Token for smartsms solutions
-
-      $members = User::select('name','status','ministry','phone_number')->get();
-      $allnumbers = "";
-      $lastrecord = end($members);
-      $lastkey = key($lastrecord);
-
-      foreach($members as $key => $mnumber){
-        $number = $mnumber->phone_number;
-        if($number=="")
-          continue;
-
-        if(substr($number,0,1)=="0")
-          $number="234".ltrim($number,'0');
-
-        $allnumbers.=$number.",";
-        /*
-        if($key !== $lastkey){
-          $allnumbers.=$number.",";
-        }else{
-          $allnumbers.=$number;
-        }
-        */
-
-      }
-      // GET CREDIT BALANCE
-      $cbal = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=querybalance&sessionid=".$sessionid);
-
-      $creditbalance = ltrim(substr($cbal,3),' ');
-
-      $allnumbers = substr($allnumbers,0,-1);
-      return view('communications', compact('members','allnumbers','message','creditbalance'));
-
-      
-    }
-
-    public function sentSMS(request $request){
-      ini_set('allow_url_fopen',1);
-      if(\Cookie::get('sessionidd')){
-        $sessionid = \Cookie::get('sessionidd');
-      }else{
-        $session = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=login&owneremail=gcictng@gmail.com&subacct=CRMAPP&subacctpwd=@@prayer22");
-        $sessionid = ltrim(substr($session,3),' ');
-      }
-
-      $sentmessages = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=getsentmsgs&sessionid=".$sessionid."&pagesize=200&pagenumber=1&begindate=".urlencode('06 Sep 2021')."&enddate=".urlencode('08 Sep 2021')."&sender=CHURCH");
-      error_log("All SENT: ".$sentmessages);
-      return view('sentmessages', compact('sentmessages'));
-    }
 
     public function settings(request $request){
       $validateData = $request->validate([

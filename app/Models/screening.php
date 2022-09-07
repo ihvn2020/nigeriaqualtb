@@ -5,9 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class followups extends Model
+class screening extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
+
+    public function dscapture()
+    {
+        return $this->HasOne(dscaptures::class, 'screenid', 'id');
+    }
 }

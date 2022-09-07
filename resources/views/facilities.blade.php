@@ -3,7 +3,7 @@
 @section('content')
     @php $pagetype="report"; @endphp
 
-    <h3 class="page-title">DS Captures | <small style="color: green">All DR Records</small></h3>
+    <h3 class="page-title">Facilities | <small style="color: green">View All</small></h3>
     <div class="row">
         
        
@@ -11,34 +11,34 @@
             <div class="panel">
               
                 <div class="panel-body">
-                    <a href="add-newdr" class="btn btn-primary pull-right" style="margin-bottom: 10px;">Add New</a>
+                    <a href="new-facility" class="btn btn-primary pull-right" style="margin-bottom: 10px;">Add New</a>
                     <table class="table  responsive-table" id="products">
                         <thead>
                             <tr style="color: ">
-                                <th>Patient ID</th>
-                                <th>LGA TB Number</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>                              
+                                <th>Facility Code</th>
+                                <th>Name</th>
+                                <th>IP</th>
+                                <th>State</th>                           
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($drcaptures as $dr)
+                            @foreach ($facilities as $fac)
 
                                 <tr
-                                    @if ($dr->gender=="Female")
+                                    @if ($fac->gender=="Female")
                                         style="background-color: azure !important;"
                                     @endif                                
                                 >
-                                    <td>{{$dr->patient_id}}</td>
-                                    <td>{{$dr->lga_tb_number}}</td>
-                                    <td>{{$dr->first_name}}</td>
-                                    <td>{{$dr->last_name}}</td>
+                                    <td>{{$fac->facility_code}}</td>
+                                    <td>{{$fac->facility_name}}</td>
+                                    <td>{{$fac->facility_ip}}</td>
+                                    <td>{{$fac->state}}</td>
                                     
                                     <td width="90">
                                         <div class="btn-group">
-                                            <a href="edit-drcapture/{{$dr->id}}" class="label label-primary left"><i class="lnr lnr-pencil"></i></a>
-                                            <a href="edit-drcapture/{{$dr->id}}/" class="label label-success"><i class="lnr lnr-eye"></i></a>
+                                            <a href="edit-facility/{{$fac->id}}" class="label label-primary left"><i class="lnr lnr-pencil"></i></a>
+                                            <a href="delete/{{$fac->id}}/facilities" class="label label-danger"><i class="lnr lnr-cross"></i></a>
                                         </div>
                                     </td>
                                    

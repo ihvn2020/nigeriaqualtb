@@ -16,13 +16,30 @@
                             $dscapture= \App\Models\dscaptures::where('id',1)->first();
                             if($dscapture->id==1){
                                 $dscapture->id = 0;
-                            }
-                            $users= \App\Models\User::select('id','name')->get();
+                            }                            
+                        }
+                        $users= \App\Models\User::select('id','name')->get();
+
+                        if(isset($scinfo)){
+                            $firstname = $scinfo->first_name;
+                            $dscapture->first_name = $scinfo->first_name;
+
+                            $lastname = $scinfo->last_name;
+                            $dscapture->last_name = $scinfo->last_name;
+
+                            $age = $scinfo->age;
+                            $dscapture->age = $scinfo->age;
+
+                            $gender = $scinfo->sex;
+                            $dscapture->gender = $scinfo->sex;
+                        }else{
+                            $scinfo = [];
                         }
                     @endphp
                     <form method="POST" action="{{ route('addnewds') }}">
                         
                             <input type="hidden" name="id" value="{{$dscapture->id}}">
+                            <input type="hidden" name="screenid" value="{{$scinfo->id}}">
                         
                         @csrf
                         <ul class="nav nav-tabs">
@@ -54,49 +71,50 @@
                                         <input type="text" name="hospital_number" id="hospital_number" class="form-control" placeholder="Hospital Number" value="{{$dscapture ? $dscapture->hospital_number:''}}">                                  
                                     </div>
                                     <div class="form-group col-md-2">
-                                    <label for="rnl_serial_number">RNL Serial No</label>
-                                    <input type="text" name="rnl_serial_number" id="rnl_serial_number" class="form-control" placeholder="Hospital Number" value="{{$dscapture ? $dscapture->rnl_serial_number:''}}">                                  
+                                        <label for="rnl_serial_number">RNL Serial No</label>
+                                        <input type="text" name="rnl_serial_number" id="rnl_serial_number" class="form-control" placeholder="Hospital Number" value="{{$dscapture ? $dscapture->rnl_serial_number:''}}">                                  
                                     </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-2">
+                                        <label for="treatment_startdate">TB Treatment Start Date</label>
+                                        <input type="text" name="treatment_startdate" id="treatment_startdate" class="form-control date" placeholder="Treatment Start Date" value="{{$dscapture ? $dscapture->treatment_startdate:''}}">                                  
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="row form-row">
+                                
+                                    <div class="form-group col-md-3">
+                                        <label for="first_name">First Name</label>
+                                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" value="{{$dscapture ? $dscapture->first_name:$firstname}}">                                  
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="last_name">Last Name</label>
+                                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" value="{{$dscapture ? $dscapture->last_name:$lastname}}">                                  
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="age">Age</label>
+                                        <input type="number" name="age" id="age" class="form-control" placeholder="Age" value="{{$dscapture ? $dscapture->age:$age}}">                                  
+                                    </div>
+                                    <div class="form-group col-md-3">
                                         <label>Gender</label>
                                         <div>
                                         <input type="radio" id="male"
-                                        name="gender" value="Male" {{$dscapture->gender=="Male" ? 'checked':''}}>
+                                        name="gender" value="Male" {{$dscapture->gender=="Male" ? 'checked':$gender}}>
                                         <span for="male">Male</span>
                                     
-                                        <input type="radio" id="female"  {{$dscapture->gender=="Female" ? 'checked':''}}
+                                        <input type="radio" id="female"  {{$dscapture->gender=="Female" ? 'checked':$gender}}
                                         name="gender" value="Female">
                                         <span for="female">Female</span>
                                         </div>
 
                                     </div>
-                                    
-                                </div>
-
-                                <div class="row form-row">
-                                
-                                    <div class="form-group col-md-3">
-                                    <label for="first_name">First Name</label>
-                                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" value="{{$dscapture ? $dscapture->first_name:''}}">                                  
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="last_name">Last Name</label>
-                                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" value="{{$dscapture ? $dscapture->last_name:''}}">                                  
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="age">Age</label>
-                                        <input type="number" name="age" id="age" class="form-control" placeholder="Age" value="{{$dscapture ? $dscapture->age:''}}">                                  
-                                    </div>
                                 
                                     
                                 </div>
 
                                 <div class="row form-row">
                                 
-                                    
-                                    
-                                
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-6">
                                         <label>Marital Status</label>
                                         <div>
                                         <input type="radio" id="Single"  {{$dscapture->marital_status=='Single' ? 'checked':''}}
@@ -121,8 +139,6 @@
                                         </div>
 
                                     </div>
-
-                                    
                                     
                                 </div>
                                 
@@ -214,7 +230,7 @@
                                         <div class="form-group">
                                           <label for="extra_pulmonary_site">Site of Extrapulmonary (EP)</label>
                                           <input type="text"
-                                            class="form-control" name="extra_pulmonary_site" id="extra_pulmonary_site" aria-describedby="helpId" placeholder="Site of Extrapulmonary">
+                                            class="form-control" name="extra_pulmonary_site" id="extra_pulmonary_site"  value="{{$dscapture ? $dscapture->extra_pulmonary_site: ''}}" placeholder="Site of Extrapulmonary">
                                         </div>
                                     </div>
 
@@ -268,8 +284,8 @@
                                         <label for="art_start_date">If Yes, ART Start Date (dd/mm/yyyy)</label>
                                         <div>
                                         
-                                        <input type="date" id="art_start_date" value="{{$dscapture ? $dscapture->art_start_date:''}}"
-                                        name="art_start_date" >
+                                        <input type="text" id="art_start_date" value="{{$dscapture ? $dscapture->art_start_date:''}}"
+                                        name="art_start_date" class="form-control date" >
                                                                                 
                                         </div>
 
@@ -283,16 +299,16 @@
                                     <div class="form-group col-md-6">
                                         <label>HIV Status Info</label>
                                         <div>
-                                        <input type="radio" id="previously_known" {{$dscapture->hiv_result=='Previously Known' ? 'checked':''}} 
+                                        <input type="radio" id="previously_known" {{$dscapture->hiv_status=='Previously Known' ? 'checked':''}} 
                                         name="hiv_status" value="Previously Known">
                                         <span for="previously_known">Previously Known</span>
                                     
-                                        <input type="radio" id="newly_tested" {{$dscapture->hiv_result=='Newly Tested' ? 'checked':''}} 
+                                        <input type="radio" id="newly_tested" {{$dscapture->hiv_status=='Newly Tested' ? 'checked':''}} 
                                         name="hiv_status" value="Newly Tested">
                                         <span for="newly_tested">Newly Tested</span>                                      
                                         
 
-                                        <input type="radio" id="end_of_treament" {{$dscapture->hiv_result=='End of Treatment' ? 'checked':''}} 
+                                        <input type="radio" id="end_of_treament" {{$dscapture->hiv_status=='End of Treatment' ? 'checked':''}} 
                                         name="hiv_status" value="End of Treatment">
                                         <span for="end_of_treament">End of Treatment</span>                                      
                                         </div>
@@ -321,8 +337,8 @@
                                     <div class="form-group col-md-2">
                                         <label for="hiv_service_date">Care Started Date</label>
                                         
-                                        <input type="date" id="hiv_service_date" value="{{$dscapture->hiv_service_date}}" 
-                                        name="hiv_service_date">
+                                        <input type="text" id="hiv_service_date" value="{{$dscapture->hiv_service_date}}" 
+                                        name="hiv_service_date"  class="form-control date" >
                                                                        
                                         
 
@@ -380,7 +396,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="genexpert_collected">Date sample collected</label>
                                         <div>                                      
-                                        <input type="date" id="genexpert_collected"  value="{{$dscapture ? $dscapture->genexpert_collected:''}}"
+                                        <input type="text" class="form-control date" id="genexpert_collected"  value="{{$dscapture ? $dscapture->genexpert_collected:''}}"
                                         name="genexpert_collected" >      
                                         </div>
                                     </div>
@@ -388,12 +404,12 @@
                                     <div class="form-group col-md-4">
                                         <label for="genexpert_released">Date result released</label>
                                         <div>                                      
-                                        <input type="date" id="genexpert_released"  value="{{$dscapture ? $dscapture->genexpert_released:''}}"
+                                        <input type="text" class="form-control date" id="genexpert_released"  value="{{$dscapture ? $dscapture->genexpert_released:''}}"
                                         name="genexpert_released" >      
                                         </div>
                                     </div>
 
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-2">
                                         <label>MTB</label>
                                         <div>
                                         <input type="radio" id="mtb_detected_yes" {{$dscapture->mtb_detected=='Yes' ? 'checked':''}} 
@@ -406,6 +422,22 @@
                                         </div>
 
                                     </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label>Bacteriogically Diagnosed</label>
+                                        <div>
+                                        <input type="radio" id="bdyes" {{$dscapture->bactdiagnosed=='Yes' ? 'checked':''}} 
+                                        name="bactdiagnosed" value="Yes">
+                                        <span for="bdyes">Yes</span>
+                                    
+                                        <input type="radio" id="bdno" {{$dscapture->bactdiagnosed=='No' ? 'checked':''}} 
+                                        name="bactdiagnosed" value="No">
+                                        <span for="bdno">No</span>                                      
+                                        </div>
+
+                                    </div>
+
+                                    
                                     
                                 </div>
 
@@ -415,7 +447,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="afb_collected">Date sample collected</label>
                                         <div>                                      
-                                        <input type="date" id="afb_collected"  value="{{$dscapture ? $dscapture->afb_collected:''}}"
+                                        <input type="text" class="form-control date" id="afb_collected"  value="{{$dscapture ? $dscapture->afb_collected:''}}"
                                         name="afb_collected" >      
                                         </div>
                                     </div>
@@ -423,7 +455,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="afb_released">Date result released</label>
                                         <div>                                      
-                                        <input type="date" id="afb_released"  value="{{$dscapture ? $dscapture->afb_released:''}}"
+                                        <input type="text" class="form-control date" id="afb_released"  value="{{$dscapture ? $dscapture->afb_released:''}}"
                                         name="afb_released" >      
                                         </div>
                                     </div>
@@ -432,7 +464,13 @@
                                         <label>Smear Result</label>
                                        
                                           <select class="form-control" name="afb_smear_result" id="afb_smear_result">
-                                            <option value="Negative" selected>Negative</option>
+                                              @if ($dscapture->afb_smear_result!='')
+                                                    <option value="{{$dscapture->afb_smear_result}}" selected>{{$dscapture->afb_smear_result}}</option>
+                                              @else
+                                                    <option value="" selected>Select</option>
+                                              @endif
+                                            
+                                            <option value="Negative">Negative</option>
                                             <option value="Positive">Positive</option>
                                           </select>
                                                                                
@@ -447,7 +485,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="xray_released">Date result released</label>
                                         <div>                                      
-                                        <input type="date" id="xray_released"  value="{{$dscapture ? $dscapture->xray_released:''}}"
+                                        <input type="text" class="form-control date" id="xray_released"  value="{{$dscapture ? $dscapture->xray_released:''}}"
                                         name="xray_released" >      
                                         </div>
                                     </div>
@@ -456,7 +494,13 @@
                                         <label for="xray_result">X-Ray Result</label>
                                        
                                           <select class="form-control" name="xray_result" id="xray_result">
-                                            <option value="Suggestive" selected>Suggestive</option>
+                                            
+                                              @if ($dscapture->xray_result!='')
+                                                    <option value="{{$dscapture->xray_result}}" selected>{{$dscapture->xray_result}}</option>
+                                              @else
+                                                    <option value="" selected>Select</option>
+                                              @endif
+                                            <option value="Suggestive">Suggestive</option>
                                             <option value="Not Suggestive">Not Suggestive</option>
                                           </select>
                                                                               
@@ -471,7 +515,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="tbiopsy_released">Date result released</label>
                                         <div>                                      
-                                        <input type="date" id="tbiopsy_released"  value="{{$dscapture ? $dscapture->tbiopsy_released:''}}"
+                                        <input type="text" class="form-control date" id="tbiopsy_released"  value="{{$dscapture ? $dscapture->tbiopsy_released:''}}"
                                         name="tbiopsy_released" >      
                                         </div>
                                     </div>
@@ -479,16 +523,21 @@
                                     <div class="form-group col-md-4">
                                         <label for="tbiotype_of_specimen">Type of Specimen</label>
                                         <div>                                      
-                                        <input type="date" id="tbiotype_of_specimen"  value="{{$dscapture ? $dscapture->tbiotype_of_specimen:''}}"
+                                        <input type="text" class="form-control" id="tbiotype_of_specimen"  value="{{$dscapture ? $dscapture->tbiotype_of_specimen:''}}"
                                         name="tbiotype_of_specimen" >      
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <label for="tbiopsy_result">X-Ray Result</label>
+                                        <label for="tbiopsy_result">Tissue Biopsy Result</label>
                                        
                                           <select class="form-control" name="tbiopsy_result" id="tbiopsy_result">
-                                            <option value="Suggestive" selected>Suggestive</option>
+                                              @if ($dscapture->tbiopsy_result!='')
+                                                    <option value="{{$dscapture->tbiopsy_result}}" selected>{{$dscapture->tbiopsy_result}}</option>
+                                              @else
+                                                    <option value="" selected>Select</option>
+                                              @endif
+                                            <option value="Suggestive">Suggestive</option>
                                             <option value="Not Suggestive">Not Suggestive</option>
                                           </select>
                                                                               
@@ -503,7 +552,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="othertests_released">Date result released</label>
                                         <div>                                      
-                                        <input type="date" id="othertests_released"  value="{{$dscapture ? $dscapture->dsothertests_released:''}}"
+                                        <input type="text" class="form-control date" id="othertests_released"  value="{{$dscapture ? $dscapture->dsothertests_released:''}}"
                                         name="othertests_released" >      
                                         </div>
                                     </div>
@@ -512,7 +561,7 @@
                                         <label for="others_testname">Enter Test Name</label>
                                         <div>                                      
                                         <input type="text" id="others_testname"  value="{{$dscapture ? $dscapture->others_testname:''}}"
-                                        name="others_testname" placeholder="e.g. TB-Lamp, LF-Lam, etc" >      
+                                        name="others_testname" placeholder="e.g. TB-Lamp, LF-Lam, etc" class="form-control" >      
                                         </div>
                                     </div>
 
@@ -520,6 +569,11 @@
                                         <label for="othertests_result">Result</label>
 
                                           <select class="form-control" name="othertests_result" id="othertests_result">
+                                              @if ($dscapture->othertests_result!='')
+                                                    <option value="{{$dscapture->othertests_result}}" selected>{{$dscapture->othertests_result}}</option>
+                                              @else
+                                                    <option value="" selected>Select</option>
+                                              @endif
                                             <option value="Positive" selected>Positive</option>
                                             <option value="Negative">Negative</option>
                                           </select>                                                                              
@@ -587,18 +641,22 @@
                             <div class="tab-pane" id="tab7">                                
                                 <div class="row form-row">
                                 
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-3">
                                     <label for="contact_tracing_done">Contact Tracing Done?</label>
                                     <select name="contact_tracing_done" class="form-control" id="contact_tracing_done">
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                     </select>
                                     </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="num_children5less">No. of Contacts Who are Children Less Than 5 Years Old</label>
+                                    <div class="form-group col-md-3">
+                                        <label for="date_tracingdone">Date Done</label>
+                                        <input type="text" name="date_tracingdone" id="date_tracingdone" class="form-control date" value="{{$dscapture ? $dscapture->date_tracingdone:''}}" placeholder="Date Contact Tracing was done">                                  
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="num_children5less"># Contacts Less Than 5 Yrs</label>
                                         <input type="number" name="num_children5less" id="num_children5less" class="form-control" value="{{$dscapture ? $dscapture->num_children5less:''}}" placeholder="Number of Contacts Who are Children Less than 6 yrs old">                                  
                                     </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-3">
                                         <label for="num_children5above">5 years and above</label>
                                         <input type="number" name="num_children5above" id="num_children5above" class="form-control" value="{{$dscapture ? $dscapture->num_children5above:''}}" placeholder="No of Contacts Screened">                                  
                                     </div>
@@ -718,9 +776,17 @@
                                             <tr style="padding: 0px !important;">
                                                 <td>
                                                     
+                                                        @php                                                        
+                                                            $monthArray = array(1 => 'Jan', 2 => 'Feb', 3 => 'Mar', 4 => 'Apr', 5 => 'May', 6 => 'Jun', 7 => 'Jul', 8 => 'Aug', 9 => 'Sep', 10 => 'Oct', 11 => 'Nov', 12 => 'Dec');
+                                                        @endphp
                                                         
-                                                        <select name="month">
-                                                            <option value="" selected>Month</option>
+                                                        <select name="month1">
+                                                            @if ($dscapture->month1!='')
+                                                                    <option value="{{$dscapture->month1}}" selected>{{$monthArray[$dscapture->month1]}}</option>
+                                                            @else
+                                                                    <option value="" selected>Select Month</option>
+                                                            @endif
+                                                            
                                                             <option value="1">January</option>
                                                             <option value="2">February</option>
                                                             <option value="3">March</option>
@@ -739,62 +805,45 @@
           
                                                 <td>
                                                         
-                                                        <select name="year">
-                                                            <option value="">Year</option>
+                                                        <select name="year1">
+                                                            @if ($dscapture->year1!='')
+                                                                    <option value="{{$dscapture->year1}}" selected>{{$dscapture->year1}}</option>
+                                                            @else
+                                                                    <option value="" selected>Year</option>
+                                                            @endif
                                                             @php
                                                                 for($yr = 2000; $yr<=date("Y"); $yr++){
                                                                     echo '<option value="'.$yr.'">'.$yr.'</option>';
                                                                 }
                                                             @endphp
-                                                            
-                                                            
                 
                                                         </select>
                                                     
                                                 </td>
-                                                @php
-                                                    $di = range(1, 31);
-                                                    $i = 1;
-                                                    
-                                                @endphp
-                                                <td><input type="checkbox" name="di[]" value="1" {{$di[$i-1]=='1' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="2" {{$di[$i++]=='2' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="3" {{$di[$i++]=='3' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="4" {{$di[$i++]=='4' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="5" {{$di[$i++]=='5' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="6" {{$di[$i++]=='6' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="7" {{$di[$i++]=='7' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="8" {{$di[$i++]=='8' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="9" {{$di[$i++]=='9' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="10" {{$di[$i++]=='10' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="11" {{$di[$i++]=='11' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="12" {{$di[$i++]=='12' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="13" {{$di[$i++]=='13' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="14" {{$di[$i++]=='14' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="15" {{$di[$i++]=='15' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="16" {{$di[$i++]=='16' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="17" {{$di[$i++]=='17' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="18" {{$di[$i++]=='18' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="19" {{$di[$i++]=='19' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="20" {{$di[$i++]=='20' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="21" {{$di[$i++]=='21' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="22" {{$di[$i++]=='22' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="23" {{$di[$i++]=='23' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="24" {{$di[$i++]=='24' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="25" {{$di[$i++]=='25' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="26" {{$di[$i++]=='26' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="27" {{$di[$i++]=='27' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="28" {{$di[$i++]=='28' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="29" {{$di[$i++]=='29' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="30" {{$di[$i++]=='30' ? '':'checked'}} ></td>
-                                                <td><input type="checkbox" name="di[]" value="31" {{$di[$i++]=='31' ? '':'checked'}} ></td>
-                                                
+                                                    @php 
+                                                        $alldays = range(1,31);   
+                                                        $di = explode(",",$dscapture->di1);
+                                                    @endphp
+                                                    @foreach($alldays as $day)
+                                                        
+                                                            @if (in_array($day, $di)) 
+                                                                <td><input type="checkbox" name="di1[]" value="{{$day}}" checked></td>
+                                                            @else
+                                                                <td><input type="checkbox" name="di1[]" value="{{$day}}"></td>
+                                                            @endif
+                                                        
+                                                        
+                                                    @endforeach
+                                            </tr>
                                             <tr>
-                                                <td>
-                                                    
+                                                <td>                                                    
                                                         
                                                     <select name="month2">
-                                                        <option value="" selected>Month</option>
+                                                        @if ($dscapture->month2!='')
+                                                                <option value="{{$dscapture->month2}}" selected>{{$monthArray[$dscapture->month2]}}</option>
+                                                        @else
+                                                                <option value="" selected>Select Month</option>
+                                                        @endif
                                                         <option value="1">January</option>
                                                         <option value="2">February</option>
                                                         <option value="3">March</option>
@@ -814,62 +863,47 @@
                                                 <td>
                                                     
                                                     <select name="year2">
-                                                        <option value="">Year</option>
+                                                            @if ($dscapture->year2!='')
+                                                                    <option value="{{$dscapture->year2}}" selected>{{$dscapture->year2}}</option>
+                                                            @else
+                                                                    <option value="" selected>Year</option>
+                                                            @endif
                                                         @php
                                                             for($yr = 2000; $yr<=date("Y"); $yr++){
                                                                 echo '<option value="'.$yr.'">'.$yr.'</option>';
                                                             }
-                                                        @endphp
-                                                        
+                                                        @endphp                                                       
                                                         
             
                                                     </select>
                                                 
                                                 </td>
-                                                @php
-                                                    $di = range(1, 31);
-                                                    $i = 1;
+                                                    @php                                                    
+                                                        $di = explode(",",$dscapture->di2);
+                                                    @endphp
+                                                    @foreach($alldays as $day)
+                                                        
+                                                            @if (in_array($day, $di)) 
+                                                                <td><input type="checkbox" name="di2[]" value="{{$day}}" checked></td>
+                                                            @else
+                                                                <td><input type="checkbox" name="di2[]" value="{{$day}}"></td>
+                                                            @endif
+                                                        
+                                                        
+                                                    @endforeach
                                                     
-                                                @endphp
-                                               <td><input type="checkbox" name="di2[]" value="1" {{$di[$i-1]=='1' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="2" {{$di[$i++]=='2' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="3" {{$di[$i++]=='3' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="4" {{$di[$i++]=='4' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="5" {{$di[$i++]=='5' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="6" {{$di[$i++]=='6' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="7" {{$di[$i++]=='7' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="8" {{$di[$i++]=='8' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="9" {{$di[$i++]=='9' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="10" {{$di[$i++]=='10' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="11" {{$di[$i++]=='11' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="12" {{$di[$i++]=='12' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="13" {{$di[$i++]=='13' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="14" {{$di[$i++]=='14' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="15" {{$di[$i++]=='15' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="16" {{$di[$i++]=='16' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="17" {{$di[$i++]=='17' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="18" {{$di[$i++]=='18' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="19" {{$di[$i++]=='19' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="20" {{$di[$i++]=='20' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="21" {{$di[$i++]=='21' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="22" {{$di[$i++]=='22' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="23" {{$di[$i++]=='23' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="24" {{$di[$i++]=='24' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="25" {{$di[$i++]=='25' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="26" {{$di[$i++]=='26' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="27" {{$di[$i++]=='27' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="28" {{$di[$i++]=='28' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="29" {{$di[$i++]=='29' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="30" {{$di[$i++]=='30' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di2[]" value="31" {{$di[$i++]=='31' ? '':'checked'}} ></td>
+                                                                                               
                                             </tr>
 
                                             <tr>
-                                                <td>
-                                                    
+                                                <td>                                                   
                                                         
                                                     <select name="month3">
-                                                        <option value="" selected>Month</option>
+                                                        @if ($dscapture->month3!='')
+                                                                <option value="{{$dscapture->month3}}" selected>{{$monthArray[$dscapture->month3]}}</option>
+                                                        @else
+                                                                <option value="" selected>Select Month</option>
+                                                        @endif
                                                         <option value="1">January</option>
                                                         <option value="2">February</option>
                                                         <option value="3">March</option>
@@ -889,7 +923,11 @@
                                                 <td>
                                                     
                                                     <select name="year3">
-                                                        <option value="">Year</option>
+                                                        @if ($dscapture->year3!='')
+                                                                    <option value="{{$dscapture->year3}}" selected>{{$dscapture->year3}}</option>
+                                                            @else
+                                                                    <option value="" selected>Year</option>
+                                                            @endif
                                                         @php
                                                             for($yr = 2000; $yr<=date("Y"); $yr++){
                                                                 echo '<option value="'.$yr.'">'.$yr.'</option>';
@@ -901,50 +939,30 @@
                                                     </select>
                                                 
                                                 </td>
-                                                @php
-                                                    $di = range(1, 31);
-                                                    $i = 1;
-                                                    
+                                                @php                                                    
+                                                    $di = explode(",",$dscapture->di3);
                                                 @endphp
-                                               <td><input type="checkbox" name="di3[]" value="1" {{$di[$i-1]=='1' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="2" {{$di[$i++]=='2' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="3" {{$di[$i++]=='3' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="4" {{$di[$i++]=='4' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="5" {{$di[$i++]=='5' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="6" {{$di[$i++]=='6' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="7" {{$di[$i++]=='7' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="8" {{$di[$i++]=='8' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="9" {{$di[$i++]=='9' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="10" {{$di[$i++]=='10' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="11" {{$di[$i++]=='11' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="12" {{$di[$i++]=='12' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="13" {{$di[$i++]=='13' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="14" {{$di[$i++]=='14' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="15" {{$di[$i++]=='15' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="16" {{$di[$i++]=='16' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="17" {{$di[$i++]=='17' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="18" {{$di[$i++]=='18' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="19" {{$di[$i++]=='19' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="20" {{$di[$i++]=='20' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="21" {{$di[$i++]=='21' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="22" {{$di[$i++]=='22' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="23" {{$di[$i++]=='23' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="24" {{$di[$i++]=='24' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="25" {{$di[$i++]=='25' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="26" {{$di[$i++]=='26' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="27" {{$di[$i++]=='27' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="28" {{$di[$i++]=='28' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="29" {{$di[$i++]=='29' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="30" {{$di[$i++]=='30' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di3[]" value="31" {{$di[$i++]=='31' ? '':'checked'}} ></td>
+                                                @foreach($alldays as $day)
+                                                    
+                                                        @if (in_array($day, $di)) 
+                                                            <td><input type="checkbox" name="di3[]" value="{{$day}}" checked></td>
+                                                        @else
+                                                            <td><input type="checkbox" name="di3[]" value="{{$day}}"></td>
+                                                        @endif
+                                                    
+                                                    
+                                                @endforeach
                                             </tr>
 
                                             <tr>
-                                                <td>
-                                                    
+                                                <td>                                                   
                                                         
                                                     <select name="month4">
-                                                        <option value="" selected>Month</option>
+                                                        @if ($dscapture->month4!='')
+                                                                <option value="{{$dscapture->month4}}" selected>{{$monthArray[$dscapture->month4]}}</option>
+                                                        @else
+                                                                <option value="" selected>Select Month</option>
+                                                        @endif
                                                         <option value="1">January</option>
                                                         <option value="2">February</option>
                                                         <option value="3">March</option>
@@ -961,57 +979,35 @@
                                                     </select>
                                                 </td>
                                             
-                                                <td>
-                                                    
+                                                <td>                                                    
                                                     <select name="year4">
-                                                        <option value="">Year</option>
+                                                        @if ($dscapture->year4!='')
+                                                                    <option value="{{$dscapture->year4}}" selected>{{$dscapture->year4}}</option>
+                                                            @else
+                                                                    <option value="" selected>Year</option>
+                                                            @endif
                                                         @php
                                                             for($yr = 2000; $yr<=date("Y"); $yr++){
                                                                 echo '<option value="'.$yr.'">'.$yr.'</option>';
                                                             }
-                                                        @endphp
-                                                        
-                                                        
-                                            
+                                                        @endphp                                                     
+                                                                                                    
                                                     </select>
                                                 
                                                 </td>
-                                                @php
-                                                    $di = range(1, 31);
-                                                    $i = 1;
-                                                    
-                                                @endphp
-                                               <td><input type="checkbox" name="di4[]" value="1" {{$di[$i-1]=='1' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="2" {{$di[$i++]=='2' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="3" {{$di[$i++]=='3' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="4" {{$di[$i++]=='4' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="5" {{$di[$i++]=='5' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="6" {{$di[$i++]=='6' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="7" {{$di[$i++]=='7' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="8" {{$di[$i++]=='8' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="9" {{$di[$i++]=='9' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="10" {{$di[$i++]=='10' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="11" {{$di[$i++]=='11' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="12" {{$di[$i++]=='12' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="13" {{$di[$i++]=='13' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="14" {{$di[$i++]=='14' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="15" {{$di[$i++]=='15' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="16" {{$di[$i++]=='16' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="17" {{$di[$i++]=='17' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="18" {{$di[$i++]=='18' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="19" {{$di[$i++]=='19' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="20" {{$di[$i++]=='20' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="21" {{$di[$i++]=='21' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="22" {{$di[$i++]=='22' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="23" {{$di[$i++]=='23' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="24" {{$di[$i++]=='24' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="25" {{$di[$i++]=='25' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="26" {{$di[$i++]=='26' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="27" {{$di[$i++]=='27' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="28" {{$di[$i++]=='28' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="29" {{$di[$i++]=='29' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="30" {{$di[$i++]=='30' ? '':'checked'}} ></td>
-                                               <td><input type="checkbox" name="di4[]" value="31" {{$di[$i++]=='31' ? '':'checked'}} ></td>
+                                                    @php                                                    
+                                                        $di = explode(",",$dscapture->di4);
+                                                    @endphp
+                                                    @foreach($alldays as $day)
+                                                        
+                                                            @if (in_array($day, $di)) 
+                                                                <td><input type="checkbox" name="di4[]" value="{{$day}}" checked></td>
+                                                            @else
+                                                                <td><input type="checkbox" name="di4[]" value="{{$day}}"></td>
+                                                            @endif
+                                                        
+                                                        
+                                                    @endforeach
                                             </tr>
                                             
                                         </tbody>
@@ -1030,6 +1026,10 @@
                                     <div class="form-group col-md-12">
                                         <label>Tick Appropriate Outcome</label>
                                         <div>
+                                        <input type="radio" id="ontreatment" {{$dscapture->outcome=='On Treatment' ? 'checked':''}} 
+                                        name="outcome" value="On Treatment">
+                                        <span for="cured">On Treatment</span>
+
                                         <input type="radio" id="cured" {{$dscapture->outcome=='Cured' ? 'checked':''}} 
                                         name="outcome" value="Cured">
                                         <span for="cured">Cured</span>
@@ -1067,13 +1067,13 @@
                                     <div class="form-group col-md-6">
                                     <label for="date_completed">Date Treament Completed</label>
                                    
-                                        <input type="date" name="date_completed" id="date_completed" class="form-control" value="{{$dscapture ? $dscapture->date_completed:''}}">                                  
+                                        <input type="text" class="form-control date" name="date_completed" id="date_completed" class="form-control" value="{{$dscapture ? $dscapture->date_completed:''}}">                                  
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="health_worker">Health Worker</label>
                                         <select class="form-control" name="health_worker" id="health_worker">
                                             <option value="" >Select Health Worker</option>
-                                            <option value="{{ $dscapture->completed_by }}" selected>{{ $dscapture->completed_by!="" ? \App\Models\User::select('name')->where('id',$dscapture->completed_by)->first()->name :'' }}</option>
+                                            <option value="{{ $dscapture->health_worker }}" selected>{{ $dscapture->health_worker!="" ? \App\Models\User::select('name')->where('id',$dscapture->health_worker)->first()->name :'' }}</option>
                                             @foreach ($users as $usr)
                                                 <option value="{{$usr->id}}">{{$usr->name}}</option>
                                             @endforeach                                          

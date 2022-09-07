@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\facilities;
+use App\Models\aggreport;
 use Illuminate\Http\Request;
 
-class FacilitiesController extends Controller
+class AggreportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class FacilitiesController extends Controller
      */
     public function index()
     {
-        $facilities = facilities::all();
+        $aggreports = aggreport::all();
 
-        return view('facilities', compact('facilities'));
+        return view('aggreports', compact('aggreports'));
     }
 
     /**
@@ -26,7 +26,7 @@ class FacilitiesController extends Controller
      */
     public function create()
     {
-        return view('new-facility');
+        //
     }
 
     /**
@@ -37,25 +37,16 @@ class FacilitiesController extends Controller
      */
     public function store(Request $request)
     {
-          facilities::updateOrCreate(['id'=>$request->id],
-          $request->all());
-          $facilities = facilities::orderBy('facility_name','ASC')->get();
-          return view('facilities')->with(['message'=>'New Facility Saved Successfully!','facilities'=>$facilities]);
-
-    }
-
-    public function editFacility($id){
-        $facility = facilities::where('id',$id)->first();
-        return view('new-facility', compact('facility'));
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\facilities  $facilities
+     * @param  \App\Models\aggreport  $aggreport
      * @return \Illuminate\Http\Response
      */
-    public function show(facilities $facilities)
+    public function show(aggreport $aggreport)
     {
         //
     }
@@ -63,10 +54,10 @@ class FacilitiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\facilities  $facilities
+     * @param  \App\Models\aggreport  $aggreport
      * @return \Illuminate\Http\Response
      */
-    public function edit(facilities $facilities)
+    public function edit(aggreport $aggreport)
     {
         //
     }
@@ -75,10 +66,10 @@ class FacilitiesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\facilities  $facilities
+     * @param  \App\Models\aggreport  $aggreport
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, facilities $facilities)
+    public function update(Request $request, aggreport $aggreport)
     {
         //
     }
@@ -86,10 +77,10 @@ class FacilitiesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\facilities  $facilities
+     * @param  \App\Models\aggreport  $aggreport
      * @return \Illuminate\Http\Response
      */
-    public function destroy(facilities $facilities)
+    public function destroy(aggreport $aggreport)
     {
         //
     }

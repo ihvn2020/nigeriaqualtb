@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'MinistryManager'),
+    'name' => env('APP_NAME', 'tbqual'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'crm.nountutor.com.ng'),
+    'url' => env('APP_URL', 'http://localhost:90/tbqual'),
 
     'asset_url' => env('ASSET_URL', null),
 

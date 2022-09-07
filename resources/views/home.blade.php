@@ -1,6 +1,83 @@
 @extends('layouts.theme')
 
 @section('content')
+
+<style>
+        .main-box-layout{
+        margin: 0px;
+        margin-top: 30px;
+        position: relative;
+        box-shadow: -3px 3px 3px 0px #5f5e5e;
+        }
+        .main-box-layout:hover .box-icon-section i{
+        font-size:70px;
+        transform: rotate(360deg);
+        transition:1s;
+        }
+        .box-icon-section{
+        display: table;
+        height:100px;
+        color:#fff;
+        }
+        .box-icon-section i{
+        font-size:30px;
+        display: table-cell;
+        vertical-align: middle;
+        transition:transform 0.4s ease-in-out;
+        transition: 1s;
+        }
+        .box-text-section{
+        background-color:#1f1e1e;
+        }
+        .box-text-section p{
+        margin: 0px;
+        color:#fff;
+        padding:10px 0px;
+        }
+        .label .badge{
+        position: absolute;
+        top:-19px;
+        left: 50%;
+        transform: translateX(-50%);
+        /*background-color: #4b4949;*/
+        color: #fff;
+        box-shadow: 0px 0px 3px 0px #fff;
+        border: 2px solid #fff;
+        height: 35px;
+        width: auto;
+        font-size: 1em;
+        }
+        
+        .newbtn a{
+        position: absolute;
+        bottom:-24px;
+        left: 50%;
+        transform: translateX(-50%);
+        /*background-color: #212f4e;*/
+        color: #fff;
+        box-shadow: 0px 0px 3px 0px #fff;
+        border: 2px solid #fff;
+        font-size: 1em;
+        }
+        
+        .amcharts-chart-div a {
+        position: absolute;
+        visibility: hidden;
+        }
+        
+        amcharts-chart-div a:before {
+        content: "Kojo Autos";
+        visibility: visible;
+        }
+        
+        g text{
+        font-size: 0.7em !important;
+        }
+        
+        .justify-content-md-center{
+            background: url("{{asset('/images/toyota_SUV.png')}}") no-repeat;
+        }
+</style>
     @php $pagename="dashboard"; @endphp
 
     <h3 class="page-title">Dashboard | <small style="color: green">Summary</small></h3>
@@ -11,6 +88,59 @@
             </div>
             <div class="panel-body" style="display: block; overflow-x: auto; white-space: nowrap;">
                 <div class="container">
+
+                    <div class="row form-row justify-content-md-center" style="padding-bottom: 40px;">
+                        <div class="col-lg-4 col-sm-4 col-12 text-center">
+                            <div class="row main-box-layout img-thumbnail">
+                                <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                                    <p>Screenings</p>
+                                </div>
+                                <div class="label">
+                                    <h3><span class="badge badge-pill bg-danger">{{number_format($countscreenings,0)}}</span></h3>
+                                </div>
+                                <div class="newbtn">
+                                    <a href="/new-screening" class="btn btn-primary">Add New</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-4 col-12 text-center">
+                            <div class="row main-box-layout img-thumbnail">
+                                <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                                    <p>DS Captures</p>
+                                </div>
+                                <div class="label">
+                                    <h3><span class="badge badge-pill bg-warning">100</span></h3>
+                                </div>
+                                <div class="newbtn">
+                                    <a href="/dscaptures" class="btn btn-primary">View All</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-4 col-12 text-center">
+                            <div class="row main-box-layout img-thumbnail">
+                                <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                                    <p>DR TB Cases</p>
+                                </div>
+                                <div class="label">
+                                    <h3><span class="badge badge-pill bg-success">67</span></h3>
+                                </div>
+                                <div class="newbtn">
+                                    <a href="/dscaptures" class="btn btn-primary">All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                   
                    
                 </div>
@@ -19,77 +149,5 @@
     </div>
 
     
-    <style>
-        body{
-            background:#eee;    
-            }
-
-            .card-box {
-                position: relative;
-                color: #fff;
-                padding: 20px 10px 40px;
-                margin: 20px 0px;
-            }
-            .card-box:hover {
-                text-decoration: none;
-                color: #f1f1f1;
-            }
-            .card-box:hover .icon i {
-                font-size: 100px;
-                transition: 1s;
-                -webkit-transition: 1s;
-            }
-            .card-box .inner {
-                padding: 5px 10px 0 10px;
-            }
-            .card-box h3 {
-                font-size: 27px;
-                font-weight: bold;
-                margin: 0 0 8px 0;
-                white-space: nowrap;
-                padding: 0;
-                text-align: left;
-            }
-            .card-box p {
-                font-size: 15px;
-            }
-            .card-box .icon {
-                position: absolute;
-                top: auto;
-                bottom: 5px;
-                right: 5px;
-                z-index: 0;
-                font-size: 72px;
-                color: rgba(0, 0, 0, 0.15);
-            }
-            .card-box .card-box-footer {
-                position: absolute;
-                left: 0px;
-                bottom: 0px;
-                text-align: center;
-                padding: 3px 0;
-                color: rgba(255, 255, 255, 0.8);
-                background: rgba(0, 0, 0, 0.1);
-                width: 100%;
-                text-decoration: none;
-            }
-            .card-box:hover .card-box-footer {
-                background: rgba(0, 0, 0, 0.3);
-            }
-            .bg-blue {
-                background-color: #00c0ef !important;
-            }
-            .bg-green {
-                background-color: #00a65a !important;
-            }
-            .bg-orange {
-                background-color: #f39c12 !important;
-            }
-            .bg-red {
-                background-color: #d9534f !important;
-            }
-
-    </style>
-        
     
 @endsection

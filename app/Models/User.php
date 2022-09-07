@@ -17,23 +17,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'gender',
-        'dob',
-        'age_group',
-        'phone_number',
-        'password',
-        'address',
-        'location',
-        'house_fellowship',
-        'invited_by',
-        'assigned_to',
-        'ministry',
-        'role',
-        'status'
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -53,6 +37,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function aggreport()
+    {
+        return $this->hasMany(aggreport::class, 'entered_by', 'id');
+    }
 
     
 }

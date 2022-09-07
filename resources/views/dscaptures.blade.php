@@ -11,7 +11,7 @@
             <div class="panel">
               
                 <div class="panel-body">
-                    <a href="/add-newds" class="btn btn-primary pull-right" style="margin-bottom: 10px;">Add New</a>
+                    <a href="screenings" class="btn btn-primary pull-right" style="margin-bottom: 10px;">Add New</a>
 
                     <table class="table  responsive-table" id="products">
                         <thead>
@@ -25,6 +25,10 @@
                         </thead>
                         <tbody>
                             @foreach ($dscaptures as $ds)
+                                @php
+                                    if ($ds->id==1)
+                                        continue;                                
+                                @endphp
 
                                 <tr
                                     @if ($ds->gender=="Female")
@@ -38,15 +42,16 @@
                                     
                                     <td width="90">
                                         <div class="btn-group">
-                                            <a href="/edit-dscapture/{{$ds->id}}" class="label label-primary left"><i class="lnr lnr-pencil"></i></a>
-                                            <a href="/edit-dscapture/{{$ds->id}}/" class="label label-success"><i class="lnr lnr-eye"></i></a>
+                                            <a href="edit-dscapture/{{$ds->id}}" class="label label-primary left"><i class="lnr lnr-pencil"></i></a>
+                                            <a href="edit-dscapture/{{$ds->id}}/" class="label label-success"><i class="lnr lnr-eye"></i></a>
+                                            <a href="delete/{{$ds->id}}/dscaptures" class="label label-danger"><i class="lnr lnr-cross"></i></a>
+
                                         </div>
                                     </td>
                                    
                                 </tr>
                             @endforeach
-                            
-                            
+                                                        
                         </tbody>
                     </table>
                 </div>
