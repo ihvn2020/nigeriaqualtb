@@ -172,37 +172,41 @@
 				<nav>
 					<ul class="nav">
 						<li><a href="home" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<!--
+							<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden;">
+								<a href="#subPages1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-magnifier"></i> <span>Screening</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+								<div id="subPages1" class="collapse ">
+									<ul class="nav">
 
-						<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden;">
-							<a href="#subPages1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-magnifier"></i> <span>Screening</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages1" class="collapse ">
-								<ul class="nav">
+										<li><a href="new-screening" class="roledlink Admin Super">New Screening</a></li>
+										<li><a href="screenings" class="roledlink Admin Super">Screening Records</a></li>
+									</ul>
+								</div>
+							</li>
+								
+							<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden;">
+								<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>TB Records</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+								<div id="subPages2" class="collapse ">
+									<ul class="nav">
 
-									<li><a href="new-screening" class="roledlink Admin Super">New Screening</a></li>
-									<li><a href="screenings" class="roledlink Admin Super">Screening Records</a></li>
-								</ul>
-							</div>
-						</li>
-
-						<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden;">
-							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>TB Records</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages2" class="collapse ">
-								<ul class="nav">
-
-									<li><a href="screenings" class="roledlink Admin Super">New TB Case</a></li>
-									<li><a href="dscaptures" class="roledlink Admin Super">TB Records</a></li>
-								</ul>
-							</div>
-						</li>
-
+										<li><a href="screenings" class="roledlink Admin Super">New TB Case</a></li>
+										<li><a href="dscaptures" class="roledlink Admin Super">TB Records</a></li>
+									</ul>
+								</div>
+							</li>
+						-->
 						<li class="roledlink Admin Super Pastor Usher" style="visibility:hidden;">
 							<a href="#subPages6" data-toggle="collapse" class="collapsed"><i class="lnr lnr-checkmark-circle"></i> <span>Report</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages6" class="collapse ">
 								<ul class="nav">
 									<li><a href="aggregate-report" class="">New Aggregate Report</a></li>
-									<li><a href="new-activity" class="">New Report</a></li>
 									<li><a href="aggreports" class="">View Aggregate Reports</a></li>
-									<li><a href="reports" class="">Manage Reports</a></li>
+
+									<!--
+										<li><a href="new-activity" class="">New Report</a></li>
+										
+										<li><a href="reports" class="">Manage Reports</a></li>
+										-->
 								</ul>
 							</div>
 						</li>
