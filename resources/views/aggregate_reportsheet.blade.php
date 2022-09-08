@@ -1,14 +1,14 @@
 @extends('layouts.print-theme')
 <style>
     .result{
-        font-weight: 900;  
+        font-weight: 900;
         background-color: white;
         position: relative;
         float: right;
         width: 50px;
         height: 25px;
         text-align: center;
-        font-size: 1em;       
+        font-size: 1em;
         border: solid 1px green;
         border-radius: 20px;
         color: green;
@@ -20,7 +20,7 @@
     <h3 class="page-title" style="text-align: center !important">AGGREGATE REPORT</h3>
     <div class="row">
             <div class="panel" style="width: 90%; margin: auto;">
-              
+
                 <div class="panel-body">
                     <div style="text-align: center">
                         <h3 style="color: green"><b>Title: </b>{{$report->title }}</h3>
@@ -30,7 +30,7 @@
                         <fieldset>
                             <h3>DSTB</h3>
                             <hr>
-                        
+
                             <div class="panel panel-default">
                                 <div class="panel-heading">Proportion of hospital attendees within the review period who were symptomatically screened for TB disaggregated by age U15 and 15+ <div class="result" id="ndstb1value">3</div></div>
                                 <div class="panel-body">
@@ -39,7 +39,7 @@
                                             <tr>
                                                 <th>0-14yrs</th>
                                                 <th>15+yrs</th>
-                                                
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -49,7 +49,7 @@
                                                 <td>{{strval($report->ndstb1u15)}} / {{strval($report->ddstb1)}} = {{number_format($report->ndstb1u15/$report->ddstb1,2)*100}}%</td>
                                                 <td>{{strval($report->ndstb1a15)}} / {{strval($report->ddstb1)}} = {{number_format($report->ndstb1a15/$report->ddstb1,2)*100}}%</td>
                                             </tr>
-                                            
+
 
                                             @else
                                                 <tr>
@@ -61,7 +61,7 @@
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -75,7 +75,7 @@
                                             <tr>
                                                 <th>0-14yrs</th>
                                                 <th>15+yrs</th>
-                                                
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -84,8 +84,8 @@
                                                 <td>{{strval($report->ndstb2u15)}} / {{strval($report->ddstb2)}} = {{number_format($report->ndstb2u15/$report->ddstb2,2)*100}}%</td>
                                                 <td>{{strval($report->ndstb2a15)}} / {{strval($report->ddstb2)}} = {{number_format($report->ndstb2a15/$report->ddstb2,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
                                                 <tr>
                                                     <td>
@@ -96,12 +96,12 @@
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>  
-                            
+                            </div>
+
                             <div class="panel panel-default">
                                 <div class="panel-heading">3.	Proportion of presumptive TB cases identified within the review period evaluated for TB using WHO Rapid Diagnostics (Xpert MTB RIF assay, TB LAMP, LF LAM, TrueNat) or AFB microscopy.<div class="result" id="ndstb2value">3</div></div>
                                 <div class="panel-body">
@@ -112,79 +112,79 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb3u)>0)
+                                            @if(strval($report->ddstb3)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb3u)}} / {{strval($report->ddstb3)}} = {{number_format($report->ndstb3u/$report->ddstb3,2)*100}}%</td>
-                                            </tr>                                            
+                                            </tr>
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            
+
                             <div class="panel panel-default">
                                 <div class="panel-heading">4.	Proportion of presumptive TB cases identified within the review period evaluated clinically (including with chest X-ray)<div class="result" id="ndstb2value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb4u)>0)
+                                            @if(strval($report->ddstb4)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb4u)}} / {{strval($report->ddstb4)}} = {{number_format($report->ndstb4u/$report->ddstb4,2)*100}}%</td>
                                             </tr>
 
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            
+
                             <div class="panel panel-default">
                                 <div class="panel-heading">5.	Proportion of presumptive TB cases identified within the review period whose sputum specimen were sent to GeneXpert Lab and had their results received within 72 hrs of sending sputum specimen to Lab<div class="result" id="ndstb5value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb5u)>0)
+                                            @if(strval($report->ddstb5)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb5u)}} / {{strval($report->ddstb5)}} = {{number_format($report->ndstb5u/$report->ddstb5,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -196,25 +196,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb6u)>0)
+                                            @if(strval($report->ddstb6)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb6u)}} / {{strval($report->ddstb6)}} = {{number_format($report->ndstb6u/$report->ddstb6,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -226,25 +226,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb7u)>0)
+                                            @if(strval($report->ddstb7)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb7u)}} / {{strval($report->ddstb7)}} = {{number_format($report->ndstb7u/$report->ddstb7,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -256,25 +256,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb8u)>0)
+                                            @if(strval($report->ddstb8)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb8u)}} / {{strval($report->ddstb8)}} = {{number_format($report->ndstb8u/$report->ddstb8,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -290,25 +290,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb9u)>0)
+                                            @if(strval($report->ddstb9)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb9u)}} / {{strval($report->ddstb9)}} = {{number_format($report->ndstb9u/$report->ddstb9,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -320,25 +320,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb10u)>0)
+                                            @if(strval($report->ddstb10)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb10u)}} / {{strval($report->ddstb10)}} = {{number_format($report->ndstb10u/$report->ddstb10,2)*100}}%</td>
                                             </tr>
-                                           
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -350,25 +350,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb11u)>0)
+                                            @if(strval($report->ddstb11)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb11u)}} / {{strval($report->ddstb11)}} = {{number_format($report->ndstb11u/$report->ddstb11,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -380,25 +380,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb12u)>0)
+                                            @if(strval($report->ddstb12)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb12u)}} / {{strval($report->ddstb12)}} = {{number_format($report->ndstb12u/$report->ddstb12,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -415,25 +415,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb13u)>0)
+                                            @if(strval($report->ddstb13)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb13u)}} / {{strval($report->ddstb13)}} = {{number_format($report->ndstb13u/$report->ddstb13,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -445,25 +445,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb15u)>0)
+                                            @if(strval($report->ddstb15)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb15u)}} / {{strval($report->ddstb15)}} = {{number_format($report->ndstb15u/$report->ddstb15,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -475,25 +475,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb16u)>0)
+                                            @if(strval($report->ddstb16)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb16u)}} / {{strval($report->ddstb16)}} = {{number_format($report->ndstb16u/$report->ddstb16,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -505,25 +505,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb17u)>0)
+                                            @if(strval($report->ddstb17)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb17u)}} / {{strval($report->ddstb17)}} = {{number_format($report->ndstb17u/$report->ddstb17,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -540,25 +540,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb18u)>0)
+                                            @if(strval($report->ddstb18)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb18u)}} / {{strval($report->ddstb18)}} = {{number_format($report->ndstb18u/$report->ddstb18,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -570,25 +570,25 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Percentage Value</th>                                               
-                                                
+                                                <th>Percentage Value</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(strval($report->ddstb19u)>0)
+                                            @if(strval($report->ddstb19)>0)
                                             <tr>
                                                 <td>{{strval($report->ndstb19u)}} / {{strval($report->ddstb19)}} = {{number_format($report->ndstb19u/$report->ddstb19,2)*100}}%</td>
                                             </tr>
-                                            
-                                            
+
+
                                             @else
-                                                <tr>                                                  
+                                                <tr>
                                                     <td>
                                                         0/0 = 0%
                                                     </td>
                                                 </tr>
                                             @endif
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -596,10 +596,10 @@
                         </fieldset>
 
                     </form>
-                    
+
                 </div>
             </div>
-        
+
     </div>
-    
+
 @endsection

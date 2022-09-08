@@ -25,7 +25,7 @@ class CreateDscapturesTable extends Migration
             $table->string('gender',5)->nullable();
             $table->string('first_name',30)->nullable();
             $table->string('last_name',30)->nullable();
-            $table->integer('age',5)->nullable();
+            $table->double('age',5)->nullable();
             $table->string('hospital_admission',10)->nullable();
             $table->string('marital_status',10)->nullable();
             $table->string('patient_address',50)->nullable();
@@ -81,7 +81,7 @@ class CreateDscapturesTable extends Migration
             $table->string('num_children5above',10)->nullable();
 
             $table->string('regimenline',20)->nullable();
-            
+
             $table->string('month1',10)->nullable();
             $table->string('year1',10)->nullable();
             $table->string('di1',191)->nullable();
@@ -105,12 +105,13 @@ class CreateDscapturesTable extends Migration
 
             $table->timestamps();
         });
-
+    /*
         DB::table('dscaptures')->insert(
             array(
-                'first_name' => '',               
+                'first_name' => '',
             )
         );
+    */
     }
 
     /**

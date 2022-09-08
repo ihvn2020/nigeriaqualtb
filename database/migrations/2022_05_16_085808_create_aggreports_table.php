@@ -16,19 +16,19 @@ class CreateAggreportsTable extends Migration
         Schema::create('aggreports', function (Blueprint $table) {
             $table->id();
             $table->string('title',100)->nullable();
-            $table->foreignId('facility')->constrained();          
+            $table->unsignedBigInteger('facility')->constrained();
             $table->date('from');
             $table->date('to');
             $table->float('ndstb1u15',10,2)->nullable();
             $table->float('ndstb1a15',10,2)->nullable();
             $table->float('ddstb1',10,2)->nullable();
             $table->float('r1',10,2)->nullable();
-            
+
             $table->float('ndstb2u15',10,2)->nullable();
             $table->float('ndstb2a15',10,2)->nullable();
             $table->float('ddstb2',10,2)->nullable();
             $table->float('r2',10,2)->nullable();
-            
+
             $table->float('ndstb3u',10,2)->nullable();
             $table->float('ddstb3',10,2)->nullable();
             $table->float('r3',10,2)->nullable();
@@ -96,12 +96,12 @@ class CreateAggreportsTable extends Migration
             $table->float('ndstb19u',10,2)->nullable();
             $table->float('ddstb19',10,2)->nullable();
             $table->float('r19',10,2)->nullable();
-            $table->foreignId('entered_by')->constrained();
+            $table->unsignedBigInteger('entered_by')->constrained();
 
-            $table->foreign('entered_by')->references('id')->on('users')->onDelete('cascade');            
-            $table->foreign('facility')->references('id')->on('facilities')->onDelete('cascade');            
+            $table->foreign('entered_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('facility')->references('id')->on('facilities')->onDelete('cascade');
 
-            $table->string('status',30)->nullable();           
+            $table->string('status',30)->nullable();
 
             $table->timestamps();
         });
