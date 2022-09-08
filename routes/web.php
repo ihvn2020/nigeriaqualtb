@@ -89,3 +89,8 @@ Route::get('/sentmessages', [App\Http\Controllers\HomeController::class, 'sentSM
 // HELP AND SECURITY
 Route::get('/help', [App\Http\Controllers\HomeController::class, 'help'])->name('help');
 Route::get('/security', [App\Http\Controllers\HomeController::class, 'security'])->name('security');
+
+
+Route::get('users', function(){
+    return View('users');
+})->middleware('role:Super,Manager');

@@ -148,13 +148,9 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="lnr lnr-user"></i> <span>@auth {{ Auth::user()->name }} @endauth </span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a class="btn btn-success update-pro" href="add-new" title="New Member" target="_blank" style="color: white; font-weight: bold;"><span class="fa fa-user-plus"></span> <span>New User</span></a></li>
-								<li><a href="my_profile/{{$login_user->id ?? ''}}"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="tasks"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
+                                <li><a href="/users"><i class="lnr lnr-user"></i> <span>Users</span></a></li>
 
-								<li class="roledlink Admin Followup Super" style="visibility:hidden !important;"><a href="#"  data-toggle="modal" data-target="#settings"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-								<li><a href="help"><i class="lnr lnr-bubble"></i> Basic Use</a></li>
-								<li><a href="security"><i class="lnr lnr-lock"></i> Security</a></li>
+                                <li class="roledlink Admin Followup Super" style="visibility:hidden !important;"><a href="#"  data-toggle="modal" data-target="#settings"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
 								<li><a href="logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 							</ul>
 						</li>
@@ -183,7 +179,7 @@
 									</ul>
 								</div>
 							</li>
-								
+
 							<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden;">
 								<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>TB Records</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 								<div id="subPages2" class="collapse ">
@@ -204,7 +200,7 @@
 
 									<!--
 										<li><a href="new-activity" class="">New Report</a></li>
-										
+
 										<li><a href="reports" class="">Manage Reports</a></li>
 										-->
 								</ul>
