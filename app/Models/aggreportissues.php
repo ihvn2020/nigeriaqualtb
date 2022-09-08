@@ -5,25 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class aggreport extends Model
+class aggreportissues extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function faciliti()
+    public function aggreport()
     {
-        return $this->belongsTo(facilities::class, 'facility', 'id');
+        return $this->belongsTo(aggreport::class, 'aggreport_id', 'id');
     }
 
-    public function user()
+    public function enteredby()
     {
         return $this->belongsTo(User::class, 'entered_by', 'id');
     }
 
-    public function issues()
+    public function qiactivities()
     {
-        return $this->hasMany(aggreportissues::class, 'aggreport_id', 'id');
+        return $this->hasMany(aggreportactivities::class, 'issue_id', 'id');
     }
-
 }

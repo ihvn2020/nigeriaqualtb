@@ -12,6 +12,8 @@ use App\Models\dscaptures;
 use App\Models\screening;
 use App\Models\aggreport;
 use App\Models\facilities;
+use App\Models\aggreportissues;
+use App\Models\aggreportactivities;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -37,7 +39,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      
+
         // sleep(5);
         $countscreenings = screening::all()->count();
         return view('home',compact('countscreenings'));
@@ -62,7 +64,7 @@ class HomeController extends Controller
       Auth::logout();
       return redirect('/');
     }
-  
+
     public function members()
     {
       $members = User::orderBy('status','ASC')->get();
@@ -80,7 +82,7 @@ class HomeController extends Controller
     public function member($id)
     {
       $member = User::where('id',$id)->first();
-    
+
       return view('member', compact('member'));
     }
 
@@ -99,7 +101,7 @@ class HomeController extends Controller
 
 
     public function addNewds()
-    {      
+    {
       return view('add-newds');
     }
 
@@ -110,10 +112,10 @@ class HomeController extends Controller
 
     public function newds(request $request)
     {
-      
+
        $lastrecord = dscaptures::updateOrCreate(['id'=>$request->id],
           $request->except('month1','year1','di1','month2','year2','di2','month3','year3','di3','month4','year4','di4'));
-          
+
           $dday=$month=$year = "";
 
           for($i=0;$i<=3;$i++){
@@ -123,18 +125,18 @@ class HomeController extends Controller
             $day = "di".$iy;
 
             if(!isset($request->$mon) || !isset($request->$yr) ){
-             
+
               continue;
 
-            }else{            
+            }else{
                $days = $request->$day;
                $month = $request->$mon;
                $year = $request->$yr;
-               
+
               for($ii=0;$ii<=count($days)-1;$ii++){
-                   $dday.= $days[$ii].",";  
+                   $dday.= $days[$ii].",";
               }
-              
+
               $lastrecord->$day = $dday;
               $lastrecord->$mon = $month;
               $lastrecord->$yr = $year;
@@ -144,9 +146,9 @@ class HomeController extends Controller
               // 'month1','year1','di1','month2','year2','di2','month3','year3','di3','month4','year4','di4'
               $lastrecord->save();
               $dday = "";
-            }            
+            }
           }
-          
+
       return redirect()->route('dscaptures')->with(['message'=>'DS Capture Saved Successfully!']);
 
     }
@@ -158,10 +160,10 @@ class HomeController extends Controller
 
     public function newdr(request $request)
     {
-    
+
         drcaptures::updateOrCreate(['id'=>$request->id],
           $request->all());
-      
+
 
       return view('add-newdr')->with(['message'=>'DR Capture Saved Successfully!']);
 
@@ -179,7 +181,7 @@ class HomeController extends Controller
     }
 
     public function newActivity()
-    {      
+    {
       return view('new-activity');
 
     }
@@ -190,7 +192,7 @@ class HomeController extends Controller
     }
 
     public function newReport(request $request)
-    {      
+    {
       $from = $request->from;
       $to = $request->to;
 
@@ -203,29 +205,84 @@ class HomeController extends Controller
     }
 
     public function newAggReport(request $request)
-    {      
-      
+    {
+
       $lastrecord = aggreport::updateOrCreate(['id'=>$request->id],
-          $request->all());          
-          
+          $request->all());
+
       return redirect()->back()->with(['message'=>'Aggregate Report Saved Successfully!']);
 
     }
+
+    public function newAggreportIssue(request $request)
+    {
+
+      aggreportissues::updateOrCreate(['id'=>$request->id],
+          $request->all());
+
+      return redirect()->back()->with(['message'=>'Aggregate Report Issue Saved Successfully!']);
+
+    }
+
+
+    public function addQIComment(request $request)
+    {
+
+        $issue = aggreportissues::where('id',$request->id)->first();
+
+        aggreportissues::updateOrCreate(['id'=>$request->id],
+        [
+        'comments'=>'<li>'.$request->comments."</li>".$issue->comments
+         ]);
+
+      return redirect()->back()->with(['message'=>'Comment saved successfully!']);
+
+    }
+
+    public function addQI(request $request)
+    {
+
+
+        aggreportactivities::create(
+        [
+            'issue_id'=>$request->issue_id,
+            'activities'=>$request->activities,
+            'dated'=>$request->dated,
+            'entered_by'=>Auth()->user()->id,
+         ]);
+
+      return redirect()->back()->with(['message'=>'New Activity saved successfully!']);
+
+    }
+
+
 
     public function viewReport($id){
       $report = aggreport::where('id',$id)->first();
       return view('aggregate_reportsheet', compact('report'));
     }
 
+    public function editReport($id){
+        $facilities = facilities::select('id','facility_name')->get();
+        $report = aggreport::where('id',$id)->first();
+        return view('edit_aggregatereport', compact('report','facilities'));
+      }
+
     public function viewReportpdf($id){
       $report = aggreport::where('id',$id)->first();
 
       $pdf_doc = \PDF::loadView('aggregate_reportpdf', compact('report'));
-        
-      return $pdf_doc->save('public/pdf/'.$report->title.'.pdf')->stream($report->title.'.pdf');
+
+      return $pdf_doc->save('/public/pdf/'.$report->title.'.pdf')->stream($report->title.'.pdf');
 
       // return view('aggregate_reportpdf', compact('report'));
     }
+
+    public function viewAgrIssues($id){
+        $aggreportissues = aggreportissues::where('aggreport_id',$id)->get();
+        return view('aggreport-issues', compact('aggreportissues'));
+    }
+
 
     protected function create(request $request)
     {
@@ -237,23 +294,23 @@ class HomeController extends Controller
         }else{
             $email = $request->email;
             $password = Hash::make($request->password);
-            
+
         }
 
         User::updateOrCreate(['id'=>$request->id],[
             'name' => $request->name,
             'email' => $email,
-           
+
             'age_group'=>$request->age_group,
             'phone_number'=>$request->phone_number,
             'password' => $password,
-         
+
             'state' => $request->state,
             'facility' => $request->facility,
-            
+
             'role'=>$request->role,
             'status'=>$request->status
-            
+
         ]);
         $members = User::all();
         $users = User::select('name','id')->get();
@@ -267,25 +324,25 @@ class HomeController extends Controller
           'logo'=>'image|mimes:jpg,png,jpeg,gif,svg',
           'background'=>'image|mimes:jpg,png,jpeg,gif,svg'
       ]);
-      
+
       if(!empty($request->file('logo'))){
-       
+
           $logo = time().'.'.$request->logo->extension();
-        
+
           $request->logo->move(\public_path('images'),$logo);
       }else{
           $logo = $request->oldlogo;
       }
 
       if(!empty($request->file('background'))){
-          
+
           $background = time().'.'.$request->background->extension();
-          
+
           $request->background->move(\public_path('images'),$background);
       }else{
           $background = $request->oldbackground;
       }
-      
+
 
       settings::updateOrCreate(['id'=>$request->id],[
           'ministry_name' => $request->ministry_name,
@@ -294,7 +351,7 @@ class HomeController extends Controller
           'address' => $request->address,
           'background' => $background,
           'mode'=>$request->mode
-          
+
       ]);
       $message = "The settings has been updated!";
       return redirect()->back()->with(['message'=>$message]);
@@ -302,14 +359,14 @@ class HomeController extends Controller
 
     public function help()
     {
-      
+
       return view('help');
 
     }
 
     public function security()
     {
-      
+
       return view('security');
 
     }

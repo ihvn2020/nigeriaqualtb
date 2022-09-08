@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/vendor/linearicons/style.css') }}">
-	
+
 
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
@@ -23,7 +23,7 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
 	<link rel="icon" type="{{ asset('image/png" sizes="96x96" href="assets/img/favicon.png') }}">
 
-	
+
     <link rel="stylesheet" href="{{asset('/css/jquery.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{asset('https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css')}}">
 	<style>
@@ -89,17 +89,17 @@
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
-		<nav class="navbar navbar-default navbar-fixed-top">
+		<nav class="navbar navbar-default navbar-fixed-top" style="position: relative;">
 			<div class="brand">
 				<a href="home"><img  src="images/{{$settings->logo}}" alt="{{$settings->motto}}" class="img-responsive logo" style="height: 35px !important; float: left;"></a> {{$settings->ministry_name}}
 				<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-menu"></i></button>
 			</div>
-			
-			<div class="container-fluid" style="width: 100%">
-				
 
-				
-				
+			<div class="container-fluid" style="width: 100%">
+
+
+
+
 				<form class="navbar-form navbar-left" action="{{ route('searchmembers') }}" method="post">
 					@csrf
 					<div class="input-group">
@@ -108,31 +108,31 @@
 					</div>
 				</form>
 
-				
-				
-				
+
+
+
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
                     <li class="menuicon">
-                   
+
 					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-menu"></i></button>
-	
+
                     </li>
 
 						@auth
-						<li class="dropdown">					
-								
-							
+						<li class="dropdown">
+
+
 								<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
 									<i class="lnr lnr-alarm"></i>
 									@if ($mytasks->count()>0)
 										<span class="badge bg-danger">{{$mytasks->count()}} <!-- Some Laravel Counter --></span>
 									@endif
 								</a>
-							
-							
+
+
 							<ul class="dropdown-menu notifications">
-								@foreach ($mytasks as $ts)									
+								@foreach ($mytasks as $ts)
 									<li><a href="tasks" class="notification-item"><span class="dot bg-warning"></span>{{$ts->title}} | <i class="lnr lnr-clock"></i>{{$ts->date}}</a></li>
 								@endforeach
 								<li><a href="tasks" class="more">See all notifications</a></li>
@@ -141,10 +141,10 @@
 						@endauth
 						<li>
 							<a href="home"><i class="lnr lnr-home"></i> <span>Home</span></a>
-							
+
 						</li>
 
-						
+
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="lnr lnr-user"></i> <span>@auth {{ Auth::user()->name }} @endauth </span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
@@ -160,24 +160,24 @@
 						</li>
 
 
-						
+
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
-		<div id="sidebar-nav" class="sidebar" style="margin-top: 10px">
+		<div id="sidebar-nav" class="sidebar" style="margin-top: 1px">
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
 						<li><a href="home" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						
+
 						<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden;">
 							<a href="#subPages1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-magnifier"></i> <span>Screening</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages1" class="collapse ">
 								<ul class="nav">
-									
+
 									<li><a href="new-screening" class="roledlink Admin Super">New Screening</a></li>
 									<li><a href="screenings" class="roledlink Admin Super">Screening Records</a></li>
 								</ul>
@@ -188,13 +188,13 @@
 							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>TB Records</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages2" class="collapse ">
 								<ul class="nav">
-									
+
 									<li><a href="screenings" class="roledlink Admin Super">New TB Case</a></li>
 									<li><a href="dscaptures" class="roledlink Admin Super">TB Records</a></li>
 								</ul>
 							</div>
 						</li>
-						
+
 						<li class="roledlink Admin Super Pastor Usher" style="visibility:hidden;">
 							<a href="#subPages6" data-toggle="collapse" class="collapsed"><i class="lnr lnr-checkmark-circle"></i> <span>Report</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages6" class="collapse ">
@@ -216,20 +216,20 @@
 								</ul>
 							</div>
 						</li>
-						
+
 					</ul>
 				</nav>
 			</div>
 		</div>
 		<!-- END LEFT SIDEBAR -->
 		<!-- MAIN -->
-		<div class="main" style="padding-top: 30px !important">
+		<div class="main" style="padding-top: 5px !important">
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
 					<!-----------------------------START YIELD PAGE CONTENT -->
 					@if (Session::get('message'))
-						<div class="alert alert-success alert-dismissible" role="alert" style="margin-top: 30px !important;">
+						<div class="alert alert-success alert-dismissible" role="alert">
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<i class="fa fa-check-circle"></i> {!!Session::get('message')!!}
 						</div>
@@ -271,16 +271,16 @@
 <div class="modal" id="settings">
     <div class="modal-dialog">
       <div class="modal-content">
-  
+
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">Settings</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-  
+
         <!-- Modal body -->
         <div class="modal-body">
-            
+
             <form method="POST" action="{{ route('settings') }}" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" id="id" value="{{$settings->id}}">
@@ -288,7 +288,7 @@
 				<input type="hidden" name="oldlogo" id="id" value="{{$settings->logo}}">
 
 				<input type="hidden" name="oldbackground" id="id" value="{{$settings->background}}">
-                                
+
                 <div class="form-group">
                     <label for="ministry_name">Organization</label>
                     <input type="text" name="ministry_name" id="ministry_name" class="form-control" value="{{$settings->ministry_name}}">
@@ -304,8 +304,8 @@
                     <input type="text" name="address" id="address" class="form-control" value="{{$settings->address}}">
                 </div>
 
-			
-                
+
+
 
                 <div class="form-group">
                     <label for="logo">Upload Logo Image</label>
@@ -332,15 +332,15 @@
                     </button>
                 </div>
 
-                  
+
             </form>
         </div>
-  
+
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
-  
+
       </div>
     </div>
   </div>
@@ -357,7 +357,7 @@
     <script src="{{asset('/js/dataTables.select.min.js')}}"></script>
 
     <script src="{{asset('/js/dataTables.searchPanes.min.js')}}"></script>
-
+<!--
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js" /></script>
 
 	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js" /></script>
@@ -365,16 +365,17 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js" /></script>
 
 	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js" /></script>
-
+    -->
 	<script>
-		
+
+
 
 		// TABLES WITH FILTERS
 		$('#products thead tr').clone(true).appendTo( '#products thead' );
 		$('#products thead tr:eq(1) th:not(:last)').each( function (i) {
 			var title = $(this).text();
 			$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" value="" />' );
-			
+
 			$( 'input', this ).on( 'keyup change', function () {
 				if ( table.column(i).search() !== this.value ) {
 					table
@@ -400,6 +401,7 @@
 				'copy', 'csv', 'excel', 'pdf', 'print'
 			]
 		} );
+
 	</script>
 @endif
 
@@ -415,9 +417,9 @@
 		function compareDeno(num){
 			// alert("Stop");
 			var denoid = "ddstb"+num;
-			//var lastchar = denoid.substr(denoid.length - 2); 
-			
-			var numeid = "ndstb"+num+"u"			
+			//var lastchar = denoid.substr(denoid.length - 2);
+
+			var numeid = "ndstb"+num+"u"
 			var deno = $("#"+denoid).val();
 			var nume = $("#"+numeid).val();
 
@@ -425,64 +427,66 @@
 				alert("The Numerator can not be empty!");
 			}
 			var res = deno-nume;
-			if(res<0){				
+			if(res<0){
 				alert("The Numerator: "+nume+" can not be greater than the Denominator: "+deno+"!");
 			}
 
 		}
 
+
+
 		function addnumber(number){
 			var receivers = $('#recipients').val();
 
 			if(number=="all"){
-				
+
 				if(receivers==""){
 					$('#recipients').val($('#all').attr('data-allnumbers'));
 				}else{
 					$('#recipients').val('');
 				}
 
-				
+
 			}else{
 				if($("#recipients").val().indexOf(','+number) >= 0){
 
-					
-					
+
+
 					$('#recipients').val(receivers.replace(','+number,''));
-						
+
 				}else if($("#recipients").val().indexOf(number+',') >= 0){
-					
-					
+
+
 					$('#recipients').val(receivers.replace(number+',',''));
-					
+
 				}else if($("#recipients").val().indexOf(number) >= 0){
-					
-					
+
+
 					$('#recipients').val(receivers.replace(number,''));
-					
+
 				}else{
 					if(receivers==""){
-						
+
 						$('#recipients').val(number);
 					}else{
 						$('#recipients').val(receivers+','+number);
 					}
-					
+
 				}
 			}
-				
+
 		}
 
 		// CHECK ALL
-		$('#all').click(function(event) {   
+		$('#all').click(function(event) {
 			if(this.checked) {
 				// Iterate each checkbox
 				$(':checkbox').each(function() {
-					this.checked = true;                        
+					this.checked = true;
 				});
 			} else {
 				$(':checkbox').each(function() {
-					this.checked = false;                       
+					this.checked = false;
 				});
 			}
 		});
@@ -494,13 +498,13 @@
 
 			$("#charcounter").text(currentLength + " characters");
 			$("#pagecounter").text(Math.ceil(currentLength/160) + " pages");
-				
+
 
 			if( currentLength >= maxlength ){
 				$("#error").text("You have reached the maximum number of characters.");
 			}else{
 				$("#charleft").text(maxlength - currentLength + " chars left");
-				
+
 			}
 		});
 
@@ -525,9 +529,15 @@
 		$('.btnPrevious').click(function(){
 			$('.nav-tabs > .active').prev('li').find('a').trigger('click');
 		});
-		
-        
-	</script>	
+
+        $('.newqi').click(function(){
+            var issue_id = $(this).attr("data-issue_id");
+            alert(issue_id);
+            $('#issue_id').val(issue_id);
+        });
+
+
+	</script>
 
 
 

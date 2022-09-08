@@ -57,6 +57,12 @@ Route::get('/aggregate-report', [App\Http\Controllers\HomeController::class, 'ne
 Route::post('/newareport', [App\Http\Controllers\HomeController::class, 'newAggreport'])->name('newareport')->middleware('role:Super');
 Route::get('/view-report/{id}/', [App\Http\Controllers\HomeController::class, 'viewReport'])->name('view-report')->middleware('role:Super');
 Route::get('/view-reportpdf/{id}/', [App\Http\Controllers\HomeController::class, 'viewReportpdf'])->name('view-reportpdf')->middleware('role:Super');
+Route::get('/edit-report/{id}/', [App\Http\Controllers\HomeController::class, 'editReport'])->name('edit-report')->middleware('role:Super');
+Route::post('/reportissues', [App\Http\Controllers\HomeController::class, 'newAggreportIssue'])->name('reportissues')->middleware('role:Super');
+Route::get('/agrissues/{id}', [App\Http\Controllers\HomeController::class, 'viewAgrIssues'])->name('agrissues')->middleware('role:Super');
+Route::post('/saveqi', [App\Http\Controllers\HomeController::class, 'addQI'])->name('saveqi')->middleware('role:Super');
+Route::post('/saveqicomment', [App\Http\Controllers\HomeController::class, 'addQIComment'])->name('saveqicomment')->middleware('role:Super');
+
 
 
 Route::get('/edit-member/{id}/', [App\Http\Controllers\HomeController::class, 'editMember'])->name('edit-member')->middleware('role:Worker,Admin,Super');

@@ -14,7 +14,7 @@ class AggreportController extends Controller
      */
     public function index()
     {
-        $aggreports = aggreport::all();
+        $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->get();
 
         return view('aggreports', compact('aggreports'));
     }
