@@ -14,6 +14,7 @@ use App\Models\aggreport;
 use App\Models\facilities;
 use App\Models\aggreportissues;
 use App\Models\aggreportactivities;
+use Artisan;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
