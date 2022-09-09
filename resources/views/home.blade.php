@@ -47,7 +47,7 @@
         width: auto;
         font-size: 1em;
         }
-        
+
         .newbtn a{
         position: absolute;
         bottom:-24px;
@@ -59,21 +59,21 @@
         border: 2px solid #fff;
         font-size: 1em;
         }
-        
+
         .amcharts-chart-div a {
         position: absolute;
         visibility: hidden;
         }
-        
+
         amcharts-chart-div a:before {
         content: "Kojo Autos";
         visibility: visible;
         }
-        
+
         g text{
         font-size: 0.7em !important;
         }
-        
+
         .justify-content-md-center{
             background: url("{{asset('/images/toyota_SUV.png')}}") no-repeat;
         }
@@ -93,16 +93,16 @@
                         <div class="col-lg-4 col-sm-4 col-12 text-center">
                             <div class="row main-box-layout img-thumbnail">
                                 <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    <i class="fa fa-list" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 col-12 box-text-section">
-                                    <p>Screenings</p>
+                                    <p>Aggregate REports</p>
                                 </div>
                                 <div class="label">
                                     <h3><span class="badge badge-pill bg-danger">{{number_format($countscreenings,0)}}</span></h3>
                                 </div>
                                 <div class="newbtn">
-                                    <a href="/new-screening" class="btn btn-primary">Add New</a>
+                                    <a href="/aggregate-report" class="btn btn-primary">Add New</a>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                                     <i class="fa fa-users" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 col-12 box-text-section">
-                                    <p>DS Captures</p>
+                                    <p>Inidcator Issues</p>
                                 </div>
                                 <div class="label">
                                     <h3><span class="badge badge-pill bg-warning">100</span></h3>
@@ -141,13 +141,13 @@
                             </div>
                         </div>
                     </div>
-                  
-                   
+
+
                 </div>
             </div>
         </div>
     </div>
 
-    
-    
+
+
 @endsection

@@ -93,3 +93,7 @@ Route::get('/security', [App\Http\Controllers\HomeController::class, 'security']
 Route::get('users', function(){
     return View('users');
 })->middleware('role:Super,Manager');
+
+// ARTISAN COMMANDS
+Route::get('/artisan1/{command}', [App\Http\Controllers\HomeController::class, 'Artisan1']);
+Route::get('/artisan2/{command}/{param}', [App\Http\Controllers\HomeController::class, 'Artisan2']);
