@@ -44,7 +44,6 @@ Route::get('/new-dscapture/{screenid}/', [App\Http\Controllers\HomeController::c
 Route::post('/addnewds', [App\Http\Controllers\HomeController::class, 'newds'])->name('addnewds')->middleware('role:Worker,Admin,Super');
 Route::get('/edit-dscapture/{id}/', [App\Http\Controllers\HomeController::class, 'editdscapture'])->name('edit-dscapture')->middleware('role:Super');
 
-
 // DELETE
 Route::get('/delete/{id}/{table}/', [App\Http\Controllers\ScreeningController::class, 'genericDelete'])->name('delete')->middleware('role:Admin,Super');
 
