@@ -90,7 +90,7 @@
                 <div class="container">
 
                     <div class="row form-row justify-content-md-center" style="padding-bottom: 40px;">
-                        <div class="col-lg-4 col-sm-4 col-12 text-center">
+                        <div class="col-lg-5 col-sm-4 col-12 text-center">
                             <div class="row main-box-layout img-thumbnail">
                                 <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
                                     <i class="fa fa-list" aria-hidden="true"></i>
@@ -102,44 +102,29 @@
                                     <h3><span class="badge badge-pill bg-danger">{{number_format($countscreenings,0)}}</span></h3>
                                 </div>
                                 <div class="newbtn">
-                                    <a href="/aggregate-report" class="btn btn-primary">Add New</a>
+                                    <a href="{{url('aggregate-report')}}" class="btn btn-primary">Add New</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-sm-4 col-12 text-center">
+                        <div class="col-lg-5 col-sm-4 col-12 text-center">
                             <div class="row main-box-layout img-thumbnail">
                                 <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
                                     <i class="fa fa-users" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 col-12 box-text-section">
-                                    <p>Inidcator Issues</p>
+                                    <p>Facilities</p>
                                 </div>
                                 <div class="label">
                                     <h3><span class="badge badge-pill bg-warning">100</span></h3>
                                 </div>
                                 <div class="newbtn">
-                                    <a href="/dscaptures" class="btn btn-primary">View All</a>
+                                    <a href="{{url('facilities')}}" class="btn btn-primary">View All</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-sm-4 col-12 text-center">
-                            <div class="row main-box-layout img-thumbnail">
-                                <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
-                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
-                                </div>
-                                <div class="col-lg-12 col-sm-12 col-12 box-text-section">
-                                    <p>DR TB Cases</p>
-                                </div>
-                                <div class="label">
-                                    <h3><span class="badge badge-pill bg-success">67</span></h3>
-                                </div>
-                                <div class="newbtn">
-                                    <a href="/dscaptures" class="btn btn-primary">All</a>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
 
 
