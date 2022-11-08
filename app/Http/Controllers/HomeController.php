@@ -276,7 +276,7 @@ class HomeController extends Controller
 
       Storage::put('/public/pdf/'.$report->title.'.pdf', $pdf_doc);
 
-      return $pdf_doc->stream($report->title.'.pdf');
+      return $pdf_doc->stream($report->title.'.pdf')->save('/public/pdf/'.$report->title.'.pdf');
 
         // return $pdf_doc->stream('invoice'.$tid.'.pdf');
     }

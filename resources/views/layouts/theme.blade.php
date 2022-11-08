@@ -140,7 +140,7 @@
 						</li>
 						@endauth
 						<li>
-							<a href="home"><i class="lnr lnr-home"></i> <span>Home</span></a>
+							<a href="{{url('home')}}"><i class="lnr lnr-home"></i> <span>Home</span></a>
 
 						</li>
 
@@ -148,10 +148,10 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="lnr lnr-user"></i> <span>@auth {{ Auth::user()->name }} @endauth </span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
-                                <li><a href="/users"><i class="lnr lnr-user"></i> <span>Users</span></a></li>
+                                <li><a href="{{url('users')}}"><i class="lnr lnr-user"></i> <span>Users</span></a></li>
 
                                 <li class="roledlink Admin Followup Super" style="visibility:hidden !important;"><a href="#"  data-toggle="modal" data-target="#settings"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-								<li><a href="logout"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+								<li><a href="{{url('logout')}}"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 							</ul>
 						</li>
 
@@ -167,7 +167,7 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="home" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="{{url('home')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<!--
 							<li class="roledlink Worker Admin Followup Pastor Finance Super" style="visibility:hidden;">
 								<a href="#subPages1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-magnifier"></i> <span>Screening</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
@@ -195,8 +195,8 @@
 							<a href="#subPages6" data-toggle="collapse" class="collapsed"><i class="lnr lnr-checkmark-circle"></i> <span>Report</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages6" class="collapse ">
 								<ul class="nav">
-									<li><a href="aggregate-report" class="">New Aggregate Report</a></li>
-									<li><a href="aggreports" class="">View Aggregate Reports</a></li>
+									<li><a href="{{url('aggregate-report')}}" class="">New Aggregate Report</a></li>
+									<li><a href="{{url('aggreports')}}" class="">View Aggregate Reports</a></li>
 
 									<!--
 										<li><a href="new-activity" class="">New Report</a></li>
@@ -211,8 +211,8 @@
 							<a href="#subPages7" data-toggle="collapse" class="collapsed"><i class="lnr lnr-home"></i> <span>Facilities</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages7" class="collapse ">
 								<ul class="nav">
-									<li><a href="facilities" class="">Facilities</a></li>
-									<li><a href="new-facility" class="">New Facility</a></li>
+									<li><a href="{{url('facilities')}}" class="">Facilities</a></li>
+									<li><a href="{{url('new-facility')}}" class="">New Facility</a></li>
 								</ul>
 							</div>
 						</li>
