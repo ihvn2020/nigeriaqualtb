@@ -274,7 +274,9 @@ class HomeController extends Controller
 
       $pdf_doc = \PDF::loadView('aggregate_reportpdf', compact('report'));
 
-      return $pdf_doc->save('/public/pdf/'.$report->title.'.pdf')->stream($report->title.'.pdf');
+      $report =  $pdf_doc->save('/public/pdf/'.$report->title.'.pdf');
+
+      return $report->stream($report->title.'.pdf');
 
       // return view('aggregate_reportpdf', compact('report'));
     }
