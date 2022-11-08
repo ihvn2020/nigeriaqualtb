@@ -272,7 +272,7 @@ class HomeController extends Controller
     public function viewReportpdf($id){
       $report = aggreport::where('id',$id)->first();
 
-      $pdf_doc = \PDF::loadView('aggregate_reportpdf', compact('report'))->output();
+      $pdf_doc = \PDF::loadView('aggregate_reportpdf', compact('report'));
 
       Storage::put('/public/pdf/'.$report->title.'.pdf', $pdf_doc);
 
