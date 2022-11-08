@@ -3,13 +3,13 @@
 @section('content')
     @php $pagetype="report"; @endphp
 
-    <h3 class="page-title">Aggregate Reports | <small style="color: green">View All</small></h3>
+    <h3 class="page-title">Users | <small style="color: green">View All</small></h3>
     <div class="row">
 
 
 
             <div class="panel">
-                <a href="/register" class="btn btn-primary pull-right" style="margin-bottom: 10px;">New User</a>
+                <a href="{{url('register')}}" class="btn btn-primary pull-right" style="margin-bottom: 10px;">New User</a>
 
                 <div class="panel-body">
                     @php
@@ -47,7 +47,7 @@
                             <td>{{ $facilities[array_search($ca->facility, array_column($facilities->toArray(), 'id'))]['facility_name']}}</td>
                             <td>{{$ca->state}}</td>
                             <td>{{$ca->role}}</td>
-                            <td><a href="/edit_user/{{$ca->id}}" class="btn btn-xs">Edit</a> </td>
+                            <td><a href="{{url('edit_user/{{$ca->id}})}}" class="btn btn-xs">Edit</a> </td>
 
                         </tr>
                         @endforeach
