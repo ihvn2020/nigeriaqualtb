@@ -161,12 +161,13 @@
                                     class="lnr lnr-user"></i> <span>@auth {{ Auth::user()->name }} @endauth </span> <i
                                     class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ url('users') }}"><i class="lnr lnr-user"></i> <span>Users</span></a>
+                                <li class="roledlink Super" style="visibility:hidden !important;"><a
+                                        href="{{ url('users') }}"><i class="lnr lnr-user"></i> <span>Users</span></a>
                                 </li>
 
-                                <li class="roledlink Admin Super" style="visibility:hidden !important;"><a
-                                        href="#" data-toggle="modal" data-target="#settings"><i
-                                            class="lnr lnr-cog"></i> <span>Settings</span></a></li>
+                                <li class="roledlink Super" style="visibility:hidden !important;"><a href="#"
+                                        data-toggle="modal" data-target="#settings"><i class="lnr lnr-cog"></i>
+                                        <span>Settings</span></a></li>
                                 <li><a href="{{ url('logout') }}"><i class="lnr lnr-exit"></i> <span>Logout</span></a>
                                 </li>
                             </ul>
@@ -229,7 +230,7 @@
                             </div>
                         </li>
 
-                        <li class="roledlink Admin Super User" style="visibility:hidden;">
+                        <li class="roledlink Admin Super" style="visibility:hidden;">
                             <a href="#subPages7" data-toggle="collapse" class="collapsed"><i
                                     class="lnr lnr-home"></i> <span>Facilities</span> <i
                                     class="icon-submenu lnr lnr-chevron-left"></i></a>
