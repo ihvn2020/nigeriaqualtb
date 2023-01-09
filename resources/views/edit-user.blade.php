@@ -14,10 +14,10 @@
                     @csrf
                     <input type="hidden" name="id" value="{{ $user->id }}">
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
 
 
-                        <div class="form-group row">
+                        <div class="form-group">
                             <label for="name" class="control-label ">{{ __('Name') }}</label>
 
 
@@ -33,11 +33,7 @@
 
                         </div>
 
-
-
-
-
-                        <div class="form-group row">
+                        <div class="form-group">
                             <label for="phone_number" class="control-label ">{{ __('Phone Number') }}</label>
 
 
@@ -54,15 +50,23 @@
 
                         </div>
 
+                        <div class="form-group">
+                            <label for="role" class="control-label ">Role</label>
+                            <select class="form-control" name="role" id="role">
+                                <option value="" selected>Select Role</option>
+                                <option value="User">User</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                        </div>
+
                     </div>
 
                     @php
                         $facilities = \App\Models\facilities::all();
                     @endphp
-                    <div class="col-md-3  col-md-offset-1">
+                    <div class="col-md-6">
 
-
-                        <div class="form-group row">
+                        <div class="form-group">
                             <label for="state" class="control-label ">State</label>
                             <select class="form-control" name="state" id="state">
                                 <option value="">Select State</option>
@@ -77,7 +81,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group">
                             <label for="facility" class="control-label ">Facility</label>
                             <select class="form-control" name="facility" id="facility">
                                 <option value="">Select Facility</option>
@@ -93,16 +97,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="role" class="control-label ">Role</label>
-                            <select class="form-control" name="role" id="role">
-                                <option value="" selected>Select Role</option>
-                                <option value="User">User</option>
-                                <option value="Admin">Admin</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group row">
+                        <div class="form-group">
                             <label for="status" class="control-label ">Status</label>
                             <select class="form-control" name="status" id="status">
                                 <option value="" selected>Select Status</option>
@@ -110,7 +105,6 @@
                                 <option value="Inactive">Inactive</option>
                             </select>
                         </div>
-
 
                     </div>
 
