@@ -73,7 +73,7 @@
 
                                 <option value="{{ $user->state }}" selected>{{ $user->state }}
                                 </option>
-                                @foreach ($facilities as $fac)
+                                @foreach ($facilities->unique('state') as $fac)
                                     <option value="{{ $fac->state }}">{{ $fac->state }}</option>
                                 @endforeach
 
