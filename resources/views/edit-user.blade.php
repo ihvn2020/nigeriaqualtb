@@ -69,7 +69,6 @@
                         <div class="form-group">
                             <label for="state" class="control-label ">State</label>
                             <select class="form-control" name="state" id="state">
-                                <option value="">Select State</option>
 
                                 <option value="{{ $user->state }}" selected>{{ $user->state }}
                                 </option>
@@ -84,7 +83,6 @@
                         <div class="form-group">
                             <label for="facility" class="control-label ">Facility</label>
                             <select class="form-control" name="facility" id="facility">
-                                <option value="">Select Facility</option>
 
                                 <option value="{{ $user->facility }}" selected>{{ $user->facility }}
                                 </option>

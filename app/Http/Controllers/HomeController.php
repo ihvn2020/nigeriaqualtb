@@ -282,11 +282,11 @@ class HomeController extends Controller
             'name' => "",
             'phone_number' => "",
             'email' => "",
-            'state' => "",
-            'facility' => "",
-            'status' => "",
+            'state' => "Select State",
+            'facility' => "Select Facility",
+            'status' => "Select Status",
             'password'=>"",
-            'role'=>""
+            'role'=>"Select Role"
         ];
         return view('edit-user')->with(['user'=>$user]);
     }
