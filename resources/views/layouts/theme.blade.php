@@ -568,7 +568,7 @@
 
     $('.newqi').click(function() {
         var issue_id = $(this).attr("data-issue_id");
-        alert(issue_id);
+        // alert(issue_id);
         $('#issue_id').val(issue_id);
     });
 </script>
