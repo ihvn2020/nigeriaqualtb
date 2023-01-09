@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="right"
-                        style="background-image: url('../images/{{ $settings->background }}'); background-repeat: no-repeat; background-size: cover;">
+                        style="background-image: url('images/{{ $settings->background }}'); background-repeat: no-repeat; background-size: cover;">
                         <div class="overlay"></div>
                         <div class="content text">
                             <h1 class="heading">{{ $settings->ministry_name }}</h1>
