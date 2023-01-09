@@ -277,7 +277,17 @@ class HomeController extends Controller
 
 
     public function newUser(){
-        $user = (object) ['id' => 0];
+        $user = (object) [
+            'id' => 0,
+            'name' => "",
+            'phone_number' => "",
+            'email' => "",
+            'state' => "",
+            'facility' => "",
+            'status' => "",
+            'password'=>"",
+            'role'=>""
+        ];
         return view('edit-user')->with(['user'=>$user]);
     }
 
