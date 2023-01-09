@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <label for="role" class="control-label ">Role</label>
                             <select class="form-control" name="role" id="role">
-                                <option value="" selected>Select Role</option>
+                                <option value="{{ $user->role }}" selected>{{ $user->role }}</option>
                                 <option value="User">User</option>
                                 <option value="Admin">Admin</option>
                             </select>
@@ -100,7 +100,7 @@
                         <div class="form-group">
                             <label for="status" class="control-label ">Status</label>
                             <select class="form-control" name="status" id="status">
-                                <option value="" selected>Select Status</option>
+                                <option value="{{ $user->status }}" selected>{{ $user->status }}</option>
                                 <option value="Active">Active</option>
                                 <option value="Inactive">Inactive</option>
                             </select>
@@ -114,7 +114,6 @@
 
                     <div class="form-group col-md-4">
                         <label for="email" class="control-label ">{{ __('E-Mail Address') }}</label>
-
 
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                             name="email" value="{{ $user->email }}" autocomplete="email" placeholder="E-mail">
@@ -167,7 +166,7 @@
 
                         <button type="submit" class="btn btn-primary  pull-right">
                             <i class="fa fa-check"></i>
-                            {{ __('Update User Info') }}
+                            {{ __('Save') }}
                         </button>
 
                     </div>
