@@ -157,7 +157,7 @@
 
                     <div class="col-md-6 col-md-offset-6">
                         @if ($user->id)
-                            <a href="/delete-user/{{ $user->id }}" class="btn btn-danger pull-left"
+                            <a href="{{ url('delete-user/' . $user->id) }}" class="btn btn-danger pull-left"
                                 onclick="return confirm('Are you sure you want to delete {{ $user->name }}\'s account?')"><i
                                     class="fa fa-remove"></i> Delete User</a>
                         @endif
