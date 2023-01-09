@@ -63,10 +63,10 @@ Route::post('/saveqi', [App\Http\Controllers\HomeController::class, 'addQI'])->n
 Route::post('/saveqicomment', [App\Http\Controllers\HomeController::class, 'addQIComment'])->name('saveqicomment')->middleware('role:Super');
 
 
-Route::get('/new-user', [App\Http\Controllers\HomeController::class, 'newUser'])->name('new-user')->middleware('role:Admin');
+Route::get('/new-user', [App\Http\Controllers\HomeController::class, 'newUser'])->name('new-user')->middleware('role:Super,Admin');
 
-Route::get('/edit-user/{id}/', [App\Http\Controllers\HomeController::class, 'editUser'])->name('edit-user')->middleware('role:Admin');
-Route::post('/addnew-user', [App\Http\Controllers\HomeController::class, 'create'])->name('addnew-user')->middleware('role:Admin');
+Route::get('/edit-user/{id}/', [App\Http\Controllers\HomeController::class, 'editUser'])->name('edit-user')->middleware('role:Super,Admin');
+Route::post('/addnew-user', [App\Http\Controllers\HomeController::class, 'create'])->name('addnew-user')->middleware('role:Super,Admin');
 
 Route::get('/delete-member/{id}/', [App\Http\Controllers\HomeController::class, 'deleteMember'])->name('delete-member')->middleware('role:Admin,Super');
 Route::post('/settings', [App\Http\Controllers\HomeController::class, 'settings'])->name('settings')->middleware('role:Super');
@@ -93,7 +93,7 @@ Route::get('/security', [App\Http\Controllers\HomeController::class, 'security']
 
 Route::get('users', function(){
     return View('users');
-})->middleware('role:Super,Manager');
+})->middleware('role:Super,Admin');
 
 // ARTISAN COMMANDS
 Route::get('/artisan1/{command}', [App\Http\Controllers\HomeController::class, 'Artisan1']);

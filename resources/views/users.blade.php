@@ -46,7 +46,7 @@
                                     </td>
                                     <td>{{ $ca->state }}</td>
                                     <td>{{ $ca->role }}</td>
-                                    <td><a href="{{ url('edit_user/' . $ca->id) }}" class="btn btn-xs">Edit</a> </td>
+                                    <td><a href="{{ url('edit-user/' . $ca->id) }}" class="btn btn-xs">Edit</a> </td>
 
                                 </tr>
                             @endforeach
