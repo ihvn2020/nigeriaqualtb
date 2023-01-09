@@ -68,7 +68,7 @@ Route::get('/new-user', [App\Http\Controllers\HomeController::class, 'newUser'])
 Route::get('/edit-user/{id}/', [App\Http\Controllers\HomeController::class, 'editUser'])->name('edit-user')->middleware('role:Super,Admin');
 Route::post('/addnew-user', [App\Http\Controllers\HomeController::class, 'create'])->name('addnew-user')->middleware('role:Super,Admin');
 
-Route::get('/delete-member/{id}/', [App\Http\Controllers\HomeController::class, 'deleteMember'])->name('delete-member')->middleware('role:Admin,Super');
+Route::get('/delete-user/{id}/', [App\Http\Controllers\HomeController::class, 'deleteUser'])->name('delete-user')->middleware('role:Super');
 Route::post('/settings', [App\Http\Controllers\HomeController::class, 'settings'])->name('settings')->middleware('role:Super');
 Route::post('/searchmembers', [App\Http\Controllers\HomeController::class, 'membersSearch'])->name('searchmembers')->middleware('role:Worker,Admin,Finance,Super');
 

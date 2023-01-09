@@ -328,6 +328,13 @@ class HomeController extends Controller
 
     }
 
+    public function deleteUser($id)
+    {
+        User::findOrFail($id)->delete();
+        $message = 'The User has been deleted!';
+        return redirect()->route('users')->with(['message'=>$message]);
+    }
+
 
     public function settings(request $request){
       $validateData = $request->validate([
