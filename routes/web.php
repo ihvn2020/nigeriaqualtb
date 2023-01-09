@@ -52,8 +52,8 @@ Route::get('/delete/{id}/{table}/', [App\Http\Controllers\ScreeningController::c
 Route::get('/aggreports', [App\Http\Controllers\AggreportController::class, 'index'])->name('aggreports')->middleware('role:Super');
 Route::get('/new-activity', [App\Http\Controllers\HomeController::class, 'newActivity'])->name('new-activity')->middleware('role:Super');
 Route::post('/newreport', [App\Http\Controllers\HomeController::class, 'newReport'])->name('newreport')->middleware('role:Super,Admin,User');
-Route::get('/aggregate-report', [App\Http\Controllers\HomeController::class, 'newAreport'])->name('aggregate-report')->middleware('role:Super');
-Route::post('/newareport', [App\Http\Controllers\HomeController::class, 'newAggreport'])->name('newareport')->middleware('role:Super');
+Route::get('/aggregate-report', [App\Http\Controllers\HomeController::class, 'newAreport'])->name('aggregate-report')->middleware('role:Super,Admin,User');
+Route::post('/newareport', [App\Http\Controllers\HomeController::class, 'newAggreport'])->name('newareport')->middleware('role:Super,Admin,User');
 Route::get('/view-report/{id}/', [App\Http\Controllers\HomeController::class, 'viewReport'])->name('view-report')->middleware('role:Super');
 Route::get('/view-reportpdf/{id}/', [App\Http\Controllers\HomeController::class, 'viewReportpdf'])->name('view-reportpdf')->middleware('role:Super');
 Route::get('/edit-report/{id}/', [App\Http\Controllers\HomeController::class, 'editReport'])->name('edit-report')->middleware('role:Super');

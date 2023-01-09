@@ -1,83 +1,88 @@
 @extends('layouts.theme')
 
 @section('content')
-
-<style>
-        .main-box-layout{
-        margin: 0px;
-        margin-top: 30px;
-        position: relative;
-        box-shadow: -3px 3px 3px 0px #5f5e5e;
-        }
-        .main-box-layout:hover .box-icon-section i{
-        font-size:70px;
-        transform: rotate(360deg);
-        transition:1s;
-        }
-        .box-icon-section{
-        display: table;
-        height:100px;
-        color:#fff;
-        }
-        .box-icon-section i{
-        font-size:30px;
-        display: table-cell;
-        vertical-align: middle;
-        transition:transform 0.4s ease-in-out;
-        transition: 1s;
-        }
-        .box-text-section{
-        background-color:#1f1e1e;
-        }
-        .box-text-section p{
-        margin: 0px;
-        color:#fff;
-        padding:10px 0px;
-        }
-        .label .badge{
-        position: absolute;
-        top:-19px;
-        left: 50%;
-        transform: translateX(-50%);
-        /*background-color: #4b4949;*/
-        color: #fff;
-        box-shadow: 0px 0px 3px 0px #fff;
-        border: 2px solid #fff;
-        height: 35px;
-        width: auto;
-        font-size: 1em;
+    <style>
+        .main-box-layout {
+            margin: 0px;
+            margin-top: 30px;
+            position: relative;
+            box-shadow: -3px 3px 3px 0px #5f5e5e;
         }
 
-        .newbtn a{
-        position: absolute;
-        bottom:-24px;
-        left: 50%;
-        transform: translateX(-50%);
-        /*background-color: #212f4e;*/
-        color: #fff;
-        box-shadow: 0px 0px 3px 0px #fff;
-        border: 2px solid #fff;
-        font-size: 1em;
+        .main-box-layout:hover .box-icon-section i {
+            font-size: 70px;
+            transform: rotate(360deg);
+            transition: 1s;
+        }
+
+        .box-icon-section {
+            display: table;
+            height: 100px;
+            color: #fff;
+        }
+
+        .box-icon-section i {
+            font-size: 30px;
+            display: table-cell;
+            vertical-align: middle;
+            transition: transform 0.4s ease-in-out;
+            transition: 1s;
+        }
+
+        .box-text-section {
+            background-color: #1f1e1e;
+        }
+
+        .box-text-section p {
+            margin: 0px;
+            color: #fff;
+            padding: 10px 0px;
+        }
+
+        .label .badge {
+            position: absolute;
+            top: -19px;
+            left: 50%;
+            transform: translateX(-50%);
+            /*background-color: #4b4949;*/
+            color: #fff;
+            box-shadow: 0px 0px 3px 0px #fff;
+            border: 2px solid #fff;
+            height: 35px;
+            width: auto;
+            font-size: 1em;
+        }
+
+        .newbtn a {
+            position: absolute;
+            bottom: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            /*background-color: #212f4e;*/
+            color: #fff;
+            box-shadow: 0px 0px 3px 0px #fff;
+            border: 2px solid #fff;
+            font-size: 1em;
         }
 
         .amcharts-chart-div a {
-        position: absolute;
-        visibility: hidden;
+            position: absolute;
+            visibility: hidden;
         }
 
         amcharts-chart-div a:before {
-        content: "Kojo Autos";
-        visibility: visible;
+            content: "Kojo Autos";
+            visibility: visible;
         }
 
-        g text{
-        font-size: 0.7em !important;
+        g text {
+            font-size: 0.7em !important;
         }
 
-        .justify-content-md-center{
-            background: url("{{asset('/images/toyota_SUV.png')}}") no-repeat;
+        .justify-content-md-center {
+            background: url("{{ asset('/images/toyota_SUV.png') }}") no-repeat;
         }
-</style>
+    </style>
     @php $pagename="dashboard"; @endphp
 
     <h3 class="page-title">Dashboard | <small style="color: green">Summary</small></h3>
@@ -99,10 +104,12 @@
                                     <p>Aggregate REports</p>
                                 </div>
                                 <div class="label">
-                                    <h3><span class="badge badge-pill bg-danger">{{number_format($countscreenings,0)}}</span></h3>
+                                    <h3><span
+                                            class="badge badge-pill bg-danger">{{ number_format($countscreenings, 0) }}</span>
+                                    </h3>
                                 </div>
                                 <div class="newbtn">
-                                    <a href="{{url('aggregate-report')}}" class="btn btn-primary">Add New</a>
+                                    <a href="{{ url('aggregate-report') }}" class="btn btn-primary">Add New</a>
                                 </div>
                             </div>
                         </div>
@@ -116,10 +123,12 @@
                                     <p>Facilities</p>
                                 </div>
                                 <div class="label">
-                                    <h3><span class="badge badge-pill bg-warning">100</span></h3>
+                                    <h3><span
+                                            class="badge badge-pill bg-warning">{{ \App\Models\User::all()->count() }}</span>
+                                    </h3>
                                 </div>
                                 <div class="newbtn">
-                                    <a href="{{url('facilities')}}" class="btn btn-primary">View All</a>
+                                    <a href="{{ url('facilities') }}" class="btn btn-primary">View All</a>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +141,4 @@
             </div>
         </div>
     </div>
-
-
-
 @endsection
