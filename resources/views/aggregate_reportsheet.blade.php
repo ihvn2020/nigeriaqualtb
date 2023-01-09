@@ -614,7 +614,7 @@
 
 
                     <fieldset>
-                        <h3>Document Observed Issues</h3><hr>
+                        <h3>Highlight Observed Issues</h3><hr>
                         <form method="POST" action="{{ route('reportissues') }}">
 
                             @csrf
