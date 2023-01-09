@@ -80,14 +80,6 @@ class HomeController extends Controller
       return view('members', compact('members','users'));
     }
 
-    public function member($id)
-    {
-      $member = User::where('id',$id)->first();
-
-      return view('member', compact('member'));
-    }
-
-
     public function dscaptures()
     {
       $dscaptures = dscaptures::orderBy('id','ASC')->get();
@@ -225,7 +217,6 @@ class HomeController extends Controller
 
     }
 
-
     public function addQIComment(request $request)
     {
 
@@ -256,8 +247,6 @@ class HomeController extends Controller
 
     }
 
-
-
     public function viewReport($id){
       $report = aggreport::where('id',$id)->first();
       return view('aggregate_reportsheet', compact('report'));
@@ -286,6 +275,16 @@ class HomeController extends Controller
         return view('aggreport-issues', compact('aggreportissues'));
     }
 
+
+    public function newUser(){
+        $user = (object) ['id' => 0];
+        return view('edit-user')->with(['user'=>$user]);
+    }
+
+    public function editUser($id){
+        $user = User::where('id',$id)->first();
+        return view('edit-user')->with(['user'=>$user]);
+    }
 
     protected function create(request $request)
     {
