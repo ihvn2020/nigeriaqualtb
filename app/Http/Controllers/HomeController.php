@@ -312,8 +312,6 @@ class HomeController extends Controller
         User::updateOrCreate(['id'=>$request->id],[
             'name' => $request->name,
             'email' => $email,
-
-            'age_group'=>$request->age_group,
             'phone_number'=>$request->phone_number,
             'password' => $password,
 
@@ -326,7 +324,7 @@ class HomeController extends Controller
         ]);
         $members = User::all();
         $users = User::select('name','id')->get();
-        return view('members', compact('members','users'));
+        return redirect()->route('users');
 
     }
 
