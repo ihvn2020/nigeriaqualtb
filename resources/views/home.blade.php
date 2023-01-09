@@ -124,7 +124,7 @@
                                 </div>
                                 <div class="label">
                                     <h3><span
-                                            class="badge badge-pill bg-warning">{{ \App\Models\User::all()->count() }}</span>
+                                            class="badge badge-pill bg-warning">{{ \App\Models\facilities::all()->count() }}</span>
                                     </h3>
                                 </div>
                                 <div class="newbtn">
