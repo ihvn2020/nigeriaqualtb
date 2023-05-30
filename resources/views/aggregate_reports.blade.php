@@ -353,7 +353,7 @@
                         <h3>DRTB</h3>
                         <hr>
                         <div class="panel panel-default">
-                            <div class="panel-heading">9. Proportion of all DR-TB cases diagnosed during the review period
+                            <div class="panel-heading">1. Proportion of all DR-TB cases diagnosed during the review period
                                 who initiated treatment for DR-TB within two weeks of diagnosis.<div class="result"
                                     id="ndstb9value">3</div>
                             </div>
@@ -385,7 +385,7 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">9. Proportion of patients started on second-line TB treatment during
+                            <div class="panel-heading">2. Proportion of patients started on second-line TB treatment during
                                 the 6 months review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr,
                                 Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented after 2
                                 weeks of sample collection.<div class="result" id="ndstb10value">3</div>
@@ -419,7 +419,7 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">11. Proportion of patients started on second-line TB treatment 9 or
+                            <div class="panel-heading">3. Proportion of patients started on second-line TB treatment 9 or
                                 12 months prior to the beginning of review period (i.e. 9 or 12 months after the closing day
                                 of the cohort) who have their follow-up examinations (AFB, Culture, EUCr, ECG done monthly
                                 during the intensive phase within the review period.<div class="result" id="ndstb11value">
@@ -454,7 +454,7 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">12. Proportion of DR-TB patients started on treatment 6 months prior
+                            <div class="panel-heading">4. Proportion of DR-TB patients started on treatment 6 months prior
                                 to the review period with complete documentation in the treatment card and the DR-TB
                                 facility (treatment) register.<div class="result" id="ndstb12value">3</div>
                             </div>
@@ -491,7 +491,7 @@
                         <h3>PAEDIATRICS</h3>
                         <hr>
                         <div class="panel panel-default">
-                            <div class="panel-heading">13. Proportion of presumptive paediatric TB cases under 15 years
+                            <div class="panel-heading">1. Proportion of presumptive paediatric TB cases under 15 years
                                 identified within the review period who had access to either chest X-ray and/or Xpert
                                 MTB?RIF and/or stool depending on the age<div class="result" id="ndstb13value">3</div>
                             </div>
@@ -531,7 +531,7 @@
 
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">14. Proportion of children under 15 years diagnosed with TB within
+                            <div class="panel-heading">2. Proportion of children under 15 years diagnosed with TB within
                                 the review period.<div class="result" id="ndstb15value">3</div>
                             </div>
                             <div class="panel-body">
@@ -561,7 +561,7 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">15. Proportion of patients under 15 years among confirmed TB cases
+                            <div class="panel-heading">3. Proportion of patients under 15 years among confirmed TB cases
                                 diagnosed within the review period that have initiated treatment for TB within two days of
                                 diagnosis.<div class="result" id="ndstb16value">3</div>
                             </div>
@@ -593,7 +593,7 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">16. Proportion of paediatric TB patients started on treatment 6
+                            <div class="panel-heading">4. Proportion of paediatric TB patients started on treatment 6
                                 months prior to the review period with complete documentation in the treatment card and the
                                 DR-TB facility (treatment) register.<div class="result" id="ndstb17value">3</div>
                             </div>
@@ -630,7 +630,7 @@
                         <h3>FACILITY PERFORMANCE</h3>
                         <hr>
                         <div class="panel panel-default">
-                            <div class="panel-heading">17. Proportion of health care workers (HCW) who were screened for TB
+                            <div class="panel-heading">1. Proportion of health care workers (HCW) who were screened for TB
                                 12 months prior to the review period.<div class="result" id="ndstb18value">3</div>
                             </div>
                             <div class="panel-body">
@@ -660,7 +660,7 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">18. Proportion of infection control strategies in place at the
+                            <div class="panel-heading">2. Proportion of infection control strategies in place at the
                                 facility (i.e. IPC plan and policy, IPC guidelines, IPC focal person, IPC committee [minutes
                                 of meeting], IEC materials, evidence of use of IPC checklist to monitor implementation
                                 monthly)<div class="result" id="ndstb19value">3</div>
