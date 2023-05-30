@@ -263,9 +263,10 @@ class HomeController extends Controller
 
       $pdf_doc = \PDF::loadView('aggregate_reportpdf', compact('report'));
 
-      Storage::put('/public/pdf/'.$report->title.'.pdf', $pdf_doc);
-
-      return $pdf_doc->stream($report->title.'.pdf')->save('/public/pdf/'.$report->title.'.pdf');
+      Storage::put('/pdf/'.$report->title.'.pdf', $pdf_doc);
+      // $pdf_doc->save('/public/pdf/'.$report->title.'.pdf');
+      // return $pdf_doc->stream($report->title.'.pdf');
+      return $pdf_doc->stream($report->title.'.pdf');
 
         // return $pdf_doc->stream('invoice'.$tid.'.pdf');
     }
