@@ -92,12 +92,12 @@
                                         Register)
 
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb1u15" id="ndstb1u15" placeholder="0-14yrs"
                                             class="form-control tooltipped" data-toggle="tooltip" data-placement="top"
                                             title="Total # of 0-14yrs">
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb1a15" id="ndstb1a15" placeholder="15+yrs"
                                             class="form-control tooltipped" data-toggle="tooltip" data-placement="top"
                                             title="Total # of 15yrs and above">
@@ -110,7 +110,7 @@
                                         <b>Denominator: </b>Total number of hospital attendees within the review period
                                         (Facility OPD Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb1" id="ddstb1" placeholder="Total"
                                             class="form-control">
                                     </div>
@@ -126,17 +126,17 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
-                                    <div class="col-xs-6" style="font-size: 0.7em !important;">
+                                    <div class="col-xs-4" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of bacteriologically diagnosed index TB patients during the
                                         review period who had their household contacts traced within one month of treatment
                                         initiation. (Contact Investigation Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb2u15" id="ndstb2u15" placeholder="0-14yrs"
                                             class="form-control tooltipped" data-toggle="tooltip" data-placement="top"
                                             title="Total # of 0-14yrs">
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb2a15" id="ndstb2a15" placeholder="15+yrs"
                                             class="form-control tooltipped" data-toggle="tooltip" data-placement="top"
                                             title="Total # of 15yrs and above">
@@ -145,11 +145,11 @@
                                 </div>
 
                                 <div class="row form-row">
-                                    <div class="col-xs-9" style="font-size: 0.7em !important;">
+                                    <div class="col-xs-8" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Total number of bacteriologically diagnosed index TB patients
                                         during the review period. (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb2" id="ddstb2" placeholder="Total"
                                             class="form-control">
                                     </div>
@@ -171,7 +171,7 @@
                                         bacteriologically positive TB cases
                                         initiated on TPT (Contact Investigation Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb3u" id="ndstb3u" class="form-control">
                                     </div>
 
@@ -183,7 +183,7 @@
                                         positive TB cases eligible
                                         for TPT(Contact Investigation Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb3" id="ddstb3" class="form-control"
                                             onChange="compareDeno(3) ">
                                     </div>
@@ -204,7 +204,7 @@
                                         <b>Numerator: </b>Number of presumptive TB cases identified within the review period
                                         evaluated for TB using WHO Rapid Diagnostics (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb4u" id="ndstb4u" class="form-control">
                                     </div>
 
@@ -215,7 +215,7 @@
                                         <b>Denominator: </b>Total number of presumptive TB cases identified within the
                                         review period evaluated (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb4" id="ddstb4" class="form-control"
                                             onChange="compareDeno(4) ">
                                     </div>
@@ -238,7 +238,7 @@
                                         results received
                                         within 72 hrs of sending sputum specimen to Lab. (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb5u" id="ndstb5u" class="form-control">
                                     </div>
 
@@ -250,7 +250,7 @@
                                         review period whose sample (sputum/stool specimen) were received (Presumptive
                                         Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb5" id="ddstb5" class="form-control"
                                             onChange="compareDeno(5) ">
                                     </div>
@@ -271,7 +271,7 @@
                                         that have initiated treatment for TB within two days of diagnosis (Treatment
                                         Register/Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb6u" id="ndstb6u" class="form-control">
                                     </div>
 
@@ -282,7 +282,7 @@
                                         <b>Denominator: </b>Total number of confirmed TB cases within the review
                                         period. (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb6" id="ddstb6" class="form-control"
                                             onChange="compareDeno(6) ">
                                     </div>
@@ -305,7 +305,7 @@
                                         documented follow-up sputum smear AFB within the recommended time frame (2,5 & 6
                                         months). (Treatment Register/Treatment Card)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb7u" id="ndstb7u" class="form-control">
                                     </div>
 
@@ -317,7 +317,7 @@
                                         or Xpert MTB/RIF started on treatment in the 6 months prior to the review period
                                         (Treatment Register/Treatment Card)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb7" id="ddstb7" class="form-control"
                                             onChange="compareDeno(7) ">
                                     </div>
@@ -338,7 +338,7 @@
                                         the review period with complete documentation in the treatment card and the TB
                                         facility (treatment) register. (Treatment Card and Treatment Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb8u" id="ndstb8u" class="form-control">
                                     </div>
 
@@ -349,7 +349,7 @@
                                         <b>Denominator: </b>Number of DS-TB patients started on treatment 6 months prior to
                                         the review period. (Treatment Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb8" id="ddstb8" class="form-control"
                                             onChange="compareDeno(8) ">
                                     </div>
@@ -374,7 +374,7 @@
                                         initiated treatment for DR-TB within two weeks of diagnosis. (DRTB Treatment
                                         Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb9u" id="ndstb9u" class="form-control">
                                     </div>
 
@@ -385,7 +385,7 @@
                                         <b>Denominator: </b>Number of all DR-TB cases diagnosed during the review period.
                                         (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb9" id="ddstb9" class="form-control"
                                             onChange="compareDeno(9) ">
                                     </div>
@@ -408,7 +408,7 @@
                                         Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented
                                         after 2 weeks of sample collection. (DRTB Treatment Register/DRTB Treatment Card)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb10u" id="ndstb10u" class="form-control">
                                     </div>
 
@@ -419,7 +419,7 @@
                                         <b>Denominator: </b>Number of patients started on second-line TB treatment during
                                         the 6 months review period. (DRTB Treatment Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb10" id="ddstb10" class="form-control"
                                             onChange="compareDeno(10) ">
                                     </div>
@@ -443,7 +443,7 @@
                                         closing day of the cohort) who have their follow-up examinations (AFB, Culture,
                                         EUCr, ECG done monthly during the intensive phase within the review period.
                                     </div> (DRTB Treatment Register)
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb11u" id="ndstb11u" class="form-control">
                                     </div>
 
@@ -454,7 +454,7 @@
                                         <b>Denominator: </b>Number of patients started on second-line TB treatment 19 or 12
                                         months prior to the beginning of review period. (DRTB Treatment Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb11" id="ddstb11" class="form-control"
                                             onChange="compareDeno(11) ">
                                     </div>
@@ -475,7 +475,7 @@
                                         the review period with complete documentation in the treatment card and the DR-TB
                                         facility (treatment) register. (DRTB Treatment Register/DRTB Treatment Card)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb12u" id="ndstb12u" class="form-control">
                                     </div>
 
@@ -486,7 +486,7 @@
                                         <b>Denominator: </b>Number of DR-TB patients started on treatment 6 months prior to
                                         the review period. (DRTB Treatment Register/DRTB Treatment Card)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb12" id="ddstb12" class="form-control"
                                             onChange="compareDeno(12) ">
                                     </div>
@@ -512,7 +512,7 @@
                                         identified within the review period who had access to either chest X-ray and/or
                                         Xpert MTB?RIF and/or stool depending on the age. (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb13u" id="ndstb13u" class="form-control">
                                     </div>
 
@@ -523,7 +523,7 @@
                                         <b>Denominator: </b>Total Number of presumptive paediatric TB cases under 15 years
                                         identified within the review period. (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb13" id="ddstb13" class="form-control"
                                             onChange="compareDeno(13) ">
                                     </div>
@@ -550,7 +550,7 @@
                                         <b>Numerator: </b>Number of children under 15 years diagnosed with TB within the
                                         review period. (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb15u" id="ndstb15u" class="form-control">
                                     </div>
 
@@ -561,7 +561,7 @@
                                         <b>Denominator: </b>Total Number of diagnosed TB cases within the review period.
                                         (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb15" id="ddstb15" class="form-control"
                                             onChange="compareDeno(15) ">
                                     </div>
@@ -582,7 +582,7 @@
                                         diagnosed within the review period that have initiated treatment for TB within two
                                         days of diagnosis. (Presumptive Register/DSTB Treatment Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb16u" id="ndstb16u" class="form-control">
                                     </div>
 
@@ -593,7 +593,7 @@
                                         <b>Denominator: </b>Number of patients under 15 years among confirmed TB cases
                                         within the review period. (Presumptive Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb16" id="ddstb16" class="form-control"
                                             onChange="compareDeno(16) ">
                                     </div>
@@ -614,7 +614,7 @@
                                         prior to the review period with complete documentation in the treatment card and the
                                         DR-TB facility (treatment) register. (Treatment Card and Treatment Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb17u" id="ndstb17u" class="form-control">
                                     </div>
 
@@ -625,7 +625,7 @@
                                         <b>Denominator: </b>Number of paediatric TB patients diagnosed in the review period
                                         (Treatment Card and Treatment Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb17" id="ddstb17" class="form-control"
                                             onChange="compareDeno(17) ">
                                     </div>
@@ -650,7 +650,7 @@
                                         clinics who were screened for TB 12 months prior to the review period. (Facility OPD
                                         Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb18u" id="ndstb18u" class="form-control">
                                     </div>
 
@@ -660,7 +660,7 @@
                                     <div class="col-xs-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Number of health care workers participating in review period.
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb18" id="ddstb18" class="form-control"
                                             onChange="compareDeno(18) ">
                                     </div>
@@ -683,7 +683,7 @@
                                         of meeting], IEC materials, evidence of use of IPC checklist to monitor
                                         implementation monthly).
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ndstb19u" id="ndstb19u" class="form-control">
                                     </div>
 
@@ -695,7 +695,7 @@
                                         policy, IPC guidelines, IPC focal person, IPC committee [minutes of meeting], IEC
                                         materials, evidence of use of IPC checklist to monitor implementation monthly).
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <input type="number" name="ddstb19" id="ddstb19" class="form-control"
                                             onChange="compareDeno(19)">
                                     </div>
