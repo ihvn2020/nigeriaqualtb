@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\aggreport;
+use App\Models\facilities;
 use Illuminate\Http\Request;
+use Auth;
 
 class AggreportController extends Controller
 {
@@ -15,7 +17,12 @@ class AggreportController extends Controller
     public function index()
     {
         $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->get();
-
+        if(Auth()->user()->role=="User"){
+            $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->where('entered_by',Auth()->user()->id)->get();
+        }elseif(Auth()->user()->role=="Admin"){
+            $getStateID = facilities::where('state',Auth()->user()->state)->get();
+            $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->where('state',Auth()->user()->state)->get();
+        }
         return view('aggreports', compact('aggreports'));
     }
 

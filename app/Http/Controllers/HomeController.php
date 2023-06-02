@@ -180,7 +180,7 @@ class HomeController extends Controller
     }
 
     public function newAreport(){
-      $facilities = facilities::select('id','facility_name')->get();
+      $facilities = facilities::select('id','facility_name','state')->get();
       return view('aggregate_reports',compact('facilities'));
     }
 
@@ -253,7 +253,7 @@ class HomeController extends Controller
     }
 
     public function editReport($id){
-        $facilities = facilities::select('id','facility_name')->get();
+        $facilities = facilities::select('id','facility_name','state')->get();
         $report = aggreport::where('id',$id)->first();
         return view('edit_aggregatereport', compact('report','facilities'));
       }

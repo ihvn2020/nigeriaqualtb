@@ -30,7 +30,7 @@
                     <input type="hidden" name="entered_by" value="{{ auth()->user()->id }}">
                     <div class="row form-row">
                         <h6 style="text-align: center; color: green">Select Report Period</h6>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-2">
                             <label for="title">Title</label>
                             <input type="text" name="title" id="title" class="form-control"
                                 placeholder="Name this report" required>
@@ -45,6 +45,16 @@
                             <label for="to">To (Date)</label>
                             <input type="date" name="to" id="to" class="form-control" placeholder="End"
                                 required>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="state">Select State</label>
+                            <select name="state" id="state" class="form-control">
+                                <option value="{{ auth()->user()->state }}" selected>{{ auth()->user()->state }}
+                                </option>
+                                @foreach ($facilities->unique('state') as $fac)
+                                    <option value="{{ $fac->state }}">{{ $fac->state }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group col-md-2">

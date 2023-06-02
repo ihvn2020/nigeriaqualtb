@@ -29,26 +29,36 @@
                     @csrf
                     <input type="hidden" name="entered_by" value="{{ auth()->user()->id }}">
                     <input type="hidden" name="id" value="{{ $report->id }}">
-                    <div class="row form-row">
+                    <div class="row form-row form-group">
                         <h6 style="text-align: center; color: green">Select Report Period</h6>
-                        <div class="form-group col-md-3">
+                        <div class="col-md-2">
                             <label for="title">Title</label>
                             <input type="text" name="title" id="title" value="{{ $report->title }}"
                                 class="form-control" placeholder="Name this report" required>
 
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-md-2">
                             <label for="from">From (Date)</label>
                             <input type="date" name="from" id="from" value="{{ $report->from }}"
                                 class="form-control" placeholder="Begin" required>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-md-2">
                             <label for="to">To (Date)</label>
                             <input type="date" name="to" id="to" value="{{ $report->to }}"
                                 class="form-control" placeholder="End" required>
                         </div>
+                        <div class="col-md-2">
+                            <label for="state">Select State</label>
+                            <select name="state" id="state" class="form-control">
+                                <option value="{{ $report->faciliti->state }}" selected>{{ $report->faciliti->state }}
+                                </option>
+                                @foreach ($facilities->unique('state') as $fac)
+                                    <option value="{{ $fac->state }}">{{ $fac->state }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                        <div class="form-group col-md-2">
+                        <div class="col-md-2">
                             <label for="facility">Select Facility</label>
                             <select name="facility" id="facility" class="form-control">
                                 <option value="{{ $report->facility }}" selected>{{ $report->faciliti->facility_name }}
@@ -58,7 +68,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-md-2">
                             <label for="status">Status</label>
                             <select name="status" id="status" class="form-control">
                                 <option value="{{ $report->status }}" selected>{{ $report->status }}</option>
