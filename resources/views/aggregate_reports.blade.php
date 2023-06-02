@@ -29,7 +29,6 @@
                     @csrf
                     <input type="hidden" name="entered_by" value="{{ auth()->user()->id }}">
                     <div class="row form-row">
-                        <h6 style="text-align: center; color: green">Select Report Period</h6>
                         <div class="form-group col-md-2">
                             <label for="title">Title</label>
                             <input type="text" name="title" id="title" class="form-control"
@@ -51,19 +50,31 @@
                             <select name="state" id="state" class="form-control">
                                 <option value="{{ auth()->user()->state }}" selected>{{ auth()->user()->state }}
                                 </option>
-                                @foreach ($facilities->unique('state') as $fac)
-                                    <option value="{{ $fac->state }}">{{ $fac->state }}</option>
-                                @endforeach
+                                @if (auth()->user()->role == 'Super')
+                                    @foreach ($facilities->unique('state') as $fac)
+                                        <option value="{{ $fac->state }}">{{ $fac->state }}</option>
+                                    @endforeach
+                                @else
+                                    <option value="{{ auth()->user()->state }}">{{ auth()->user()->state }}</option>
+                                @endif
                             </select>
                         </div>
 
                         <div class="form-group col-md-2">
                             <label for="facility">Select Facility</label>
                             <select name="facility" id="facility" class="form-control">
+                                @if (auth()->user()->role == 'Super')
+                                    @foreach ($facilities as $fac)
+                                        <option value="{{ $fac->id }}">{{ $fac->facility_name }}</option>
+                                    @endforeach
+                                @elseif (auth()->user()->role == 'Admin')
+                                    @foreach ($facilities->where('state', auth()->user()->state) as $fac)
+                                        <option value="{{ $fac->id }}">{{ $fac->facility_name }}</option>
+                                    @endforeach
+                                @elseif (auth()->user()->role == 'User')
+                                    <option value="{{ auth()->user()->state }}">{{ auth()->user()->state }}</option>
+                                @endif
 
-                                @foreach ($facilities as $fac)
-                                    <option value="{{ $fac->id }}">{{ $fac->facility_name }}</option>
-                                @endforeach
                             </select>
                         </div>
                         <div class="form-group col-md-2">

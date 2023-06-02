@@ -101,11 +101,10 @@
                                     <i class="fa fa-list" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 col-12 box-text-section">
-                                    <p>Aggregate REports</p>
+                                    <p>Aggregate Reports</p>
                                 </div>
                                 <div class="label">
-                                    <h3><span
-                                            class="badge badge-pill bg-danger">{{ number_format($countscreenings, 0) }}</span>
+                                    <h3><span class="badge badge-pill bg-danger">{{ number_format($aggreports, 0) }}</span>
                                     </h3>
                                 </div>
                                 <div class="newbtn">

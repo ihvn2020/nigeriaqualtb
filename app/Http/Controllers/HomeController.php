@@ -42,8 +42,16 @@ class HomeController extends Controller
     {
 
         // sleep(5);
-        $countscreenings = screening::all()->count();
-        return view('home',compact('countscreenings'));
+
+        $aggreports = aggreport::count();
+
+        if(Auth()->user()->role=="User"){
+            $aggreports = aggreport::where('entered_by',Auth()->user()->id)->count();
+        }elseif(Auth()->user()->role=="Admin"){
+            $aggreports = aggreport::where('state',Auth()->user()->state)->count();
+        }
+
+        return view('home',compact('aggreports'));
     }
 
     public function getUrl($url)

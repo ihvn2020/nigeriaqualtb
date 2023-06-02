@@ -17,12 +17,11 @@
     }
 </style>
 @section('content')
-    <h3 class="page-title">AGGREGATE REPORTING | <small style="color: green">Enter New</small></h3>
+    <h3 class="page-title">AGGREGATE REPORTING | <small style="color: green">Update</small></h3>
     <div class="row">
         <div class="panel">
             <div class="panel-heading">
-                <h4>ENTER AGGREGATE REPORT</h4>
-                <hr>
+
             </div>
             <div class="panel-body">
                 <form method="POST" action="{{ route('newareport') }}">
@@ -30,7 +29,6 @@
                     <input type="hidden" name="entered_by" value="{{ auth()->user()->id }}">
                     <input type="hidden" name="id" value="{{ $report->id }}">
                     <div class="row form-row form-group">
-                        <h6 style="text-align: center; color: green">Select Report Period</h6>
                         <div class="col-md-2">
                             <label for="title">Title</label>
                             <input type="text" name="title" id="title" value="{{ $report->title }}"
