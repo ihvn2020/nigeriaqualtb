@@ -86,18 +86,18 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
-                                    <div class="col-xs-6" style="font-size: 0.7em !important;">
+                                    <div class="col-md-6" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of hospital attendees within the review period who were
                                         symptomatically screened for TB disaggregated by age U15 and 15+ (Facility OPD
                                         Register)
 
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-md-3">
                                         <input type="number" name="ndstb1u15" id="ndstb1u15" placeholder="0-14yrs"
                                             class="form-control tooltipped" data-toggle="tooltip" data-placement="top"
                                             title="Total # of 0-14yrs">
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-md-3">
                                         <input type="number" name="ndstb1a15" id="ndstb1a15" placeholder="15+yrs"
                                             class="form-control tooltipped" data-toggle="tooltip" data-placement="top"
                                             title="Total # of 15yrs and above">
@@ -106,11 +106,11 @@
                                 </div>
 
                                 <div class="row form-row">
-                                    <div class="col-xs-9" style="font-size: 0.7em !important;">
+                                    <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Total number of hospital attendees within the review period
                                         (Facility OPD Register)
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-md-3">
                                         <input type="number" name="ddstb1" id="ddstb1" placeholder="Total"
                                             class="form-control">
                                     </div>
@@ -441,8 +441,9 @@
                                         <b>Numerator: </b>Number of patients started on second-line TB treatment 19 or 12
                                         months prior to the beginning of review period (i.e. 9 or 12 months after the
                                         closing day of the cohort) who have their follow-up examinations (AFB, Culture,
-                                        EUCr, ECG done monthly during the intensive phase within the review period.
-                                    </div> (DRTB Treatment Register)
+                                        EUCr, ECG done monthly during the intensive phase within the review period.(DRTB
+                                        Treatment Register)
+                                    </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb11u" id="ndstb11u" class="form-control">
                                     </div>
