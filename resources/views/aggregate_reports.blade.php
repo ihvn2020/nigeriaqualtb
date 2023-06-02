@@ -72,7 +72,9 @@
                                         <option value="{{ $fac->id }}">{{ $fac->facility_name }}</option>
                                     @endforeach
                                 @elseif (auth()->user()->role == 'User')
-                                    <option value="{{ auth()->user()->state }}">{{ auth()->user()->state }}</option>
+                                    <option
+                                        value="{{ App\Models\facilities::where('facility_name', auth()->user()->facility)->first()->id }}">
+                                        {{ auth()->user()->facility }}</option>
                                 @endif
 
                             </select>
