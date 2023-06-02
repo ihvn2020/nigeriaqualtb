@@ -20,7 +20,13 @@
     <h3 class="page-title" style="text-align: center !important">AGGREGATE REPORT</h3>
     <div class="row">
         <div class="panel" style="width: 90%; margin: auto;">
-
+            @if (Session::get('message'))
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <i class="fa fa-check-circle"></i> {!! Session::get('message') !!}
+                </div>
+            @endif
             <div class="panel-body">
                 <div style="text-align: center">
                     <h3 style="color: green"><b>Title: </b>{{ $report->title }}</h3>

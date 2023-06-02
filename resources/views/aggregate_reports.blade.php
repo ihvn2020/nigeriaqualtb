@@ -269,8 +269,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-xs-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of confirmed TB cases diagnosed within the review
-                                        period. (Treatment Register/Presumptive Register)
+                                        <b>Denominator: </b>Total number of confirmed TB cases within the review
+                                        period. (Presumptive Register)
                                     </div>
                                     <div class="col-xs-3">
                                         <input type="number" name="ddstb6" id="ddstb6" class="form-control"
@@ -410,7 +410,7 @@
                                         the 6 months review period. (DRTB Treatment Register)
                                     </div>
                                     <div class="col-xs-3">
-                                        <input type="number" name="10" id="ddstb10" class="form-control"
+                                        <input type="number" name="ddstb10" id="ddstb10" class="form-control"
                                             onChange="compareDeno(10) ">
                                     </div>
 
@@ -570,7 +570,7 @@
                                     <div class="col-xs-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of patients under 15 years among confirmed TB cases
                                         diagnosed within the review period that have initiated treatment for TB within two
-                                        days of diagnosis. (DSTB Treatment Register)
+                                        days of diagnosis. (Presumptive Register/DSTB Treatment Register)
                                     </div>
                                     <div class="col-xs-3">
                                         <input type="number" name="ndstb16u" id="ndstb16u" class="form-control">
@@ -581,7 +581,7 @@
                                 <div class="row form-row">
                                     <div class="col-xs-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Number of patients under 15 years among confirmed TB cases
-                                        diagnosed within the review period. (DSTB Treatment Register)
+                                        within the review period. (Presumptive Register)
                                     </div>
                                     <div class="col-xs-3">
                                         <input type="number" name="ddstb16" id="ddstb16" class="form-control"

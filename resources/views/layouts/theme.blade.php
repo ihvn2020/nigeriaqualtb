@@ -95,7 +95,7 @@
         <!-- NAVBAR -->
         <nav class="navbar navbar-default navbar-fixed-top" style="position: relative;">
             <div class="brand">
-                <a href="home"><img src="images/{{ $settings->logo }}" alt="{{ $settings->motto }}"
+                <a href="home"><img src="{{ asset('images/' . $settings->logo) }}" alt="{{ $settings->motto }}"
                         class="img-responsive logo" style="height: 35px !important; float: left;"></a>
                 {{ $settings->ministry_name }}
                 <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-menu"></i></button>
