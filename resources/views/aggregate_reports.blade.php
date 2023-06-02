@@ -38,12 +38,12 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label for="from">From (Date)</label>
-                            <input type="date" name="from" id="from" class="form-control" placeholder="Begin"
+                            <input type="text" name="from" id="from" class="form-control" placeholder="Begin"
                                 required>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="to">To (Date)</label>
-                            <input type="date" name="to" id="to" class="form-control" placeholder="End"
+                            <input type="text" name="to" id="to" class="form-control" placeholder="End"
                                 required>
                         </div>
                         <div class="form-group col-md-2">
