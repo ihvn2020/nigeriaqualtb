@@ -39,12 +39,12 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label for="from">From (Date)</label>
-                            <input type="text" name="from" id="from" value="{{ $report->from }}"
+                            <input type="date" name="from" id="from" value="{{ $report->from }}"
                                 class="form-control" placeholder="Begin" required>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="to">To (Date)</label>
-                            <input type="text" name="to" id="to" value="{{ $report->to }}"
+                            <input type="date" name="to" id="to" value="{{ $report->to }}"
                                 class="form-control" placeholder="End" required>
                         </div>
 
