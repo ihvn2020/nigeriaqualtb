@@ -73,7 +73,7 @@
                                     @endforeach
                                 @elseif (auth()->user()->role == 'User')
                                     <option
-                                        value="{{ App\Models\facilities::where('facility_name', auth()->user()->facility)->first()->id }}">
+                                        value="{{ App\Models\facilities::where('facility_name', auth()->user()->facility)->first()->id ?? 1 }}">
                                         {{ auth()->user()->facility }}</option>
                                 @endif
 
