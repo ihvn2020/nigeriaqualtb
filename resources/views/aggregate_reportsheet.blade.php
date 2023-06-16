@@ -65,8 +65,8 @@
                                                             @endforeach
                                                         </ul>
                                                     @else
-                                                    
-                                                        @if ($bm1a < 100)
+
+                                                        @if (isset($bm1a) && $bm1a < 100)
                                                             <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                                     issue(s)</i></small>
                                                         @endif
@@ -83,8 +83,8 @@
                                                             @endforeach
                                                         </ul>
                                                     @else
-                                                    
-                                                        @if ($bm1b < 100)
+
+                                                        @if (isset($bm1b) && $bm1b < 100)
                                                             <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                                     issue(s)</i></small>
                                                         @endif
@@ -105,7 +105,7 @@
 
                                     </tbody>
                                 </table>
-                              
+
                             </div>
                         </div>
 
@@ -126,7 +126,7 @@
                                     <tbody>
                                         @if (strval($report->ddstb2) > 0)
                                             <tr>
-                                                <td>{{ strval($report->ndstb2u15) }} / {{ strval($report->ddstb2) }} = 
+                                                <td>{{ strval($report->ndstb2u15) }} / {{ strval($report->ddstb2) }} =
                                                     {{ $ds2a = number_format($report->ndstb2u15 / $report->ddstb2, 2) * 100 }}%
                                                     @if (isset($report->issues))
                                                     @if($report->issues->where('indicator_no',2)->count()>0)
@@ -136,7 +136,7 @@
                                                             @endforeach
                                                         </ul>
                                                     @else
-                                                    
+
                                                         @if ($ds2a < 100)
                                                             <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                                     issue(s)</i></small>
@@ -154,8 +154,8 @@
                                                             @endforeach
                                                         </ul>
                                                     @else
-                                                    
-                                                        @if ($ds2b < 100)
+
+                                                        @if (isset($ds2b) && $ds2b < 100)
                                                             <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                                     issue(s)</i></small>
                                                         @endif
@@ -218,8 +218,8 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                
-                                    @if ($ds3 < 100)
+
+                                    @if (isset($ds3) && $ds3 < 100)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
@@ -265,8 +265,8 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                
-                                    @if ($ds4 < 75)
+
+                                    @if (isset($ds4) &&  $ds4 < 75)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
@@ -315,8 +315,8 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                
-                                    @if ($ds5 < 100)
+
+                                    @if (isset($ds5) &&  $ds5 < 100)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
@@ -362,8 +362,8 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                
-                                    @if ($ds6 < 100)
+
+                                    @if (isset($ds6) && $ds6 < 100)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
@@ -410,8 +410,8 @@
                                             @endforeach
                                         </ul>
                                     @else
-                                    
-                                        @if ($ds7 < 100)
+
+                                        @if (isset($ds7) && $ds7 < 100)
                                             <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                     issue(s)</i></small>
                                         @endif
@@ -456,8 +456,8 @@
                                             @endforeach
                                         </ul>
                                     @else
-                                    
-                                        @if ($ds8 < 100)
+
+                                        @if (isset($ds8) && $ds8 < 100)
                                             <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                     issue(s)</i></small>
                                         @endif
@@ -509,8 +509,8 @@
                                             @endforeach
                                         </ul>
                                     @else
-                                    
-                                        @if ($dr1 < 100)
+
+                                        @if (isset($dr1) && $dr1 < 100)
                                             <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                     issue(s)</i></small>
                                         @endif
@@ -558,8 +558,8 @@
                                             @endforeach
                                         </ul>
                                     @else
-                                    
-                                        @if ($dr2 < 100)
+
+                                        @if (isset($dr2) && $dr2 < 100)
                                             <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                     issue(s)</i></small>
                                         @endif
@@ -610,8 +610,8 @@
                                             @endforeach
                                         </ul>
                                     @else
-                                    
-                                        @if ($dr3 < 100)
+
+                                        @if (isset($dr3) && $dr3 < 100)
                                             <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                     issue(s)</i></small>
                                         @endif
@@ -657,8 +657,8 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                
-                                    @if ($dr4 < 100)
+
+                                    @if (isset($ds4) && $dr4 < 100)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
@@ -712,8 +712,8 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                
-                                    @if ($pd1 < 100)
+
+                                    @if (isset($pd1) && $pd1 < 100)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
@@ -759,8 +759,8 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                
-                                    @if ($pd2 < 15)
+
+                                    @if (isset($pd2) && $pd2 < 15)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
@@ -809,8 +809,8 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                
-                                    @if ($pd3 < 100)
+
+                                    @if (isset($pd3) && $pd3 < 100)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
@@ -865,8 +865,8 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                
-                                    @if ($fa1 < 100)
+
+                                    @if (isset($fa1) && $fa1 < 100)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
@@ -914,8 +914,8 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                
-                                    @if ($fa2 < 100)
+
+                                    @if (isset($fa2) && $fa2 < 100)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
