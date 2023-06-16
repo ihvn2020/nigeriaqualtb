@@ -72,6 +72,13 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                    <ul>
+                                        @foreach ($report->issues->where('indicator_no', 15) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i></small></li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
                         </div>
 
@@ -564,38 +571,7 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">4. Proportion of paediatric TB patients started on treatment 6
-                                months prior to the review period with complete documentation in the treatment card and the
-                                DR-TB facility (treatment) register.<div class="result" id="ndstb17value">3</div>
-                            </div>
-                            <div class="panel-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Percentage Value</th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if (strval($report->ddstb17) > 0)
-                                            <tr>
-                                                <td>{{ strval($report->ndstb17u) }} / {{ strval($report->ddstb17) }} =
-                                                    {{ number_format($report->ndstb17u / $report->ddstb17, 2) * 100 }}%
-                                                </td>
-                                            </tr>
-                                        @else
-                                            <tr>
-                                                <td>
-                                                    0/0 = 0%
-                                                </td>
-                                            </tr>
-                                        @endif
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                     </div>
 
                 </fieldset>
@@ -703,8 +679,6 @@
                                     <option value="13">1 PAEDIATRICS</option>
                                     <option value="15">2 PAEDIATRICS</option>
                                     <option value="16">3 PAEDIATRICS</option>
-                                    <option value="17">4 PAEDIATRICS</option>
-
                                     <option value="18">1 FACILITY</option>
                                     <option value="19">2 FACILITY</option>
 

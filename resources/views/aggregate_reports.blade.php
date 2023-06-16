@@ -377,8 +377,9 @@
                         <hr>
                         <div class="panel panel-default">
                             <div class="panel-heading">1. Proportion of all DR-TB cases diagnosed during the review period
-                                who initiated treatment for DR-TB within two weeks of diagnosis.<div class="result"
-                                    id="ndstb9value">3</div>
+                                who initiated treatment for DR-TB within two weeks of diagnosis.- <small
+                                    style="color:red;"><i>Benchmark: 100%</i></small>
+                                <div class="result" id="ndstb9value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -411,7 +412,8 @@
                             <div class="panel-heading">2. Proportion of patients started on second-line TB treatment during
                                 the 6 months review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr,
                                 Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented after 2
-                                weeks of sample collection.<div class="result" id="ndstb10value">3</div>
+                                weeks of sample collection. - <small style="color:red;"><i>Benchmark: 100%</i></small>
+                                <div class="result" id="ndstb10value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -445,7 +447,9 @@
                             <div class="panel-heading">3. Proportion of patients started on second-line TB treatment 9 or
                                 12 months prior to the beginning of review period (i.e. 9 or 12 months after the closing day
                                 of the cohort) who have their follow-up examinations (AFB, Culture, EUCr, ECG done monthly
-                                during the intensive phase within the review period.<div class="result" id="ndstb11value">
+                                during the intensive phase within the review period.- <small
+                                    style="color:red;"><i>Benchmark: 100%</i></small>
+                                <div class="result" id="ndstb11value">
                                     3</div>
                             </div>
                             <div class="panel-body">
@@ -478,9 +482,10 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">4. Proportion of DR-TB patients started on treatment 6 months prior
-                                to the review period with complete documentation in the treatment card and the DR-TB
-                                facility (treatment) register.<div class="result" id="ndstb12value">3</div>
+                            <div class="panel-heading">4. Proportion of DR-TB patients started on treatment 6 months within
+                                the review period with complete documentation in the treatment card and the DR-TB
+                                facility (treatment) register.- <small style="color:red;"><i>Benchmark: 100%</i></small>
+                                <div class="result" id="ndstb12value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -517,7 +522,9 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">1. Proportion of presumptive paediatric TB cases under 15 years
                                 identified within the review period who had access to either chest X-ray and/or Xpert
-                                MTB?RIF and/or stool depending on the age<div class="result" id="ndstb13value">3</div>
+                                MTB?RIF and/or stool depending on the age - <small style="color:red;"><i>Benchmark:
+                                        100%</i></small>
+                                <div class="result" id="ndstb13value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -556,7 +563,8 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">2. Proportion of children under 15 years diagnosed with TB within
-                                the review period.<div class="result" id="ndstb15value">3</div>
+                                the review period. - <small style="color:red;"><i>Benchmark: 15%</i></small>
+                                <div class="result" id="ndstb15value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -587,7 +595,8 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">3. Proportion of patients under 15 years among confirmed TB cases
                                 diagnosed within the review period that have initiated treatment for TB within two days of
-                                diagnosis.<div class="result" id="ndstb16value">3</div>
+                                diagnosis.- <small style="color:red;"><i>Benchmark: 100%</i></small>
+                                <div class="result" id="ndstb16value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -616,37 +625,10 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">4. Proportion of paediatric TB patients started on treatment 6
-                                months prior to the review period with complete documentation in the treatment card and the
-                                DR-TB facility (treatment) register.<div class="result" id="ndstb17value">3</div>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row form-row">
-                                    <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of paediatric TB patients started on treatment 6 months
-                                        prior to the review period with complete documentation in the treatment card and the
-                                        DR-TB facility (treatment) register. (Treatment Card and Treatment Register)
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="number" name="ndstb17u" id="ndstb17u" class="form-control">
-                                    </div>
+                        <input type="hidden" name="ndstb17u" id="ndstb17u" class="form-control">
+                        <input type="hidden" name="ddstb17" id="ddstb17" class="form-control"
+                            onChange="compareDeno(17) ">
 
-                                </div>
-
-                                <div class="row form-row">
-                                    <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Number of paediatric TB patients diagnosed in the review period
-                                        (Treatment Card and Treatment Register)
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="number" name="ddstb17" id="ddstb17" class="form-control"
-                                            onChange="compareDeno(17) ">
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
 
                     </fieldset>
 
@@ -654,8 +636,11 @@
                         <h3>FACILITY PERFORMANCE</h3>
                         <hr>
                         <div class="panel panel-default">
-                            <div class="panel-heading">1. Proportion of health care workers (HCW) who were screened for TB
-                                12 months prior to the review period.<div class="result" id="ndstb18value">3</div>
+                            <div class="panel-heading">1. Proportion of health care workers (HCW) in the DOT and laboratory
+                                clinics who were screened for TB
+                                12 months prior to the review period. - <small style="color:red;"><i>Benchmark:
+                                        100%</i></small>
+                                <div class="result" id="ndstb18value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -672,7 +657,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Number of health care workers participating in review period.
+                                        <b>Denominator: </b>Number of health care workers in the DOCT and laboratory clinics
+                                        participating in review period.
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb18" id="ddstb18" class="form-control"
@@ -687,7 +673,9 @@
                             <div class="panel-heading">2. Proportion of infection control strategies in place at the
                                 facility (i.e. IPC plan and policy, IPC guidelines, IPC focal person, IPC committee [minutes
                                 of meeting], IEC materials, evidence of use of IPC checklist to monitor implementation
-                                monthly)<div class="result" id="ndstb19value">3</div>
+                                monthly) - <small style="color:red;"><i>Benchmark: 100% (All 6 strategies should be in
+                                        place)</i></small>
+                                <div class="result" id="ndstb19value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
