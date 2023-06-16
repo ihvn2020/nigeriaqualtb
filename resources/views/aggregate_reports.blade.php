@@ -94,8 +94,9 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">1. Proportion of hospital attendees within the review period who were
-                                symptomatically screened for TB disaggregated by age U15 and 15+ <div class="result"
-                                    id="ndstb1value">3</div>
+                                symptomatically screened for TB disaggregated by age U15 and 15+ - <small
+                                    style="color:red;"><i>Benchmark: 100%</i></small>
+                                <div class="result" id="ndstb1value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -135,7 +136,9 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">2. Proportion of bacteriologically diagnosed index TB patients during
                                 the review period who had their household contacts traced within one month of treatment
-                                initiation (disaggregated by age U15 and 15+).<div class="result" id="ndstb2value">3</div>
+                                initiation (disaggregated by age U15 and 15+).- <small style="color:red;"><i>Benchmark:
+                                        100%</i></small>
+                                <div class="result" id="ndstb2value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -174,7 +177,8 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">3. Proportion of eligible U5 and above 5 contacts of
-                                bacteriologically positive TB cases who were initiated on TPT
+                                bacteriologically positive TB cases who were initiated on TPT - <small
+                                    style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb3value">3</div>
                             </div>
                             <div class="panel-body">
@@ -209,7 +213,8 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">4. Proportion of presumptive TB cases identified within the review
                                 period evaluated for TB using WHO Rapid Diagnostics (Xpert MTB RIF assay, TB LAMP, LF LAM,
-                                TrueNat).<div class="result" id="ndstb4value">4</div>
+                                TrueNat). - <small style="color:red;"><i>Benchmark: 75%</i></small>
+                                <div class="result" id="ndstb4value">4</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -240,7 +245,9 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">5. Proportion of presumptive TB cases identified within the review
                                 period whose sputum specimen were sent to GeneXpert Lab and had their results received
-                                within 72 hrs of sending sputum specimen to Lab<div class="result" id="ndstb5value">3
+                                within 72 hrs of sending sputum specimen to Lab- <small style="color:red;"><i>Benchmark:
+                                        100%</i></small>
+                                <div class="result" id="ndstb5value">3
                                 </div>
                             </div>
                             <div class="panel-body">
@@ -274,8 +281,9 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">6. Proportion of confirmed TB cases diagnosed within the review
-                                period that have initiated treatment for TB within two days of diagnosis<div class="result"
-                                    id="ndstb6value">3</div>
+                                period that have initiated treatment for TB within two days of diagnosis - <small
+                                    style="color:red;"><i>Benchmark: 100%</i></small>
+                                <div class="result" id="ndstb6value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
@@ -306,8 +314,9 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">7. Proportion of DS-TB cases with positive baseline sputum smear or
-                                Xpert MTB/RIF started on treatment in the 6 months prior to the review period with
-                                documented follow-up sputum smear AFB within the recommended time frame (2,5 & 6 months).
+                                Xpert MTB/RIF started on treatment within the review period who are due for and with
+                                documented (2, 5 or 6) follow-up test. - <small style="color:red;"><i>Benchmark:
+                                        100%</i></small>
                                 <div class="result" id="ndstb7value">7</div>
                             </div>
                             <div class="panel-body">
@@ -340,14 +349,15 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">8. Proportion of DS-TB patients started on treatment 6 months prior
-                                to the review period with complete documentation in the treatment card and the TB facility
-                                (treatment) register.<div class="result" id="ndstb8value">8</div>
+                            <div class="panel-heading">8. Proportion of DS-TB patients started on treatment within the
+                                review period with complete documentation in the treatment card and the TB facility
+                                (treatment) register.- <small style="color:red;"><i>Benchmark: 100%</i></small>
+                                <div class="result" id="ndstb8value">8</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of DS-TB patients started on treatment 6 months prior to
+                                        <b>Numerator: </b>Number of DS-TB patients started on treatment within
                                         the review period with complete documentation in the treatment card and the TB
                                         facility (treatment) register. (Treatment Card and Treatment Register)
                                     </div>
@@ -359,7 +369,7 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Number of DS-TB patients started on treatment 6 months prior to
+                                        <b>Denominator: </b>Number of DS-TB patients started on treatment within
                                         the review period. (Treatment Register)
                                     </div>
                                     <div class="col-md-3">

@@ -74,10 +74,11 @@
                                 </table>
                                 @if (isset($report->issues))
                                     <ul>
-                                        @foreach ($report->issues->where('indicator_no', 15) as $issue)
+                                        @foreach ($report->issues->where('indicator_no', 1) as $issue)
                                             <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i></small></li>
                                         @endforeach
                                     </ul>
+                                @else
                                 @endif
                             </div>
                         </div>
