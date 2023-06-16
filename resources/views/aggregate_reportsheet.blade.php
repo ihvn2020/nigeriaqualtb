@@ -658,7 +658,7 @@
                                     </ul>
                                 @else
 
-                                    @if (isset($ds4) && $dr4 < 100)
+                                    @if (isset($dr4) && $dr4 < 100)
                                         <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
                                                 issue(s)</i></small>
                                     @endif
