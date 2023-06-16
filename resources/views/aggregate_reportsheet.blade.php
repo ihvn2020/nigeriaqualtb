@@ -39,8 +39,9 @@
                     <div class="row">
                         <div class="panel panel-default col-sm-6">
                             <div class="panel-heading">Proportion of hospital attendees within the review period who were
-                                symptomatically screened for TB disaggregated by age U15 and 15+ <div class="result"
-                                    id="ndstb1value">3</div>
+                                symptomatically screened for TB disaggregated by age U15 and 15+ - <small
+                                    style="color:red;"><i>Benchmark: 100%</i></small>
+                                <div class="result" id="ndstb1value">3</div>
                             </div>
                             <div class="panel-body">
                                 <table class="table">
@@ -55,9 +56,41 @@
                                         @if (strval($report->ddstb1) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb1u15) }} / {{ strval($report->ddstb1) }} =
-                                                    {{ number_format($report->ndstb1u15 / $report->ddstb1, 2) * 100 }}%</td>
+                                                    {{ $bm1a = number_format($report->ndstb1u15 / $report->ddstb1, 2) * 100 }}%
+                                                    @if (isset($report->issues))
+                                                    @if($report->issues->where('indicator_no',1)->count()>0)
+                                                        <ul style="color: grey;">
+                                                            @foreach ($report->issues->where('indicator_no', 1) as $issue)
+                                                                <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                    
+                                                        @if ($bm1a < 100)
+                                                            <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                                    issue(s)</i></small>
+                                                        @endif
+                                                    @endif
+                                                @endif
+                                                </td>
                                                 <td>{{ strval($report->ndstb1a15) }} / {{ strval($report->ddstb1) }} =
-                                                    {{ number_format($report->ndstb1a15 / $report->ddstb1, 2) * 100 }}%</td>
+                                                    {{ $bm1b = number_format($report->ndstb1a15 / $report->ddstb1, 2) * 100 }}%
+                                                    @if (isset($report->issues))
+                                                    @if($report->issues->where('indicator_no',1)->count()>0)
+                                                        <ul style="color: grey;">
+                                                            @foreach ($report->issues->where('indicator_no', 1) as $issue)
+                                                                <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                    
+                                                        @if ($bm1b < 100)
+                                                            <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                                    issue(s)</i></small>
+                                                        @endif
+                                                    @endif
+                                                @endif
+                                                </td>
                                             </tr>
                                         @else
                                             <tr>
@@ -72,14 +105,7 @@
 
                                     </tbody>
                                 </table>
-                                @if (isset($report->issues))
-                                    <ul>
-                                        @foreach ($report->issues->where('indicator_no', 1) as $issue)
-                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i></small></li>
-                                        @endforeach
-                                    </ul>
-                                @else
-                                @endif
+                              
                             </div>
                         </div>
 
@@ -100,11 +126,41 @@
                                     <tbody>
                                         @if (strval($report->ddstb2) > 0)
                                             <tr>
-                                                <td>{{ strval($report->ndstb2u15) }} / {{ strval($report->ddstb2) }} =
-                                                    {{ number_format($report->ndstb2u15 / $report->ddstb2, 2) * 100 }}%
+                                                <td>{{ strval($report->ndstb2u15) }} / {{ strval($report->ddstb2) }} = 
+                                                    {{ $ds2a = number_format($report->ndstb2u15 / $report->ddstb2, 2) * 100 }}%
+                                                    @if (isset($report->issues))
+                                                    @if($report->issues->where('indicator_no',2)->count()>0)
+                                                        <ul style="color: grey;">
+                                                            @foreach ($report->issues->where('indicator_no', 2) as $issue)
+                                                                <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                    
+                                                        @if ($ds2a < 100)
+                                                            <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                                    issue(s)</i></small>
+                                                        @endif
+                                                    @endif
+                                                @endif
                                                 </td>
                                                 <td>{{ strval($report->ndstb2a15) }} / {{ strval($report->ddstb2) }} =
-                                                    {{ number_format($report->ndstb2a15 / $report->ddstb2, 2) * 100 }}%
+                                                    {{ $ds2b = number_format($report->ndstb2a15 / $report->ddstb2, 2) * 100 }}%
+                                                    @if (isset($report->issues))
+                                                    @if($report->issues->where('indicator_no',2)->count()>0)
+                                                        <ul style="color: grey;">
+                                                            @foreach ($report->issues->where('indicator_no', 2) as $issue)
+                                                                <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                    
+                                                        @if ($ds2b < 100)
+                                                            <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                                    issue(s)</i></small>
+                                                        @endif
+                                                    @endif
+                                                @endif
                                                 </td>
                                             </tr>
                                         @else
@@ -142,7 +198,7 @@
                                         @if (strval($report->ddstb3) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb3u) }} / {{ strval($report->ddstb3) }} =
-                                                    {{ number_format($report->ndstb3u / $report->ddstb3, 2) * 100 }}%</td>
+                                                    {{ $ds3 = number_format($report->ndstb3u / $report->ddstb3, 2) * 100 }}%</td>
                                             </tr>
                                         @else
                                             <tr>
@@ -154,6 +210,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',3)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no', 3) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                
+                                    @if ($ds3 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
                             </div>
                         </div>
 
@@ -174,7 +245,7 @@
                                         @if (strval($report->ddstb4) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb4u) }} / {{ strval($report->ddstb4) }} =
-                                                    {{ number_format($report->ndstb4u / $report->ddstb4, 2) * 100 }}%</td>
+                                                    {{ $ds4 = number_format($report->ndstb4u / $report->ddstb4, 2) * 100 }}%</td>
                                             </tr>
                                         @else
                                             <tr>
@@ -186,6 +257,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',4)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no', 4) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                
+                                    @if ($ds4 < 75)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
                             </div>
                         </div>
                     </div>
@@ -209,7 +295,7 @@
                                         @if (strval($report->ddstb5) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb5u) }} / {{ strval($report->ddstb5) }} =
-                                                    {{ number_format($report->ndstb5u / $report->ddstb5, 2) * 100 }}%</td>
+                                                    {{ $ds5 = number_format($report->ndstb5u / $report->ddstb5, 2) * 100 }}%</td>
                                             </tr>
                                         @else
                                             <tr>
@@ -221,6 +307,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',5)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no', 5) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                
+                                    @if ($ds5 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
                             </div>
                         </div>
 
@@ -241,7 +342,7 @@
                                         @if (strval($report->ddstb6) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb6u) }} / {{ strval($report->ddstb6) }} =
-                                                    {{ number_format($report->ndstb6u / $report->ddstb6, 2) * 100 }}%</td>
+                                                    {{ $ds6 = number_format($report->ndstb6u / $report->ddstb6, 2) * 100 }}%</td>
                                             </tr>
                                         @else
                                             <tr>
@@ -253,15 +354,28 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',6)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no', 6) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                
+                                    @if ($ds6 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">7. Proportion of DS-TB cases with positive baseline sputum smear or
-                                Xpert MTB/RIF started on treatment in the 6 months prior to the review period with
-                                documented follow-up sputum smear AFB within the recommended time frame (2,5 & 6 months).
+                            <div class="panel-heading">7.  Proportion of DS-TB cases with positive baseline sputum smear or Xpert MTB/RIF started on treatment within the review period who are due for and with documented  (2, 5 or 6)  follow-up test
                                 <div class="result" id="ndstb7value">3</div>
                             </div>
                             <div class="panel-body">
@@ -276,7 +390,7 @@
                                         @if (strval($report->ddstb7) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb7u) }} / {{ strval($report->ddstb7) }} =
-                                                    {{ number_format($report->ndstb7u / $report->ddstb7, 2) * 100 }}%</td>
+                                                    {{ $ds7 = number_format($report->ndstb7u / $report->ddstb7, 2) * 100 }}%</td>
                                             </tr>
                                         @else
                                             <tr>
@@ -288,12 +402,26 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                    @if($report->issues->where('indicator_no',7)->count()>0)
+                                        <ul style="color: grey;">
+                                            @foreach ($report->issues->where('indicator_no', 7) as $issue)
+                                                <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                    
+                                        @if ($ds7 < 100)
+                                            <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                    issue(s)</i></small>
+                                        @endif
+                                    @endif
+                                @endif
                             </div>
                         </div>
 
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">8. Proportion of DS-TB patients started on treatment 6 months prior
-                                to the review period with complete documentation in the treatment card and the TB facility
+                            <div class="panel-heading">8. Proportion of DS-TB patients started on treatment within the review period with complete documentation in the treatment card and the TB facility
                                 (treatment) register.<div class="result" id="ndstb8value">3</div>
                             </div>
                             <div class="panel-body">
@@ -308,7 +436,7 @@
                                         @if (strval($report->ddstb8) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb8u) }} / {{ strval($report->ddstb8) }} =
-                                                    {{ number_format($report->ndstb8u / $report->ddstb8, 2) * 100 }}%</td>
+                                                    {{ $ds8 = number_format($report->ndstb8u / $report->ddstb8, 2) * 100 }}%</td>
                                             </tr>
                                         @else
                                             <tr>
@@ -320,6 +448,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                    @if($report->issues->where('indicator_no',8)->count()>0)
+                                        <ul style="color: grey;">
+                                            @foreach ($report->issues->where('indicator_no', 8) as $issue)
+                                                <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                    
+                                        @if ($ds8 < 100)
+                                            <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                    issue(s)</i></small>
+                                        @endif
+                                    @endif
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -346,7 +489,7 @@
                                         @if (strval($report->ddstb9) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb9u) }} / {{ strval($report->ddstb9) }} =
-                                                    {{ number_format($report->ndstb9u / $report->ddstb9, 2) * 100 }}%</td>
+                                                    {{ $dr1 = number_format($report->ndstb9u / $report->ddstb9, 2) * 100 }}%</td>
                                             </tr>
                                         @else
                                             <tr>
@@ -358,6 +501,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                    @if($report->issues->where('indicator_no',9)->count()>0)
+                                        <ul style="color: grey;">
+                                            @foreach ($report->issues->where('indicator_no', 9) as $issue)
+                                                <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                    
+                                        @if ($dr1 < 100)
+                                            <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                    issue(s)</i></small>
+                                        @endif
+                                    @endif
+                                @endif
                             </div>
                         </div>
 
@@ -379,7 +537,7 @@
                                         @if (strval($report->ddstb10) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb10u) }} / {{ strval($report->ddstb10) }} =
-                                                    {{ number_format($report->ndstb10u / $report->ddstb10, 2) * 100 }}%
+                                                    {{ $dr2 = number_format($report->ndstb10u / $report->ddstb10, 2) * 100 }}%
                                                 </td>
                                             </tr>
                                         @else
@@ -392,6 +550,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                    @if($report->issues->where('indicator_no',10)->count()>0)
+                                        <ul style="color: grey;">
+                                            @foreach ($report->issues->where('indicator_no', 10) as $issue)
+                                                <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                    
+                                        @if ($dr2 < 100)
+                                            <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                    issue(s)</i></small>
+                                        @endif
+                                    @endif
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -416,7 +589,7 @@
                                         @if (strval($report->ddstb11) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb11u) }} / {{ strval($report->ddstb11) }} =
-                                                    {{ number_format($report->ndstb11u / $report->ddstb11, 2) * 100 }}%
+                                                    {{ $dr3 = number_format($report->ndstb11u / $report->ddstb11, 2) * 100 }}%
                                                 </td>
                                             </tr>
                                         @else
@@ -429,12 +602,26 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                    @if($report->issues->where('indicator_no',11)->count()>0)
+                                        <ul style="color: grey;">
+                                            @foreach ($report->issues->where('indicator_no', 11) as $issue)
+                                                <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                    
+                                        @if ($dr3 < 100)
+                                            <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                    issue(s)</i></small>
+                                        @endif
+                                    @endif
+                                @endif
                             </div>
                         </div>
 
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">4. Proportion of DR-TB patients started on treatment 6 months prior
-                                to the review period with complete documentation in the treatment card and the DR-TB
+                            <div class="panel-heading">4. Proportion of DR-TB patients started on treatment 6 months within the review period with complete documentation in the treatment card and the DR-TB
                                 facility (treatment) register.<div class="result" id="ndstb12value">3</div>
                             </div>
                             <div class="panel-body">
@@ -449,7 +636,7 @@
                                         @if (strval($report->ddstb12) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb12u) }} / {{ strval($report->ddstb12) }} =
-                                                    {{ number_format($report->ndstb12u / $report->ddstb12, 2) * 100 }}%
+                                                    {{ $dr4 = number_format($report->ndstb12u / $report->ddstb12, 2) * 100 }}%
                                                 </td>
                                             </tr>
                                         @else
@@ -462,6 +649,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',12)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no', 12) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                
+                                    @if ($dr4 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
                             </div>
                         </div>
                     </div>
@@ -489,7 +691,7 @@
                                         @if (strval($report->ddstb13) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb13u) }} / {{ strval($report->ddstb13) }} =
-                                                    {{ number_format($report->ndstb13u / $report->ddstb13, 2) * 100 }}%
+                                                    {{ $pd1 = number_format($report->ndstb13u / $report->ddstb13, 2) * 100 }}%
                                                 </td>
                                             </tr>
                                         @else
@@ -502,6 +704,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',13)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no', 13) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                
+                                    @if ($pd1 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
                             </div>
                         </div>
 
@@ -521,7 +738,7 @@
                                         @if (strval($report->ddstb15) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb15u) }} / {{ strval($report->ddstb15) }} =
-                                                    {{ number_format($report->ndstb15u / $report->ddstb15, 2) * 100 }}%
+                                                    {{ $pd2 = number_format($report->ndstb15u / $report->ddstb15, 2) * 100 }}%
                                                 </td>
                                             </tr>
                                         @else
@@ -534,6 +751,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',15)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no',15) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                
+                                    @if ($pd2 < 15)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
                             </div>
                         </div>
                     </div>
@@ -556,7 +788,7 @@
                                         @if (strval($report->ddstb16) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb16u) }} / {{ strval($report->ddstb16) }} =
-                                                    {{ number_format($report->ndstb16u / $report->ddstb16, 2) * 100 }}%
+                                                    {{ $pd3 = number_format($report->ndstb16u / $report->ddstb16, 2) * 100 }}%
                                                 </td>
                                             </tr>
                                         @else
@@ -569,6 +801,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',16)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no',16) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                
+                                    @if ($pd3 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
                             </div>
                         </div>
 
@@ -582,7 +829,7 @@
                     <hr>
                     <div class="row">
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">1. Proportion of health care workers (HCW) who were screened for TB
+                            <div class="panel-heading">1. Proportion of health care workers (HCW) in the DOT and Laboratory clinics who were screened for TB
                                 12 months prior to the review period.<div class="result" id="ndstb18value">3</div>
                             </div>
                             <div class="panel-body">
@@ -597,7 +844,7 @@
                                         @if (strval($report->ddstb18) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb18u) }} / {{ strval($report->ddstb18) }} =
-                                                    {{ number_format($report->ndstb18u / $report->ddstb18, 2) * 100 }}%
+                                                    {{ $fa1 = number_format($report->ndstb18u / $report->ddstb18, 2) * 100 }}%
                                                 </td>
                                             </tr>
                                         @else
@@ -610,6 +857,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',18)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no', 18) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                
+                                    @if ($fa1 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
                             </div>
                         </div>
 
@@ -631,7 +893,7 @@
                                         @if (strval($report->ddstb19) > 0)
                                             <tr>
                                                 <td>{{ strval($report->ndstb19u) }} / {{ strval($report->ddstb19) }} =
-                                                    {{ number_format($report->ndstb19u / $report->ddstb19, 2) * 100 }}%
+                                                    {{ $fa2 = number_format($report->ndstb19u / $report->ddstb19, 2) * 100 }}%
                                                 </td>
                                             </tr>
                                         @else
@@ -644,6 +906,21 @@
 
                                     </tbody>
                                 </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',19)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no', 19) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                
+                                    @if ($fa2 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
                             </div>
                         </div>
                     </div>
