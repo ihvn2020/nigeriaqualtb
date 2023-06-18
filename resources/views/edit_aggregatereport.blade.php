@@ -50,9 +50,7 @@
                             <select name="state" id="state" class="form-control">
                                 <option value="{{ $report->faciliti->state }}" selected>{{ $report->faciliti->state }}
                                 </option>
-                                @foreach ($facilities->unique('state') as $fac)
-                                    <option value="{{ $fac->state }}">{{ $fac->state }}</option>
-                                @endforeach
+
                             </select>
                         </div>
 
@@ -61,9 +59,7 @@
                             <select name="facility" id="facility" class="form-control">
                                 <option value="{{ $report->facility }}" selected>{{ $report->faciliti->facility_name }}
                                 </option>
-                                @foreach ($facilities as $fac)
-                                    <option value="{{ $fac->id }}">{{ $fac->facility_name }}</option>
-                                @endforeach
+
                             </select>
                         </div>
                         <div class="col-md-2">

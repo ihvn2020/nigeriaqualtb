@@ -48,9 +48,15 @@
                         <div class="form-group col-md-2">
                             <label for="state">Select State</label>
                             <select name="state" id="state" class="form-control">
-                                <option value="{{ auth()->user()->state }}" selected>{{ auth()->user()->state }}
-                                </option>
-                                @if (auth()->user()->role == 'Super')
+
+                                @if (auth()->user()->role == 'Admin')
+                                    @php
+                                        $states = explode(",",auth()->user()->state)
+                                    @endphp
+                                    @for ($i=0;$i<count($states);$i++)
+                                        <option value="{{ $states[$i] }}">{{ $states[$i] }}</option>
+                                    @endfor
+                                @elseif(auth()->user()->role == 'Super')
                                     @foreach ($facilities->unique('state') as $fac)
                                         <option value="{{ $fac->state }}">{{ $fac->state }}</option>
                                     @endforeach
@@ -68,7 +74,10 @@
                                         <option value="{{ $fac->id }}">{{ $fac->facility_name }}</option>
                                     @endforeach
                                 @elseif (auth()->user()->role == 'Admin')
-                                    @foreach ($facilities->where('state', auth()->user()->state) as $fac)
+                                    @php
+                                        $facilities = App\Models\facilities::whereIn('state', $states)->get()
+                                    @endphp
+                                    @foreach ($facilities as $fac)
                                         <option value="{{ $fac->id }}">{{ $fac->facility_name }}</option>
                                     @endforeach
                                 @elseif (auth()->user()->role == 'User')
