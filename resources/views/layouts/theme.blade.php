@@ -230,6 +230,10 @@
                             </div>
                         </li>
 
+                        @if (auth()->user()->role=="Super")
+
+
+
                         <li class="roledlink Admin Super" style="visibility:hidden;">
                             <a href="#subPages7" data-toggle="collapse" class="collapsed"><i
                                     class="lnr lnr-home"></i> <span>Facilities</span> <i
@@ -241,6 +245,8 @@
                                 </ul>
                             </div>
                         </li>
+
+                        @endif
 
                     </ul>
                 </nav>
