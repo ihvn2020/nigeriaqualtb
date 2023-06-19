@@ -540,7 +540,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">1. Proportion of presumptive paediatric TB cases under 15 years
                                 identified within the review period who had access to either chest X-ray and/or Xpert
-                                MTB?RIF and/or stool depending on the age - <small style="color:red;"><i>Benchmark:
+                                MTB/RIF and/or stool depending on the age - <small style="color:red;"><i>Benchmark:
                                         100%</i></small>
                                 <div class="result" id="ndstb13value">3</div>
                             </div>

@@ -318,7 +318,7 @@
                                         <b>Numerator: </b>Number of DS-TB cases with positive baseline sputum smear or Xpert
                                         MTB/RIF started on treatment in the 6 months prior to the review period with
                                         documented follow-up sputum smear AFB within the recommended time frame (2,5 & 6
-                                        months).
+                                        months). (Treatment Register/Treatment Card)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb7u" id="ndstb7u"
@@ -330,7 +330,7 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Total number of DS-TB cases with positive baseline sputum smear
-                                        or Xpert MTB/RIF started on treatment in the 6 months prior to the review period
+                                        or Xpert MTB/RIF started on treatment in the 6 months prior to the review period. (Treatment Register/Treatment Card)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb7" id="ddstb7"
@@ -353,7 +353,7 @@
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of DS-TB patients started on treatment within
                                         the review period with complete documentation in the treatment card and the TB
-                                        facility (treatment) register.
+                                        facility (treatment) register. (Treatment Card and Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb8u" id="ndstb8u"
@@ -365,7 +365,7 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Number of DS-TB patients started on treatment within
-                                        the review period.
+                                        the review period.(Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb8" id="ddstb8"
@@ -382,19 +382,16 @@
                         <h3>DRTB</h3>
                         <hr>
                         <div class="panel panel-default">
-                            <div class="panel-heading">9. Proportion of patients started on second-line TB treatment during
-                                the 6 months review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr,
-                                Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented after 2
-                                weeks of sample collection. - <small style="color:red;"><i>Benchmark: 100%</i></small>
+                            <div class="panel-heading">1. Proportion of all DR-TB cases diagnosed during the review period
+                                who initiated treatment for DR-TB within two weeks of diagnosis. - <small style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb9value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of patients started on second-line TB treatment during the
-                                        6 months review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr,
-                                        Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented
-                                        after 2 weeks of sample collection.
+                                        <b>Numerator: </b>Number of all DR-TB cases diagnosed during the review period who
+                                        initiated treatment for DR-TB within two weeks of diagnosis. (DRTB Treatment
+                                        Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb9u" id="ndstb9u"
@@ -405,8 +402,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Number of patients started on second-line TB treatment during
-                                        the 6 months review period
+                                        <b>Denominator: </b>Number of all DR-TB cases diagnosed during the review period.
+                                        (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb9" id="ddstb9"
@@ -419,16 +416,20 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">10. Proportion of all DR-TB cases diagnosed during the review period
-                                who initiated treatment for DR-TB within two weeks of diagnosis.- <small
+                            <div class="panel-heading">2. Proportion of patients started on second-line TB treatment during
+                                the 6 months review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr,
+                                Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented after 2
+                                weeks of sample collection.- <small
                                     style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb10value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of all DR-TB cases diagnosed during the review period who
-                                        initiated treatment for DR-TB within two weeks of diagnosis.
+                                        <b>Numerator: </b>Number of patients started on second-line TB treatment during the
+                                        6 months review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr,
+                                        Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented
+                                        after 2 weeks of sample collection. (DRTB Treatment Register/DRTB Treatment Card)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb10u" id="ndstb10u"
@@ -439,7 +440,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Number of all DR-TB cases diagnosed during the review period.
+                                        <b>Denominator: </b>Number of patients started on second-line TB treatment during
+                                        the 6 months review period. (DRTB Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb10" id="ddstb10"
@@ -452,7 +454,7 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">11. Proportion of patients started on second-line TB treatment 9 or
+                            <div class="panel-heading">3. Proportion of patients started on second-line TB treatment 9 or
                                 12 months prior to the beginning of review period (i.e. 9 or 12 months after the closing day
                                 of the cohort) who have their follow-up examinations (AFB, Culture, EUCr, ECG done monthly
                                 during the intensive phase within the review period. - <small
@@ -466,7 +468,7 @@
                                         <b>Numerator: </b>Number of patients started on second-line TB treatment 19 or 12
                                         months prior to the beginning of review period (i.e. 9 or 12 months after the
                                         closing day of the cohort) who have their follow-up examinations (AFB, Culture,
-                                        EUCr, ECG done monthly during the intensive phase within the review period.
+                                        EUCr, ECG done monthly during the intensive phase within the review period. (DRTB Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb11u" id="ndstb11u"
@@ -478,7 +480,7 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Number of patients started on second-line TB treatment 19 or 12
-                                        months prior to the beginning of review period
+                                        months prior to the beginning of review period. (DRTB Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb11" id="ddstb11"
@@ -491,7 +493,7 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">12. Proportion of DR-TB patients started on treatment 6 months
+                            <div class="panel-heading">4. Proportion of DR-TB patients started on treatment 6 months
                                 within the review period with complete documentation in the treatment card and the DR-TB
                                 facility (treatment) register.<div class="result" id="ndstb12value">3</div>
                             </div>
@@ -500,7 +502,7 @@
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of DR-TB patients started on treatment 6 months prior to
                                         the review period with complete documentation in the treatment card and the DR-TB
-                                        facility (treatment) register.
+                                        facility (treatment) register. (DRTB Treatment Register/ DRTB Treatment Card)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb12u" id="ndstb12u"
@@ -512,7 +514,7 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Number of DR-TB patients started on treatment 6 months prior to
-                                        the review period.
+                                        the review period.(DRTB Treatment Register/ DRTB Treatment Card)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb12" id="ddstb12"
@@ -530,7 +532,7 @@
                         <h3>PAEDIATRICS</h3>
                         <hr>
                         <div class="panel panel-default">
-                            <div class="panel-heading">13. Proportion of presumptive paediatric TB cases under 15 years
+                            <div class="panel-heading">1. Proportion of presumptive paediatric TB cases under 15 years
                                 identified within the review period who had access to either chest X-ray and/or Xpert
                                 MTB?RIF and/or stool depending on the age - <small style="color:red;"><i>Benchmark:
                                         100%</i></small>
@@ -541,7 +543,7 @@
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of presumptive paediatric TB cases under 15 years
                                         identified within the review period who had access to either chest X-ray and/or
-                                        Xpert MTB?RIF and/or stool depending on the age.
+                                        Xpert MTB/RIF and/or stool depending on the age.(Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb13u" id="ndstb13u"
@@ -553,7 +555,7 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Total Number of presumptive paediatric TB cases under 15 years
-                                        identified within the review period.
+                                        identified within the review period.(Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb13" id="ddstb13"
@@ -564,9 +566,11 @@
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="ndstb14u">
 
+                        <input type="hidden" name="ddstb14">
                         <div class="panel panel-default">
-                            <div class="panel-heading">14. Proportion of children under 15 years diagnosed with TB within
+                            <div class="panel-heading">2. Proportion of children under 15 years diagnosed with TB within
                                 the review period. - <small style="color:red;"><i>Benchmark: 15%</i></small>
                                 <div class="result" id="ndstb15value">3</div>
                             </div>
@@ -574,7 +578,7 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of children under 15 years diagnosed with TB within the
-                                        review period.
+                                        review period.(Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb15u" id="ndstb15u"
@@ -585,7 +589,7 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total Number of diagnosed TB cases within the review period.
+                                        <b>Denominator: </b>Total Number of diagnosed TB cases within the review period. (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb15" id="ddstb15"
@@ -608,7 +612,7 @@
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of patients under 15 years among confirmed TB cases
                                         diagnosed within the review period that have initiated treatment for TB within two
-                                        days of diagnosis.
+                                        days of diagnosis.(Presumptive Register/DSTB Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb16u" id="ndstb16u"
@@ -620,7 +624,7 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Number of patients under 15 years among confirmed TB cases
-                                        diagnosed within the review period.
+                                        diagnosed within the review period.(Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb16" id="ddstb16"
@@ -651,7 +655,8 @@
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of health care workers in the DOT and laboratory clinics
                                         who were screened for TB 12 months
-                                        prior to the review period.
+                                        prior to the review period. (Facility OPD
+                                        Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb18u" id="ndstb18u"
