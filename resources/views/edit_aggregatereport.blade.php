@@ -86,7 +86,8 @@
                                 <div class="row form-row">
                                     <div class="col-md-6" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of hospital attendees within the review period who were
-                                        symptomatically screened for TB disaggregated by age U15 and 5
+                                        symptomatically screened for TB disaggregated by age U15 and 15+ (Facility OPD
+                                        Register)
 
                                     </div>
                                     <div class="col-md-3">
@@ -106,7 +107,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of hospital attendees within the review period
+                                        <b>Denominator: </b>Total number of hospital attendees within the review period (Facility OPD
+                                        Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb1" id="ddstb1" value="{{ $report->ddstb1 }}"
@@ -129,7 +131,7 @@
                                     <div class="col-md-6" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of bacteriologically diagnosed index TB patients during the
                                         review period who had their household contacts traced within one month of treatment
-                                        initiation.
+                                        initiation. (Contact Investigation Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb2u15" id="ndstb2u15"
@@ -149,7 +151,7 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Total number of bacteriologically diagnosed index TB patients
-                                        during the review period.
+                                        during the review period. (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb2" id="ddstb2"
@@ -161,16 +163,16 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">3. Proportion of presumptive TB cases identified within the review
-                                period evaluated for TB using WHO Rapid Diagnostics (Xpert MTB RIF assay, TB LAMP, LF LAM,
-                                TrueNat) or AFB microscopy. - <small style="color:red;"><i>Benchmark: 100%</i></small>
+                            <div class="panel-heading">3. Proportion of eligible U5 and above 5 contacts of
+                                bacteriologically positive TB cases who were initiated on TPT - <small style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb2value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of presumptive TB cases identified within the review period
-                                        evaluated for TB using WHO Rapid Diagnostics
+                                        <b>Numerator: </b>Total number of eligible U5 and above 5 contacts of
+                                        bacteriologically positive TB cases
+                                        initiated on TPT (Contact Investigation Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb3u" id="ndstb3u"
@@ -181,8 +183,9 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of presumptive TB cases identified within the
-                                        review period evaluated
+                                        <b>Denominator: </b>Total number of U5 and above 5 contacts of bacteriologically
+                                        positive TB cases eligible
+                                        for TPT(Contact Investigation Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb3" id="ddstb3"
@@ -196,7 +199,8 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">4. Proportion of presumptive TB cases identified within the review
-                                period evaluated clinically (including with chest X-ray) - <small
+                                period evaluated for TB using WHO Rapid Diagnostics (Xpert MTB RIF assay, TB LAMP, LF LAM,
+                                TrueNat).  - <small
                                     style="color:red;"><i>Benchmark: 75%</i></small>
                                 <div class="result" id="ndstb2value">3</div>
                             </div>
@@ -204,7 +208,7 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of presumptive TB cases identified within the review period
-                                        evaluated clinically
+                                        evaluated for TB using WHO Rapid Diagnostics (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb4u" id="ndstb4u"
@@ -216,7 +220,7 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Denominator: </b>Total number of presumptive TB cases identified within the
-                                        review period
+                                        review period evaluated (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb4" id="ddstb4"
@@ -240,8 +244,8 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of presumptive TB cases identified within the review period
-                                        whose sputum specimen were sent to GeneXpert Lab and had their results received
-                                        within 72 hrs of sending sputum specimen to Lab.
+                                        whose sample (sputum/stool specimen) were sent to GeneXpert Lab and had their
+                                        results received within 72 hrs of sending sputum specimen to Lab. (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb5u" id="ndstb5u"
@@ -252,8 +256,9 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of presumptive TB cases identified within the
-                                        review period whose sputum specimen were received
+                                        <b>Total number of presumptive TB cases identified within the
+                                            review period whose sample (sputum/stool specimen) were received (Presumptive
+                                            Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb5" id="ddstb5"
@@ -275,7 +280,8 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of confirmed TB cases diagnosed within the review period
-                                        that have initiated treatment for TB within two days of diagnosis
+                                        that have initiated treatment for TB within two days of diagnosis (Treatment
+                                        Register/Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb6u" value="{{ $report->ndstb6u }}"
@@ -286,8 +292,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of confirmed TB cases diagnosed within the review
-                                        period.
+                                        <b>Denominator: </b>Total number of confirmed TB cases within the review
+                                        period. (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb6" id="ddstb6"

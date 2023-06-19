@@ -264,8 +264,7 @@
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of presumptive TB cases identified within the review period
                                         whose sample (sputum/stool specimen) were sent to GeneXpert Lab and had their
-                                        results received
-                                        within 72 hrs of sending sputum specimen to Lab. (Presumptive Register)
+                                        results received within 72 hrs of sending sputum specimen to Lab. (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb5u" id="ndstb5u" class="form-control">
