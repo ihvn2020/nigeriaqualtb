@@ -940,25 +940,25 @@
                             <div class="form-group col-md-2">
                                 <label for="indicator_no">Select indicator Number</label>
                                 <select name="indicator_no" id="indicator_no" class="form-control">
-                                    <option value="1">1 DSTB</option>
-                                    <option value="2">2 DSTB</option>
-                                    <option value="3">3 DSTB</option>
-                                    <option value="4">4 DSTB</option>
-                                    <option value="5">5 DSTB</option>
-                                    <option value="6">6 DSTB</option>
-                                    <option value="7">7 DSTB</option>
-                                    <option value="8">8 DSTB</option>
+                                    <option value="1">DSTB Indicator 1</option>
+                                    <option value="2">DSTB Indicator 2</option>
+                                    <option value="3">DSTB Indicator 3</option>
+                                    <option value="4">DSTB Indicator 4</option>
+                                    <option value="5">DSTB Indicator 5</option>
+                                    <option value="6">DSTB Indicator 6</option>
+                                    <option value="7">DSTB Indicator 7</option>
+                                    <option value="8">DSTB Indicator 8</option>
 
-                                    <option value="9">1 DRTB</option>
-                                    <option value="10">2 DRTB</option>
-                                    <option value="11">3 DRTB</option>
-                                    <option value="12">4 DRTB</option>
+                                    <option value="9">DRTB Indicator 1</option>
+                                    <option value="10">DRTB Indicator 2</option>
+                                    <option value="11">DRTB Indicator 3</option>
+                                    <option value="12">DRTB Indicator 4</option>
 
-                                    <option value="13">1 PAEDIATRICS</option>
-                                    <option value="15">2 PAEDIATRICS</option>
-                                    <option value="16">3 PAEDIATRICS</option>
-                                    <option value="18">1 FACILITY</option>
-                                    <option value="19">2 FACILITY</option>
+                                    <option value="13">PAEDIATRICS Indicator 1</option>
+                                    <option value="15">PAEDIATRICS Indicator 2</option>
+                                    <option value="16">PAEDIATRICS Indicator 3</option>
+                                    <option value="18">FACILITY Indicator 1</option>
+                                    <option value="19">FACILITY Indicator 2</option>
 
                                 </select>
                             </div>

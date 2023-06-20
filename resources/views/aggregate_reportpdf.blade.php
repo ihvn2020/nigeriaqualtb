@@ -42,7 +42,7 @@ hr {
                             <hr>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">Proportion of hospital attendees within the review period who were symptomatically screened for TB disaggregated by age U15 and 15+ <div class="result" id="ndstb1value">3</div></div>
+                                <div class="panel-heading">1. Proportion of hospital attendees within the review period who were symptomatically screened for TB disaggregated by age U15 and 15+ <div class="result" id="ndstb1value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -78,7 +78,7 @@ hr {
                             </div>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">Proportion of bacteriologically diagnosed index TB patients during the review period who had their household contacts traced within one month of treatment initiation (disaggregated by age U15 and 15+).<div class="result" id="ndstb2value">3</div></div>
+                                <div class="panel-heading">2. Proportion of bacteriologically diagnosed index TB patients during the review period who had their household contacts traced within one month of treatment initiation (disaggregated by age U15 and 15+)<div class="result" id="ndstb2value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -113,7 +113,7 @@ hr {
                             </div>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">3.	Proportion of presumptive TB cases identified within the review period evaluated for TB using WHO Rapid Diagnostics (Xpert MTB RIF assay, TB LAMP, LF LAM, TrueNat) or AFB microscopy.<div class="result" id="ndstb2value">3</div></div>
+                                <div class="panel-heading">3.	Proportion of eligible U5 and above 5 contacts of bacteriologically positive TB cases who were initiated on TPT<div class="result" id="ndstb2value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -140,7 +140,7 @@ hr {
                             </div>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">4.	Proportion of presumptive TB cases identified within the review period evaluated clinically (including with chest X-ray)<div class="result" id="ndstb2value">3</div></div>
+                                <div class="panel-heading">4.	Proportion of presumptive TB cases identified within the review period evaluated for TB using WHO Rapid Diagnostics (Xpert MTB RIF assay, TB LAMP, LF LAM, TrueNat).<div class="result" id="ndstb2value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -231,7 +231,7 @@ hr {
                             </div>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">7.	Proportion of DS-TB cases with positive baseline sputum smear or Xpert MTB/RIF started on treatment in the 6 months prior to the review period with documented follow-up sputum smear AFB within the recommended time frame (2,5 & 6 months).<div class="result" id="ndstb7value">3</div></div>
+                                <div class="panel-heading">7.	Proportion of DS-TB cases with positive baseline sputum smear or Xpert MTB/RIF started on treatment within the review period who are due for and with documented (2, 5 or 6) follow-up test. <div class="result" id="ndstb7value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -261,7 +261,7 @@ hr {
                             </div>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">8.	Proportion of DS-TB patients started on treatment 6 months prior to the review period with complete documentation in the treatment card and the TB facility (treatment) register.<div class="result" id="ndstb8value">3</div></div>
+                                <div class="panel-heading">8.	Proportion of DS-TB patients started on treatment within the review period with complete documentation in the treatment card and the TB facility (treatment) register.<div class="result" id="ndstb8value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -295,7 +295,7 @@ hr {
                             <h3>DRTB</h3>
                             <hr>
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">9.	Proportion of patients started on second-line TB treatment during the 6 months review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr, Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented after 2 weeks of sample collection.<div class="result" id="ndstb9value">3</div></div>
+                                <div class="panel-heading">1.	Proportion of all DR-TB cases diagnosed during the review period who initiated treatment for DR-TB within two weeks of diagnosis.<div class="result" id="ndstb9value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -325,7 +325,7 @@ hr {
                             </div>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">10.	Proportion of all DR-TB cases diagnosed during the review period who initiated treatment for DR-TB within two weeks of diagnosis.<div class="result" id="ndstb10value">3</div></div>
+                                <div class="panel-heading">2.	Proportion of patients started on second-line TB treatment during the 6 months review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr, Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented after 2 weeks of sample collection.<div class="result" id="ndstb10value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -355,7 +355,7 @@ hr {
                             </div>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">11.	Proportion of patients started on second-line TB treatment 9 or 12 months prior to the beginning of review period (i.e. 9 or 12 months after the closing day of the cohort) who have their follow-up examinations (AFB, Culture, EUCr, ECG done monthly during the intensive phase within the review period.<div class="result" id="ndstb11value">3</div></div>
+                                <div class="panel-heading">3.	Proportion of patients started on second-line TB treatment 9 or 12 months prior to the beginning of review period (i.e. 9 or 12 months after the closing day of the cohort) who have their follow-up examinations (AFB, Culture, EUCr, ECG done monthly during the intensive phase within the review period.<div class="result" id="ndstb11value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -385,7 +385,7 @@ hr {
                             </div>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">12.	Proportion of DR-TB patients started on treatment 6 months prior to the review period with complete documentation in the treatment card and the DR-TB facility (treatment) register.<div class="result" id="ndstb12value">3</div></div>
+                                <div class="panel-heading">4.	Proportion of DR-TB patients started on treatment 6 months within the review period with complete documentation in the treatment card and the DR-TB facility (treatment) register.<div class="result" id="ndstb12value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -420,7 +420,7 @@ hr {
                             <h3>PAEDIATRICS</h3>
                             <hr>
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">13.	Proportion of presumptive paediatric TB cases under 15 years identified within the review period who had access to either chest X-ray and/or Xpert MTB?RIF and/or stool depending on the age<div class="result" id="ndstb13value">3</div></div>
+                                <div class="panel-heading">1.	Proportion of presumptive paediatric TB cases under 15 years identified within the review period who had access to either chest X-ray and/or Xpert MTB?RIF and/or stool depending on the age<div class="result" id="ndstb13value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
@@ -450,7 +450,7 @@ hr {
                             </div>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">14.	Proportion of children under 15 years diagnosed with TB within the review period.<div class="result" id="ndstb15value">3</div></div>
+                                <div class="panel-heading">2.	Proportion of children under 15 years diagnosed with TB within the review period.<div class="result" id="ndstb15value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
