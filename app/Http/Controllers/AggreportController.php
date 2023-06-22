@@ -16,9 +16,11 @@ class AggreportController extends Controller
      */
     public function index()
     {
+
         $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->get();
         if(Auth()->user()->role=="User"){
-            $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->where('entered_by',Auth()->user()->id)->get();
+            $userfacilityid = facilities::where('facility_name',Auth()->user()->facility)->first()->id;
+            $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->where('entered_by',Auth()->user()->id)->orWhere('facility',$userfacilityid)->get();
         }elseif(Auth()->user()->role=="Admin"){
             $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->where('state',Auth()->user()->state)->get();
         }
