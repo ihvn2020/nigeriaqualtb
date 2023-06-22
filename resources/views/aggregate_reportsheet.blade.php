@@ -964,8 +964,8 @@
                             </div>
                             <div class="form-group col-md-10">
                                 <label for="issues">Remarks/Issues</label>
-                                <input type="text" class="form-control" id="issues" name="issues"
-                                    placeholder="Upto 250 characters" required>
+
+                                    <textarea name="issues" class="form-control" rows="4" id="issues" required></textarea>
                             </div>
                         </div>
 
