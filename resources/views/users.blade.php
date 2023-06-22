@@ -42,7 +42,7 @@
                                     <td>{{ $ca->name }}</td>
                                     <td>{{ $ca->email }}</td>
                                     <td>{{ $ca->phone_number }}</td>
-                                    <td>{{ $facilities[array_search($ca->facility, array_column($facilities->toArray(), 'id'))]['facility_name'] }}
+                                    <td>{{ $ca->facility }}
                                     </td>
                                     <td>{{ $ca->state }}</td>
                                     <td>{{ $ca->role }}</td>
