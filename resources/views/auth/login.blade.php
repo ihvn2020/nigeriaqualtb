@@ -60,7 +60,7 @@
         @if (Route::has('password.request'))
             <div class="bottom">
                 <span class="helper-text"><i class="fa fa-lock"></i> <a href="{{ route('password.request') }}">Forgot
-                        password?</a> OR <a href="{{ route('register') }}">Register</a></span>
+                        password?</a></span>
             </div>
         @endif
 
