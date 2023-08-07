@@ -346,7 +346,7 @@ class HomeController extends Controller
     }
 
     public function delissue($iid){
-        aggreportissues::findOrFail($id)->delete();
+        aggreportissues::findOrFail($iid)->delete();
         $message = 'The issue has been deleted!';
         return redirect()->back()->with(['message'=>$message]);
     }
