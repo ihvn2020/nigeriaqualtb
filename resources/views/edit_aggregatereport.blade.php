@@ -224,7 +224,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb4" id="ddstb4"
-                                            value="{{ $report->ddstb3 }}" class="form-control"
+                                            value="{{ $report->ddstb4 }}" class="form-control"
                                             onChange="compareDeno(4) ">
                                     </div>
 
