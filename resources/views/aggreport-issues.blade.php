@@ -33,7 +33,10 @@
 
                                 <td>{{ $agri->indicator_no }}</td>
                                 <td>{{ $agri->issues }} | <i><small style="color:green">{{ $agri->enteredby->name }} -
-                                            {{ date('jS F, Y', strtotime($agri->created_at)) }}</small></i></td>
+                                            {{ date('jS F, Y', strtotime($agri->created_at)) }}</small></i>
+                                            <br>
+                                <a href="{{url('delissue/'.$agri->id)}}" style="color: red; font-size: 0.8em">Delete</a>
+                                </td>
 
                                 <td>
                                     <ul>

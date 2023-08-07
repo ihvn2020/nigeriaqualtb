@@ -345,6 +345,11 @@ class HomeController extends Controller
         return redirect()->route('users')->with(['message'=>$message]);
     }
 
+    public function delissue($iid){
+        aggreportissues::findOrFail($id)->delete();
+        $message = 'The issue has been deleted!';
+        return redirect()->back()->with(['message'=>$message]);
+    }
 
     public function settings(request $request){
       $validateData = $request->validate([

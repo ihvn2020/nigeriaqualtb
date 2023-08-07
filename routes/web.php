@@ -61,6 +61,8 @@ Route::post('/reportissues', [App\Http\Controllers\HomeController::class, 'newAg
 Route::get('/agrissues/{id}', [App\Http\Controllers\HomeController::class, 'viewAgrIssues'])->name('agrissues')->middleware('role:Super,Admin,User');
 Route::post('/saveqi', [App\Http\Controllers\HomeController::class, 'addQI'])->name('saveqi')->middleware('role:Super,Admin,User');
 Route::post('/saveqicomment', [App\Http\Controllers\HomeController::class, 'addQIComment'])->name('saveqicomment')->middleware('role:Super,Admin,User');
+Route::get('/delissue/{iid}/', [App\Http\Controllers\HomeController::class, 'delissue'])->name('delissue')->middleware('role:Super');
+
 
 
 Route::get('/new-user', [App\Http\Controllers\HomeController::class, 'newUser'])->name('new-user')->middleware('role:Super,Admin');
