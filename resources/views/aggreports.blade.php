@@ -45,7 +45,9 @@
                                     <td>{{$agr->status}}</td>
                                     <td width="90">
                                         <div class="btn-group">
-                                            @if ($agr->status=="Open" && auth()->user()->role!="Super")
+                                            @if ($agr->status=="Open")
+                                                <a href="edit-report/{{$agr->id}}" target="_blank" class="label label-primary left"><i class="lnr lnr-pencil"></i></a>
+                                            @elseif($agr->status=="Closed" && auth()->user()->role=="Super")
                                                 <a href="edit-report/{{$agr->id}}" target="_blank" class="label label-primary left"><i class="lnr lnr-pencil"></i></a>
                                             @endif
 
