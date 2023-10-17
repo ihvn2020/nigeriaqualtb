@@ -115,7 +115,7 @@
 
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="number" name="ndstb1u15" id="ndstb1u15" placeholder="0-14yrs"
+                                        <input type="number" name="ndstb1u15" id="ndstb1u15"
                                             class="form-control tooltipped" data-toggle="tooltip" data-placement="top"
                                             title="Total # of 0-14yrs">
                                     </div>

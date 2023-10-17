@@ -450,7 +450,7 @@ hr {
                             </div>
 
                             <hr /> <div class="panel panel-default" >
-                                <div class="panel-heading">2.	Proportion of children under 15 years diagnosed with TB within the review period.<div class="result" id="ndstb15value">3</div></div>
+                                <div class="panel-heading">2. Proportion of children under 15 years diagnosed with TB within the review period.<div class="result" id="ndstb15value">3</div></div>
                                 <div class="panel-body">
                                     <table class="table">
                                         <thead>
