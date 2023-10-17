@@ -116,8 +116,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb1u15" id="ndstb1u15"
-                                            class="form-control tooltipped" data-toggle="tooltip" data-placement="top"
-                                            title="Total # of 0-14yrs">
+                                            class="form-control">
                                     </div>
 
                                 </div>
@@ -320,7 +319,7 @@
                                         initiation. (Contact Investigation Register)
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="number" name="ndstb7" id="ndstb7u" placeholder=""
+                                        <input type="number" name="ndstb7u" id="ndstb7u" placeholder=""
                                             class="form-control" data-placement="top">
                                     </div>
 
