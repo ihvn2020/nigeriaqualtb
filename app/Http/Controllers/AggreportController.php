@@ -20,12 +20,12 @@ class AggreportController extends Controller
 
         if(Auth()->user()->role=="User"){
             $userfacilityid = facilities::where('facility_name',Auth()->user()->facility)->first()->id;
-            $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->where('entered_by',Auth()->user()->id)->orWhere('facility',$userfacilityid)->get();
+            $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->where('entered_by',Auth()->user()->id)->orWhere('facility',$userfacilityid)->orderBy('id','desc')->get();
         }elseif(Auth()->user()->role=="Admin"){
             $states = explode(',',Auth()->user()->state);
-            $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->whereIn('state',$states)->get();
+            $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->whereIn('state',$states)->orderBy('id','desc')->get();
         }else{
-            $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->get();
+            $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->orderBy('id','desc')->get();
         }
         return view('aggreports', compact('aggreports'));
     }
