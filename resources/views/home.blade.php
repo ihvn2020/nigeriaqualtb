@@ -113,6 +113,23 @@
                             </div>
                         </div>
 
+                        <div class="col-lg-5 col-sm-4 col-12 text-center">
+                            <div class="row main-box-layout img-thumbnail">
+                                <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                                    <p>Saved Reports</p>
+                                </div>
+                                <div class="label">
+
+                                </div>
+                                <div class="newbtn">
+                                    <a href="{{ url('aggreports') }}" class="btn btn-primary">View All</a>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-lg-5 col-sm-4 col-12 text-center roledlink Super" style="visibility:hidden;">
                             <div class="row main-box-layout img-thumbnail">
                                 <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
