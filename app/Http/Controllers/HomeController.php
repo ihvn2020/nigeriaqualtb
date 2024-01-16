@@ -351,6 +351,8 @@ class HomeController extends Controller
         return redirect()->back()->with(['message'=>$message]);
     }
 
+
+
     public function settings(request $request){
       $validateData = $request->validate([
           'logo'=>'image|mimes:jpg,png,jpeg,gif,svg',

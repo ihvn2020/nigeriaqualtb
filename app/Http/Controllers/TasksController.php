@@ -6,6 +6,7 @@ use App\Models\tasks;
 use Illuminate\Http\Request;
 use App\Models\followups;
 use App\Models\User;
+use App\Models\facilities;
 use Auth;
 
 class TasksController extends Controller
@@ -24,7 +25,7 @@ class TasksController extends Controller
         }
 
         $users = User::select('id','name')->get();
-        
+
         return view('tasks', compact('tasks','users'));
     }
 
@@ -67,9 +68,9 @@ class TasksController extends Controller
             'activities' => $request->activities,
             'status' => $request->status,
             'assigned_to'=>$request->assigned_to,
-            'member'=>$request->assigned_to                
+            'member'=>$request->assigned_to
         ]);
-        
+
         $tasks = tasks::paginate(50);
         if($request->phone_number!=""){
 
@@ -78,21 +79,21 @@ class TasksController extends Controller
                 $recipients="234".ltrim($recipients,'0');
             }
             // SEND SMS
-            // 2 Jan 2008 6:30 PM   sendtime - date format for scheduling 
+            // 2 Jan 2008 6:30 PM   sendtime - date format for scheduling
             if(\Cookie::get('sessionidd')){
                 $sessionid = \Cookie::get('sessionidd');
             }else{
                 $session = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=login&owneremail=gcictng@gmail.com&subacct=CRMAPP&subacctpwd=@@prayer22");
                 $sessionid = ltrim(substr($session,3),' ');
-            }            
-        
+            }
+
             $body = $request->title;
-        
+
 
             $message = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=sendmsg&sessionid=".$sessionid."&message=".urlencode($body)."&sender=CHURCH&sendto=".$recipients."&msgtype=0");
         }
         return redirect()->back()->with(['tasks'=>$tasks]);
-   
+
     }
 
     /**
@@ -137,15 +138,15 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        tasks::findOrFail($id)->delete();      
-        $message = 'The task has been deleted!';      
+        tasks::findOrFail($id)->delete();
+        $message = 'The task has been deleted!';
         return redirect()->route('tasks')->with(['message'=>$message]);
     }
 
     public function deletefollowup($id,$member)
     {
-        followups::findOrFail($id)->delete();      
-        $message = 'The followup activity has been deleted!';      
+        followups::findOrFail($id)->delete();
+        $message = 'The followup activity has been deleted!';
         return redirect()->route('member',['id'=>$member])->with(['message'=>$message]);
     }
 
@@ -155,9 +156,9 @@ class TasksController extends Controller
         $task->status = 'Completed';
         $task->save();
 
-        $message = 'The task has been updated!';      
+        $message = 'The task has been updated!';
         return redirect()->route('tasks')->with(['message'=>$message]);
-    }    
+    }
 
     public function inprogresstask($id)
     {
@@ -165,9 +166,9 @@ class TasksController extends Controller
         $task->status = 'In Progress';
         $task->save();
 
-        $message = 'The task has been updated!';      
+        $message = 'The task has been updated!';
         return redirect()->route('tasks')->with(['message'=>$message]);
-    } 
+    }
 
     public function newfollowup(Request $request)
     {
@@ -180,7 +181,7 @@ class TasksController extends Controller
             'nextaction' => $request->nextaction,
             'nextactiondate' => $request->nextactiondate,
             'status' => $request->status,
-            'assigned_to'=>$request->assigned_to                
+            'assigned_to'=>$request->assigned_to
         ]);
 
         tasks::updateOrCreate(['id'=>$request->id],[
@@ -190,13 +191,13 @@ class TasksController extends Controller
             'activities' => $request->nextaction,
             'status' => $request->status,
             'assigned_to'=>$request->assigned_to,
-            'member'=>$request->member                
+            'member'=>$request->member
         ]);
 
 
         $tasks = tasks::paginate(50);
         $followups = followups::paginate(50);
-        
+
         if($request->phone_number!=""){
 
             $recipients = $request->phone_number;
@@ -204,7 +205,7 @@ class TasksController extends Controller
                 $recipients="234".ltrim($recipients,'0');
             }
             // SEND SMS
-            // 2 Jan 2008 6:30 PM   sendtime - date format for scheduling 
+            // 2 Jan 2008 6:30 PM   sendtime - date format for scheduling
             if(\Cookie::get('sessionidd')){
                 $sessionid = \Cookie::get('sessionidd');
             }else{
@@ -213,15 +214,31 @@ class TasksController extends Controller
             }
 
             $sessionid = \Cookie::get('sessionidd');
-            
-        
+
+
             $body = $request->title;
-        
+
 
             $message = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=sendmsg&sessionid=".$sessionid."&message=".urlencode($body)."&sender=CHURCH&sendto=".$recipients."&msgtype=0");
         }
 
         return redirect()->back()->with(['tasks'=>$tasks,'followups'=>$followups]);
-   
+
+    }
+
+    public function getStates()
+    {
+        // Retrieve distinct states from the facilities table
+        $states = facilities::distinct('state')->pluck('state');
+
+        return response()->json(['states' => $states]);
+    }
+
+    public function getFacilities()
+    {
+        // Retrieve distinct states from the facilities table
+        $facilities = facilities::distinct('facility_name')->pluck('facility_name');
+
+        return response()->json(['facilities' => $facilities]);
     }
 }

@@ -410,7 +410,7 @@
     <script>
         // TABLES WITH FILTERS
         $('#products thead tr').clone(true).appendTo('#products thead');
-        $('#products thead tr:eq(1) th:not(:last)').each(function(i) {
+        $('#products thead tr:eq(1)').each(function(i) {
             var title = $(this).text();
             $(this).html('<input type="text" class="form-control" placeholder="Search ' + title + '" value="" />');
 
