@@ -18,7 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/csrf-token', 'TasksController@getCsrfToken');
+Route::get('/csrf-token', [App\Http\Controllers\TasksController::class, 'getCsrfToken']);
 
 Route::get('/states', [App\Http\Controllers\TasksController::class, 'getStates']);
 
