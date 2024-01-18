@@ -270,4 +270,11 @@ class TasksController extends Controller
         ]);
         return response()->json(['message' => "Your registration was successful, proceed to login"]);
     }
+
+    public function getCsrfToken()
+    {
+        $token = csrf_token();
+
+        return Response::json(['csrfToken' => $token]);
+    }
 }
