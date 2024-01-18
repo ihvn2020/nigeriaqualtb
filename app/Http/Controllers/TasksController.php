@@ -8,6 +8,7 @@ use App\Models\followups;
 use App\Models\User;
 use App\Models\facilities;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Hash;
 
 use Auth;
 
