@@ -10,6 +10,7 @@ use App\Models\facilities;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
 
+
 use Auth;
 
 class TasksController extends Controller
@@ -232,15 +233,13 @@ class TasksController extends Controller
     public function getStates()
     {
         // Retrieve distinct states from the facilities table
-        $states = facilities::select('id', 'state')
-        ->groupBy('id', 'state')
-        ->get();
+        $states = facilities::select('state')->distinct()->get();
 
         // Format data as label and value pairs
         $formattedStates = $states->map(function ($state) {
             return [
                 'label' => $state->state, // Assuming your state model has a 'name' attribute
-                'value' => $state->id,   // Assuming 'id' is the unique identifier for states
+                'value' => $state->state,   // Assuming 'id' is the unique identifier for states
             ];
         });
 
@@ -250,8 +249,8 @@ class TasksController extends Controller
     public function getFacilities()
     {
         // Retrieve distinct states from the facilities table
-        $facilities = facilities::select('id', 'state')
-        ->groupBy('id', 'facility_name')
+        $facilities = facilities::select('id', 'facility_name')
+        ->groupBy('id','facility_name')
         ->get();
 
         // Format data as label and value pairs
