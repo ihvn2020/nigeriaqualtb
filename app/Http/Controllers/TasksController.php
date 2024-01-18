@@ -242,7 +242,7 @@ class TasksController extends Controller
         return response()->json(['facilities' => $facilities]);
     }
 
-    protected function registeUser(request $request)
+    protected function registerUser(request $request)
     {
 
         if($request->email==""){
