@@ -232,7 +232,9 @@ class TasksController extends Controller
     public function getStates()
     {
         // Retrieve distinct states from the facilities table
-        $states = facilities::select('id','state')->distinct()->get();
+        $states = facilities::select('id', 'state')
+        ->groupBy('id', 'state')
+        ->get();
 
         // Format data as label and value pairs
         $formattedStates = $states->map(function ($state) {
@@ -248,7 +250,9 @@ class TasksController extends Controller
     public function getFacilities()
     {
         // Retrieve distinct states from the facilities table
-        $facilities = facilities::select('id','facility_name')->distinct()->get();
+        $facilities = facilities::select('id', 'state')
+        ->groupBy('id', 'facility_name')
+        ->get();
 
         // Format data as label and value pairs
         $formattedFacilities = $facilities->map(function ($facility) {
