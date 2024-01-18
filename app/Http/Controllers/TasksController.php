@@ -232,17 +232,33 @@ class TasksController extends Controller
     public function getStates()
     {
         // Retrieve distinct states from the facilities table
-        $states = facilities::distinct('state')->pluck('state');
+        $states = facilities::distinct('id','state')->get();
 
-        return response()->json(['states' => $states]);
+        // Format data as label and value pairs
+        $formattedStates = $states->map(function ($state) {
+            return [
+                'label' => $state->state, // Assuming your state model has a 'name' attribute
+                'value' => $state->id,   // Assuming 'id' is the unique identifier for states
+            ];
+        });
+
+        return response()->json($formattedStates);
     }
 
     public function getFacilities()
     {
         // Retrieve distinct states from the facilities table
-        $facilities = facilities::distinct('facility_name')->pluck('facility_name');
+        $facilities = facilities::distinct('id','facility_name')->get();
 
-        return response()->json(['facilities' => $facilities]);
+        // Format data as label and value pairs
+        $formattedFacilities = $facilities->map(function ($facility) {
+            return [
+                'label' => $facility->facility_name, // Assuming your state model has a 'name' attribute
+                'value' => $facility->id,   // Assuming 'id' is the unique identifier for states
+            ];
+        });
+
+        return response()->json($formattedFacilities);
     }
 
     protected function registerUser(request $request)
