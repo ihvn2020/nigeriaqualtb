@@ -18,12 +18,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/csrf-token', [App\Http\Controllers\TasksController::class, 'getCsrfToken']);
 
 Route::get('/states', [App\Http\Controllers\TasksController::class, 'getStates']);
 
 Route::get('/facilities', [App\Http\Controllers\TasksController::class, 'getFacilities']);
+Route::post('/register-user', [App\Http\Controllers\TasksController::class, 'registerUser']);
+
 
 Route::group(['middleware' => 'web'], function () {
-    Route::post('/register-user', [App\Http\Controllers\TasksController::class, 'registerUser']);
+    Route::get('/csrf-token', [App\Http\Controllers\TasksController::class, 'getCsrfToken']);
+
 });
