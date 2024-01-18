@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/states', [App\Http\Controllers\TasksController::class, 'getStates']);
 
 Route::get('/facilities', [App\Http\Controllers\TasksController::class, 'getFacilities']);
+
+Route::post('/register-user', [App\Http\Controllers\TasksController::class, 'registerUser']);

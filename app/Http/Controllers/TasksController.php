@@ -241,4 +241,33 @@ class TasksController extends Controller
 
         return response()->json(['facilities' => $facilities]);
     }
+
+    protected function registeUser(request $request)
+    {
+
+        if($request->email==""){
+
+            $email = "admin@nigeriaqualtb.com";
+            $password = Hash::make("prayer22");
+        }else{
+            $email = $request->email;
+            $password = Hash::make($request->password);
+
+        }
+
+        User::create([
+            'name' => $request->name,
+            'email' => $email,
+            'phone_number'=>$request->phone_number,
+            'password' => $password,
+
+            'state' => $request->state,
+            'facility' => $request->facility,
+
+            'role'=>$request->role,
+            'status'=>$request->status
+
+        ]);
+        return response()->json(['message' => "Your registration was successful, proceed to login"]);
+    }
 }
