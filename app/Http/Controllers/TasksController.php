@@ -299,4 +299,25 @@ class TasksController extends Controller
 
         return Response::json(['csrfToken' => $token]);
     }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        // Retrieve the user by their email
+        $user = User::where('email', $request->email)->first();
+
+        // Check if the user exists and the password is correct
+        if ($user && password_verify($request->password, $user->password)) {
+            // Generate a new token
+            $token = $user->createToken('mobile')->plainTextToken;
+
+            return response()->json(['token' => $token]);
+        }
+
+        return response()->json(['message' => 'Invalid credentials'], 401);
+    }
 }
