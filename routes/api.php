@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/login', [App\Http\Controllers\TasksController::class, 'login']);
+    Route::post('/login', [App\Http\Controllers\TasksController::class, 'login']);
 });
 
 
