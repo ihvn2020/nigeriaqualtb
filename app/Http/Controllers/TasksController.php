@@ -249,7 +249,7 @@ class TasksController extends Controller
     public function getFacilities()
     {
         // Retrieve distinct states from the facilities table
-        $facilities = facilities::select('id', 'facility_name')
+        $facilities = facilities::select('id', 'facility_name','state')
         ->groupBy('id','facility_name')
         ->get();
 
@@ -257,7 +257,8 @@ class TasksController extends Controller
         $formattedFacilities = $facilities->map(function ($facility) {
             return [
                 'label' => $facility->facility_name, // Assuming your state model has a 'name' attribute
-                'value' => $facility->id,   // Assuming 'id' is the unique identifier for states
+                'value' => $facility->id,
+                'state' => $facility->state
             ];
         });
 
