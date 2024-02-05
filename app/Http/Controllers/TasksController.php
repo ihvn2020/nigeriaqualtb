@@ -250,7 +250,7 @@ class TasksController extends Controller
     {
         // Retrieve distinct states from the facilities table
         $facilities = facilities::select('id', 'facility_name','state')
-        ->groupBy('id','facility_name')
+        ->groupBy('id','facility_name','state')
         ->get();
 
         // Format data as label and value pairs
