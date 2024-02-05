@@ -21,7 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::middleware('auth:sanctum')->group(function () {
     Route::post('/login', [App\Http\Controllers\TasksController::class, 'login']);
 // });
-
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/newAPIAggReport', [App\Http\Controllers\TasksController::class, 'newAPIAggReport']);
+});
 
 Route::get('/states', [App\Http\Controllers\TasksController::class, 'getStates']);
 

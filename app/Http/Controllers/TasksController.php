@@ -230,6 +230,16 @@ class TasksController extends Controller
 
     }
 
+    // API LINKS
+
+    public function newAPIAggReport(request $request)
+    {
+      aggreport::updateOrCreate(['id'=>$request->id],
+          $request->all());
+      return response()->json(['message'=>'Aggregate Report Saved Successfully!']);
+
+    }
+
     public function getStates()
     {
         // Retrieve distinct states from the facilities table
