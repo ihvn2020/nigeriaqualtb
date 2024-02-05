@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\followups;
 use App\Models\User;
 use App\Models\facilities;
+use App\Models\aggreport;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
 
