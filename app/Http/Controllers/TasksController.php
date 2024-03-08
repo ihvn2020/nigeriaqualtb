@@ -298,9 +298,12 @@ class TasksController extends Controller
     // Helping NMRS Ministry
     public function ndrMatchStatus($pepfarid, $fdatimcode){
         // Retrieve distinct states from the facilities table
-        $ndrmatch = ndrmatch::select('facility_datim_code', 'facilpepfar_id','match_status','date_created')->where('pepfar_id',$pepfarid)->where('facility_datim_code',$fdatimcode)
+        if($pepfarid=="na"){
+            $ndrmatch = ndrmatch::select('facility_datim_code', 'pepfar_id','match_status','date_created')->where('facility_datim_code',$fdatimcode)->get();
+        }else{
+            $ndrmatch = ndrmatch::select('facility_datim_code', 'pepfar_id','match_status','date_created')->where('pepfar_id',$pepfarid)->where('facility_datim_code',$fdatimcode)->get();
 
-        ->get();
+        }
 
         // Format data as label and value pairs
         $formattedNDRRecord = $ndrmatch->map(function ($ndrmatch) {
