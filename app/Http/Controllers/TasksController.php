@@ -299,9 +299,9 @@ class TasksController extends Controller
     public function ndrMatchStatus($pepfarid, $fdatimcode){
         // Retrieve distinct states from the facilities table
         if($pepfarid=="na"){
-            $ndrmatch = ndrmatch::select('facility_datim_code', 'pepfar_id','match_status','date_created')->where('facility_datim_code',$fdatimcode)->get();
+            $ndrmatch = ndrmatch::select('facility_datim_code', 'pepfar_id','match_outcome','date_created','otherinfo','baseline_replaced')->where('facility_datim_code',$fdatimcode)->get();
         }else{
-            $ndrmatch = ndrmatch::select('facility_datim_code', 'pepfar_id','match_status','date_created')->where('pepfar_id',$pepfarid)->where('facility_datim_code',$fdatimcode)->get();
+            $ndrmatch = ndrmatch::select('facility_datim_code', 'pepfar_id','match_outcome','date_created','otherinfo','baseline_replaced')->where('pepfar_id',$pepfarid)->where('facility_datim_code',$fdatimcode)->get();
 
         }
 
