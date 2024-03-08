@@ -308,9 +308,9 @@ class TasksController extends Controller
         // Format data as label and value pairs
         $formattedNDRRecord = $ndrmatch->map(function ($ndrmatch) {
             return [
-                'facility_datim_code' => $facility->facility_datim_code, // Assuming your state model has a 'name' attribute
-                'pepfar_id' => $facility->pepfar_id,
-                'match_outcome' => $facility->match_outcome,
+                'facility_datim_code' => $ndrmatch->facility_datim_code, // Assuming your state model has a 'name' attribute
+                'pepfar_id' => $ndrmatch->pepfar_id,
+                'match_outcome' => $ndrmatch->match_outcome,
                 'recapture_date' => $ndrmatch->recapture_date,
                 'baseline_replaced' =>$ndrmatch->baseline_replaced,
                 'otherinfo' => $ndrmatch->otherinfo,
