@@ -8,6 +8,7 @@ use App\Models\followups;
 use App\Models\User;
 use App\Models\facilities;
 use App\Models\aggreport;
+use App\Models\ndrmatch;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
 
@@ -292,6 +293,28 @@ class TasksController extends Controller
         });
 
         return response()->json($formattedFacilities);
+    }
+
+    // Helping NMRS Ministry
+    public function ndrMatchStatus($pepfarid, $fdatimcode){
+        // Retrieve distinct states from the facilities table
+        $ndrmatch = ndrmatch::select('facility_datim_code', 'facilpepfar_id','match_status','date_created')->where('pepfar_id',$pepfarid)->where('facility_datim_code',$fdatimcode)
+
+        ->get();
+
+        // Format data as label and value pairs
+        $formattedNDRRecord = $ndrmatch->map(function ($ndrmatch) {
+            return [
+                'facility_datim_code' => $facility->facility_datim_code, // Assuming your state model has a 'name' attribute
+                'pepfar_id' => $facility->pepfar_id,
+                'match_status' => $facility->match_status,
+                'date_created' => $ndrmatch->date_created,
+                'baseline_replaced' =>$ndrmatch->baseline_replaced,
+                'otherinfo' => $ndrmatch->otherinfo,
+            ];
+        });
+
+        return response()->json($formattedNDRRecord);
     }
 
     protected function registerUser(request $request)

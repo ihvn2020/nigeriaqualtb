@@ -26,9 +26,11 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::get('/states', [App\Http\Controllers\TasksController::class, 'getStates']);
-
 Route::get('/facilities', [App\Http\Controllers\TasksController::class, 'getFacilities']);
 Route::post('/register-user', [App\Http\Controllers\TasksController::class, 'registerUser']);
+
+// HELP NMRS MINISTRY
+Route::get('/ndrmatch_status/{pepfarid}/{facilityDatimCode}', [App\Http\Controllers\TasksController::class, 'ndrMatchStatus']);
 
 
 Route::group(['middleware' => 'web'], function () {
