@@ -310,7 +310,7 @@ class TasksController extends Controller
             return [
                 'facility_datim_code' => $facility->facility_datim_code, // Assuming your state model has a 'name' attribute
                 'pepfar_id' => $facility->pepfar_id,
-                'match_status' => $facility->match_status,
+                'match_outcome' => $facility->match_outcome,
                 'date_created' => $ndrmatch->date_created,
                 'baseline_replaced' =>$ndrmatch->baseline_replaced,
                 'otherinfo' => $ndrmatch->otherinfo,
