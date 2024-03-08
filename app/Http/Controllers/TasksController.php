@@ -299,9 +299,9 @@ class TasksController extends Controller
     public function ndrMatchStatus($pepfarid, $fdatimcode){
         // Retrieve distinct states from the facilities table
         if($pepfarid=="na"){
-            $ndrmatch = ndrmatch::select('facility_datim_code', 'pepfar_id','match_outcome','date_created','otherinfo','baseline_replaced')->where('facility_datim_code',$fdatimcode)->get();
+            $ndrmatch = ndrmatch::select('facility_datim_code', 'pepfar_id','match_outcome','recapture_date','otherinfo','baseline_replaced')->where('facility_datim_code',$fdatimcode)->get();
         }else{
-            $ndrmatch = ndrmatch::select('facility_datim_code', 'pepfar_id','match_outcome','date_created','otherinfo','baseline_replaced')->where('pepfar_id',$pepfarid)->where('facility_datim_code',$fdatimcode)->get();
+            $ndrmatch = ndrmatch::select('facility_datim_code', 'pepfar_id','match_outcome','recapture_date','otherinfo','baseline_replaced')->where('pepfar_id',$pepfarid)->where('facility_datim_code',$fdatimcode)->get();
 
         }
 
@@ -311,7 +311,7 @@ class TasksController extends Controller
                 'facility_datim_code' => $facility->facility_datim_code, // Assuming your state model has a 'name' attribute
                 'pepfar_id' => $facility->pepfar_id,
                 'match_outcome' => $facility->match_outcome,
-                'date_created' => $ndrmatch->date_created,
+                'recapture_date' => $ndrmatch->recapture_date,
                 'baseline_replaced' =>$ndrmatch->baseline_replaced,
                 'otherinfo' => $ndrmatch->otherinfo,
             ];
