@@ -234,31 +234,29 @@ class TasksController extends Controller
 
     // API LINKS
 
-    public function newAPIAggReport(request $request)
+    public function newAPIAggReport(Request $request)
     {
-       // Extract 'from', 'to', 'entered_by', 'status', 'state' from request data
+        // Extract 'from', 'to', 'entered_by', 'status', 'state' from request data
         $thisReportData = $request->except(['from', 'to', 'entered_by', 'status', 'state']);
-
         // Format 'from' and 'to' dates
         $thisReportData['from'] = date('Y-m-d', strtotime($request->from));
         $thisReportData['to'] = date('Y-m-d', strtotime($request->to));
-
         // Set additional properties
         $thisReportData['entered_by'] = 1;
         $thisReportData['status'] = 'Open';
         $thisReportData['state'] = 1;
 
-        // Just for Testing
         // Update or create the record
         $thisReport = AggReport::updateOrCreate(['appid' => $request->appid], $thisReportData);
 
         // Save the changes
         $thisReport->save();
 
-
-
-      return response()->json(['message'=>'Aggregate Report Saved Successfully!']);
-
+        // Return response with message and ID
+        return response()->json([
+            'message' => 'Aggregate Report Saved Successfully!',
+            'id' => $thisReport->id
+        ]);
     }
 
     public function getStates()
