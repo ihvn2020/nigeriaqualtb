@@ -102,6 +102,7 @@ class CreateAggreportsTable extends Migration
             $table->foreign('facility')->references('id')->on('facilities')->onDelete('cascade');
 
             $table->string('status',30)->nullable();
+            $table->string('appid',50)->nullable()->unique();
 
             $table->timestamps();
         });
