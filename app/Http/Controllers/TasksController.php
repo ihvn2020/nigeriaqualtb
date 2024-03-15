@@ -248,6 +248,7 @@ class TasksController extends Controller
         $thisReportData['status'] = 'Open';
         $thisReportData['state'] = 1;
 
+        // Just for Testing
         // Update or create the record
         $thisReport = AggReport::updateOrCreate(['appid' => $request->appid], $thisReportData);
 
