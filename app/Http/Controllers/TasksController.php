@@ -249,7 +249,7 @@ class TasksController extends Controller
         $thisReportData['state'] = 1;
 
         // Update or create the record
-        $thisReport = AggReport::updateOrCreate(['id' => $request->id], $thisReportData);
+        $thisReport = AggReport::updateOrCreate(['appid' => $request->appid], $thisReportData);
 
         // Save the changes
         $thisReport->save();
