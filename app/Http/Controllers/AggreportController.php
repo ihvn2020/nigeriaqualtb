@@ -36,6 +36,7 @@ class AggreportController extends Controller
 
         $aggreports = aggreport::all();
         $indicators = indicators::all();
+        dd($indicators);
         return view('allaggreports', compact('aggreports','indicators'));
     }
 
