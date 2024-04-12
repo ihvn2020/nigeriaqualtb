@@ -220,6 +220,8 @@
                                             Report</a></li>
                                     <li><a href="{{ url('aggreports') }}" class="">View Aggregate Reports</a>
                                     </li>
+                                    <li><a href="{{ url('allaggreports') }}" class="">Aggregate Reports Analysis</a>
+                                    </li>
 
                                     <!--
           <li><a href="new-activity" class="">New Report</a></li>
