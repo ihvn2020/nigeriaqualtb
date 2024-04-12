@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\aggreport;
 use App\Models\facilities;
+use App\Models\indicators;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -28,6 +29,14 @@ class AggreportController extends Controller
             $aggreports = aggreport::select('id','title','facility','from','to','created_at','entered_by','status')->orderBy('id','desc')->get();
         }
         return view('aggreports', compact('aggreports'));
+    }
+
+    public function allAggreports()
+    {
+
+        $aggreports = aggreport::all();
+        $indicators = indicators::all();
+        return view('allaggreports', compact('aggreports','indicators'));
     }
 
     /**

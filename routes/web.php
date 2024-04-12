@@ -50,6 +50,8 @@ Route::get('/delete/{id}/{table}/', [App\Http\Controllers\ScreeningController::c
 // Route::get('/new-areport', [App\Http\Controllers\HomeController::class, 'newAreport'])->name('new-areport')->middleware('role:Super,Admin');
 
 Route::get('/aggreports', [App\Http\Controllers\AggreportController::class, 'index'])->name('aggreports')->middleware('role:Super,Admin,User');
+Route::get('/allaggreports', [App\Http\Controllers\AggreportController::class, 'allAggreports'])->name('allaggreports')->middleware('role:Super,Admin,User');
+
 Route::get('/new-activity', [App\Http\Controllers\HomeController::class, 'newActivity'])->name('new-activity')->middleware('role:Super');
 Route::post('/newreport', [App\Http\Controllers\HomeController::class, 'newReport'])->name('newreport')->middleware('role:Super,Admin,User');
 Route::get('/aggregate-report', [App\Http\Controllers\HomeController::class, 'newAreport'])->name('aggregate-report')->middleware('role:Super,Admin,User');
