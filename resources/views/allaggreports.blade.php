@@ -1,4 +1,4 @@
-@extends('layouts.print-theme2')
+@extends('layouts.theme')
 
 @section('content')
 
