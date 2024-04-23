@@ -389,50 +389,45 @@
     <script src="{{ asset('/js/highcharts.js') }}"></script>
 @endif
 @if (isset($pagetype) && $pagetype == 'report')
-    <script src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{asset('/js/jquery.dataTables.min.js')}}"></script>
 
-    <script src="{{ asset('/js/dataTables.fixedHeader.min.js') }}"></script>
+    <script src="{{asset('/js/dataTables.fixedHeader.min.js')}}"></script>
 
-    <script src="{{ asset('/js/dataTables.select.min.js') }}"></script>
+    <script src="{{asset('/js/dataTables.select.min.js')}}"></script>
 
-    <script src="{{ asset('/js/dataTables.searchPanes.min.js') }}"></script>
-    <!--
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js" />
-    </script>
+    <script src="{{asset('/js/dataTables.searchPanes.min.js')}}"></script>
 
- <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js" />
- </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js" /></script>
 
- <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js" />
- </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js" /></script>
 
- <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js" />
- </script>
-    -->
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js" /></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js" /></script>
+
     <script>
-        // TABLES WITH FILTERS
-        $('#products thead tr').clone(true).appendTo('#products thead');
-        $('#products thead tr:eq(1)').each(function(i) {
-            var title = $(this).text();
-            $(this).html('<input type="text" class="form-control" placeholder="Search ' + title + '" value="" />');
 
-            $('input', this).on('keyup change', function() {
-                if (table.column(i).search() !== this.value) {
+        // TABLES WITH FILTERS
+        $('#products thead tr').clone(true).appendTo( '#products thead' );
+        $('#products thead tr:eq(1) th:not(:last)').each( function (i) {
+            var title = $(this).text();
+            $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" value="" />' );
+
+            $( 'input', this ).on( 'keyup change', function () {
+                if ( table.column(i).search() !== this.value ) {
                     table
                         .column(i)
-                        .search(this.value)
+                        .search( this.value )
                         .draw();
                 }
-            });
-        });
+            } );
+        } );
 
 
-        var table = $('#products').DataTable({
+        var table = $('#products').DataTable( {
             orderCellsTop: true,
             fixedHeader: true,
-            "order": [
-                [2, "asc"]
-            ],
+            "order": [[ 0, "desc" ]],
             "paging": false,
             "pageLength": 50,
             "filter": true,
@@ -442,7 +437,7 @@
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ]
-        });
+        } );
     </script>
 @endif
 
