@@ -409,6 +409,7 @@
 
         // TABLES WITH FILTERS
         $('#products thead tr').clone(true).appendTo( '#products thead' );
+
         $('#products thead tr:eq(1) th:not(:last)').each( function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" value="" />' );
@@ -423,8 +424,25 @@
             } );
         } );
 
+        // TABLES WITH FILTERS
+        $('#products2 thead tr').clone(true).appendTo( '#products2 thead' );
 
-        var table = $('#products').DataTable( {
+        $('#products2 thead tr:eq(1)').each( function (i) {
+            var title = $(this).text();
+            $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" value="" />' );
+
+            $( 'input', this ).on( 'keyup change', function () {
+                if ( table.column(i).search() !== this.value ) {
+                    table
+                        .column(i)
+                        .search( this.value )
+                        .draw();
+                }
+            } );
+        } );
+
+
+        var table = $('#products, #products2').DataTable( {
             orderCellsTop: true,
             fixedHeader: true,
             "order": [[ 0, "desc" ]],
@@ -438,6 +456,7 @@
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ]
         } );
+
     </script>
 @endif
 

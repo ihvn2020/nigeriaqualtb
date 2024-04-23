@@ -4,7 +4,7 @@
     @php $pagetype="report"; @endphp
     <h3 class="page-title">All Aggregate Reports</h3>
     <div class="row" style="width: 98%; margin: 3px !important">
-                    <table class="table  responsive-table" id="products">
+                    <table class="table  responsive-table" id="products2">
                         <thead>
                             <tr style="color: ">
                                 <th>Title</th>
