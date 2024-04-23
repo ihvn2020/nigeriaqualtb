@@ -1,6 +1,12 @@
 @extends('layouts.theme')
 
 @section('content')
+<style>
+    .result{
+        background-color: #ccc;
+        font-weight: bold;
+    }
+</style>
     @php $pagetype="report"; $analysis = "Yes" @endphp
     <h3 class="page-title">All Aggregate Reports</h3>
 <hr>
@@ -150,55 +156,55 @@
                                     <td>{{$agr->to}}</td>
                                     <td>{{$agr->ndstb1u15}}</td>
                                     <td>{{$agr->ddstb1}}</td>
-                                    <td></td>
+                                    <td class="result">{{$agr->ddstb1>0 ? number_format($agr->ndstb1u15/$agr->ddstb1,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb2u15}}</td>
                                     <td>{{$agr->ddstb2}}</td>
-                                    <td></td>
+                                    <td class="result">{{$agr->ddstb2>0 ? number_format($agr->ndstb2u15/$agr->ddstb2,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb3u}}</td>
                                     <td>{{$agr->ddstb3}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb3 ? number_format($agr->ndstb3u/$agr->ddstb3,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb4u}}</td>
                                     <td>{{$agr->ddstb4}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb4 ? number_format($agr->ndstb4u/$agr->ddstb4,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb5u}}</td>
                                     <td>{{$agr->ddstb5}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb5 ? number_format($agr->ndstb5u/$agr->ddstb5,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb6u}}</td>
                                     <td>{{$agr->ddstb6}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb6 ? number_format($agr->ndstb6u/$agr->ddstb6,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb7u}}</td>
                                     <td>{{$agr->ddstb7}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb7 ? number_format($agr->ndstb7u/$agr->ddstb7,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb8u}}</td>
                                     <td>{{$agr->ddstb8}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb8 ? number_format($agr->ndstb8u/$agr->ddstb8,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb9u}}</td>
                                     <td>{{$agr->ddstb9}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb9 ? number_format($agr->ndstb9u/$agr->ddstb9,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb10u}}</td>
                                     <td>{{$agr->ddstb10}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb10 ? number_format($agr->ndstb10u/$agr->ddstb10,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb11u}}</td>
                                     <td>{{$agr->ddstb11}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb11 ? number_format($agr->ndstb11u/$agr->ddstb11,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb12u}}</td>
                                     <td>{{$agr->ddstb12}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb12 ? number_format($agr->ndstb12u/$agr->ddstb12,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb13u}}</td>
                                     <td>{{$agr->ddstb13}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb13 ? number_format($agr->ndstb13u/$agr->ddstb13,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb15u}}</td>
                                     <td>{{$agr->ddstb15}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb15 ? number_format($agr->ndstb15u/$agr->ddstb15,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb16u}}</td>
                                     <td>{{$agr->ddstb16}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb16 ? number_format($agr->ndst163u/$agr->ddstb16,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb18u}}</td>
                                     <td>{{$agr->ddstb18}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb18 ? number_format($agr->ndstb18u/$agr->ddstb18,2)*100 ."%": ""}}</td>
                                     <td>{{$agr->ndstb19u}}</td>
                                     <td>{{$agr->ddstb19}}</td>
-                                    <td></td>
+                                    <td  class="result">{{$agr->ddstb19 ? number_format($agr->ndstb19u/$agr->ddstb19,2)*100 ."%": ""}}</td>
                                 </tr>
                             @endforeach
 
