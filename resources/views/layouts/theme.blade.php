@@ -432,8 +432,8 @@
             $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" value="" />' );
 
             $( 'input', this ).on( 'keyup change', function () {
-                if ( table.column(i).search() !== this.value ) {
-                    table
+                if ( table2.column(i).search() !== this.value ) {
+                    table2
                         .column(i)
                         .search( this.value )
                         .draw();
@@ -442,7 +442,22 @@
         } );
 
 
-        var table = $('#products, #products2').DataTable( {
+        var table = $('#products').DataTable( {
+            orderCellsTop: true,
+            fixedHeader: true,
+            "order": [[ 0, "desc" ]],
+            "paging": false,
+            "pageLength": 50,
+            "filter": true,
+            "ordering": true,
+            deferRender: true,
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        } );
+
+        var table2 = $('#products2').DataTable( {
             orderCellsTop: true,
             fixedHeader: true,
             "order": [[ 0, "desc" ]],
