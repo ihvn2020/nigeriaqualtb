@@ -23,8 +23,13 @@
         font-weight: none;
         font-size: 0.7em;
         line-height: 0.8em;
+        width: 50px !important;
     }
 
+    #products thead tr:nth-child(3) th {
+        height: 30px; /* Set the height of the cloned th elements */
+        transform: rotate(0deg);
+    }
 
 </style>
     @php $pagetype="report"; $analysis = "Yes" @endphp
