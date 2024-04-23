@@ -46,23 +46,23 @@
                                 <th></th>
                                 <th></th>
                                 <th></th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb1u15')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb2u15')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb3u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb4u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb5u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb6u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb7u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb8u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb9u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb10u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb11u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb12u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb13u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb15u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb16u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb18u')->first()->indicator ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb19u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb1u15')->first()->indicator."<br> (ndstb1u15)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb2u15')->first()->indicator."<br> (ndstb2u15)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb3u')->first()->indicator."<br> (ndstb3u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb4u')->first()->indicator."<br> (ndstb4u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb5u')->first()->indicator."<br> (ndstb5u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb6u')->first()->indicator."<br> (ndstb6u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb7u')->first()->indicator."<br> (ndstb7u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb8u')->first()->indicator."<br> (ndstb8u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb9u')->first()->indicator."<br> (ndstb9u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb10u')->first()->indicator."<br> (ndst10u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb11u')->first()->indicator."<br> (ndstb11u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb12u')->first()->indicator."<br> (ndstb12u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb13u')->first()->indicator."<br> (ndstb13u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb15u')->first()->indicator."<br> (ndstb15u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb16u')->first()->indicator."<br> (ndstb16u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb18u')->first()->indicator."<br> (ndstb18u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb19u')->first()->indicator."<br> (ndstb19u)" ?? ""}}</th>
                             </tr>
                             <tr>
                                 <th>Title</th>
