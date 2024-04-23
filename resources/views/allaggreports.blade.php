@@ -3,6 +3,40 @@
 @section('content')
     @php $pagetype="report"; $analysis = "Yes" @endphp
     <h3 class="page-title">All Aggregate Reports</h3>
+<hr>
+<p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        View Indicator Value (Numerator and Denominators)
+    </a>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Indicator Name</th>
+                <th>Numerator</th>
+                <th>Denominator</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($indicators as $ind)
+
+            <tr>
+                <td>{{$ind->ncode}}</td>
+                <td>{{$ind->indicator}}</td>
+                <td>{{$ind->ntext}}</td>
+                <td>{{$ind->dtext}}</td>
+
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    </div>
+</div>
+
+
     <div class="row" style="width: 98%; margin: 3px !important">
                     <table class="table  responsive-table" id="products">
                         <thead>
@@ -36,57 +70,57 @@
                                 <th>State</th>
                                 <th>From</th>
                                 <th>To</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
+                                <th>N</th>
+                                <th>D</th>
+                                <th>R</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -155,10 +189,6 @@
                         </tbody>
                     </table>
 
-
-
     </div>
-
-
 
 @endsection
