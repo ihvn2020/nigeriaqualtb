@@ -410,8 +410,8 @@
         // TABLES WITH FILTERS
         $('#products thead tr').clone(true).appendTo( '#products thead' );
 
-        var condition = "@php echo isset($analysis) ? 'th' : 'th:not(:last)'; @endphp";
-        $('#products thead tr:eq(1) '+condition).each( function (i) {
+        var condition = "@php echo isset($analysis) ? '' : ':not(:last)'; @endphp";
+        $('#products thead tr:eq(1) th'+condition).each( function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" value="" />' );
 
