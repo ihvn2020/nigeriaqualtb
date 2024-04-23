@@ -1,7 +1,6 @@
-@extends('layouts.theme')
+@extends('layouts.print-theme2')
 
 @section('content')
-    @php $pagetype="report"; @endphp
 
     <h3 class="page-title">All Aggregate Reports</h3>
     <div class="row" style="width: 98%; margin: 3px !important">
