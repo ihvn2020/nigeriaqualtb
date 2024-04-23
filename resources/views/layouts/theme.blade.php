@@ -436,6 +436,7 @@
             "filter": true,
             "ordering": true,
             deferRender: true,
+            "footer": false,
             dom: 'Bfrtip',
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'

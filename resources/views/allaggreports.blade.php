@@ -6,42 +6,30 @@
         background-color: #ccc;
         font-weight: bold;
     }
+
+    thead tr:first-child th{
+        position: sticky;
+        z-index: 12;
+        top: 0;
+        background: white;
+    }
+
+    .rotate{
+        writing-mode: vertical-rl; /* Vertical writing mode */
+        transform: rotate(-180deg); /* Rotate the text */
+        white-space: wrap; /* Prevent text wrapping */
+        height: 200px; /* Set a fixed height for the th elements */
+        line-height: 1.2em; /* Adjust line height for wrapping */
+        font-weight: none;
+        font-size: 0.7em;
+        line-height: 0.8em;
+    }
+
+
 </style>
     @php $pagetype="report"; $analysis = "Yes" @endphp
     <h3 class="page-title">All Aggregate Reports</h3>
 <hr>
-<p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-        View Indicator Value (Numerator and Denominators)
-    </a>
-</p>
-<div class="collapse" id="collapseExample">
-    <div class="card card-body">
-    <table class="table table-stripped">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Indicator Name</th>
-                <th>Numerator</th>
-                <th>Denominator</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($indicators as $ind)
-
-            <tr>
-                <td>{{$ind->ncode}}</td>
-                <td>{{$ind->indicator}}</td>
-                <td>{{$ind->ntext}}</td>
-                <td>{{$ind->dtext}}</td>
-
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    </div>
-</div>
-
 
     <div class="row" style="width: 98%; margin: 3px !important">
                     <table class="table  responsive-table" id="products">
@@ -52,80 +40,91 @@
                                 <th></th>
                                 <th></th>
                                 <th></th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb1u15')->first()->indicator." (ndstb1u15)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb2u15')->first()->indicator." (ndstb2u15)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb3u')->first()->indicator." (ndstb3u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb4u')->first()->indicator." (ndstb4u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb5u')->first()->indicator." (ndstb5u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb6u')->first()->indicator." (ndstb6u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb7u')->first()->indicator." (ndstb7u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb8u')->first()->indicator." (ndstb8u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb9u')->first()->indicator." (ndstb9u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb10u')->first()->indicator." (ndst10u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb11u')->first()->indicator." (ndstb11u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb12u')->first()->indicator." (ndstb12u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb13u')->first()->indicator." (ndstb13u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb15u')->first()->indicator." (ndstb15u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb16u')->first()->indicator." (ndstb16u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb18u')->first()->indicator." (ndstb18u)" ?? ""}}</th>
-                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb19u')->first()->indicator." (ndstb19u)" ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb1u15')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb2u15')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb3u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb4u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb5u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb6u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb7u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb8u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb9u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb10u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb11u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb12u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb13u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb15u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb16u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb18u')->first()->indicator ?? ""}}</th>
+                                <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb19u')->first()->indicator ?? ""}}</th>
                             </tr>
+                            @php
+                            function getNtextByNcode($ncode, $indicators) {
+                                echo $indicators->where('ncode',$ncode)->first()->ntext ?? "";
+                            }
+
+                            function getDtextByNcode($ncode, $indicators) {
+                                echo $indicators->where('ncode',$ncode)->first()->dtext ?? "";
+
+                            }
+
+                            @endphp
                             <tr>
                                 <th>Title</th>
                                 <th>Facility</th>
                                 <th>State</th>
                                 <th>From</th>
                                 <th>To</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb1u15",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb1u15",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb2u15",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb2u15",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb3u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb3u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb4u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb4u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb5u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb5u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb6u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb6u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb7u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb7u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb8u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb8u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb9u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb9u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb10u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb10u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb11u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb11u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb12u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb12u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb13u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb13u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb15u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb15u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb16u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb16u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb18u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb18u",$indicators)}}</th>
                                 <th>R</th>
-                                <th>N</th>
-                                <th>D</th>
+                                <th class="rotate">{{getNtextByNcode("ndstb19u",$indicators)}}</th>
+                                <th class="rotate">{{getDtextByNcode("ndstb19u",$indicators)}}</th>
                                 <th>R</th>
                             </tr>
                         </thead>
