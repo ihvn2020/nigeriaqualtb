@@ -28,7 +28,6 @@
                                 <th colspan="3">{{$indicators->where('ncode','ndstb11u')->first()->indicator || ""}}</th>
                                 <th colspan="3">{{$indicators->where('ncode','ndstb12u')->first()->indicator || ""}}</th>
                                 <th colspan="3">{{$indicators->where('ncode','ndstb13u')->first()->indicator || ""}}</th>
-                                <th colspan="3">{{$indicators->where('ncode','ndstb14u')->first()->indicator || ""}}</th>
                                 <th colspan="3">{{$indicators->where('ncode','ndstb15u')->first()->indicator || ""}}</th>
                                 <th colspan="3">{{$indicators->where('ncode','ndstb16u')->first()->indicator || ""}}</th>
                                 <th colspan="3">{{$indicators->where('ncode','ndstb18u')->first()->indicator || ""}}</th>
