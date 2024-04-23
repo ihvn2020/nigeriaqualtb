@@ -410,30 +410,14 @@
         // TABLES WITH FILTERS
         $('#products thead tr').clone(true).appendTo( '#products thead' );
 
-        $('#products thead tr:eq(1) th:not(:last)').each( function (i) {
+        var condition = "@php echo isset($analysis) ? '' : 'th:not(:last)'; @endphp";
+        $('#products thead tr:eq(1) '+condition).each( function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" value="" />' );
 
             $( 'input', this ).on( 'keyup change', function () {
                 if ( table.column(i).search() !== this.value ) {
                     table
-                        .column(i)
-                        .search( this.value )
-                        .draw();
-                }
-            } );
-        } );
-
-        // TABLES WITH FILTERS
-        $('#products2 thead tr').clone(true).appendTo( '#products2 thead' );
-
-        $('#products2 thead tr:eq(1)').each( function (i) {
-            var title = $(this).text();
-            $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" value="" />' );
-
-            $( 'input', this ).on( 'keyup change', function () {
-                if ( table2.column(i).search() !== this.value ) {
-                    table2
                         .column(i)
                         .search( this.value )
                         .draw();
@@ -457,20 +441,6 @@
             ]
         } );
 
-        var table2 = $('#products2').DataTable( {
-            orderCellsTop: true,
-            fixedHeader: true,
-            "order": [[ 0, "desc" ]],
-            "paging": false,
-            "pageLength": 50,
-            "filter": true,
-            "ordering": true,
-            deferRender: true,
-            dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
-        } );
 
     </script>
 @endif
