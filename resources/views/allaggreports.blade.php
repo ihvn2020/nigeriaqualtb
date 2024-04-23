@@ -6,12 +6,12 @@
     <div class="row" style="width: 98%; margin: 3px !important">
                     <table class="table  responsive-table" id="products">
                         <thead>
-                            <tr style="color: ">
-                                <th>Title</th>
-                                <th>Facility</th>
-                                <th>State</th>
-                                <th>From</th>
-                                <th>To</th>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                                 <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb1u15')->first()->indicator ?? ""}}</th>
                                 <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb2u15')->first()->indicator ?? ""}}</th>
                                 <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb3u')->first()->indicator ?? ""}}</th>
@@ -29,6 +29,64 @@
                                 <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb16u')->first()->indicator ?? ""}}</th>
                                 <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb18u')->first()->indicator ?? ""}}</th>
                                 <th colspan="3" style="font-size: 0.7em">{{$indicators->where('ncode','ndstb19u')->first()->indicator ?? ""}}</th>
+                            </tr>
+                            <tr>
+                                <th>Title</th>
+                                <th>Facility</th>
+                                <th>State</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,7 +151,6 @@
                                     <td></td>
                                 </tr>
                             @endforeach
-
 
                         </tbody>
                     </table>
