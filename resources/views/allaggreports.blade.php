@@ -1,7 +1,7 @@
 @extends('layouts.theme')
 
 @section('content')
-    @php $pagetype="report"; @endphp
+    @php $pagetype="report"; $analysis = "Yes" @endphp
     <h3 class="page-title">All Aggregate Reports</h3>
     <div class="row" style="width: 98%; margin: 3px !important">
                     <table class="table  responsive-table" id="products2">
