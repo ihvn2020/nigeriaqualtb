@@ -6,7 +6,6 @@
     <h3 class="page-title">All Aggregate Reports</h3>
     <div class="row">
                     <a href="aggregate-report" class="btn btn-primary pull-right" style="margin-bottom: 10px;">Add New</a>
-                    {{var_dump($indicators)}}
                     <table class="table  responsive-table" id="products">
                         <thead>
                             <tr style="color: ">
