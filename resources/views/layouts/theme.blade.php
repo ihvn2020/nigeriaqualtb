@@ -408,13 +408,14 @@
     <script>
 
         // TABLES WITH FILTERS
-        $('#products thead tr').clone(true).appendTo( '#products thead' );
+
+            $('#products thead tr:nth-child(2)').clone(true).appendTo('#products thead');
 
         var condition = "@php echo isset($analysis) ? '' : ':not(:last)'; @endphp";
         var rowNumber = "@php echo isset($analysis) ? 2 : 1; @endphp";
         $('#products thead tr:eq('+rowNumber+') th'+condition).each( function (i) {
             var title = $(this).text();
-            $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" value="" />' );
+            $(this).html( '<input type="text" class="form-control" placeholder="Search" value="" />' );
 
             $( 'input', this ).on( 'keyup change', function () {
                 if ( table.column(i).search() !== this.value ) {
@@ -429,7 +430,7 @@
 
         var table = $('#products').DataTable( {
             orderCellsTop: true,
-            fixedHeader: true,
+            fixedHeader: false,
             "order": [[ 0, "desc" ]],
             "paging": false,
             "pageLength": 50,
@@ -442,6 +443,14 @@
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ]
         } );
+
+        // Check if the fourth tr exists in the thead
+        var fourthRowExists = $('#products thead tr:nth-child(4)').length > 0;
+
+        // If the fourth tr exists, hide it
+        if (fourthRowExists) {
+            $('#products thead tr:nth-child(4)').hide();
+        }
 
 
     </script>
