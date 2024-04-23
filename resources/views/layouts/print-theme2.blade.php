@@ -7,65 +7,25 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!-- VENDOR CSS -->
-	<script src="{{ asset('/assets/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('/assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('/assets/scripts/jquery-ui.js') }}"></script>
-    <style>
-		@media only screen and (max-width: 600px) {
-			table {
-				display: block;
-				overflow-x: auto;
-				white-space: nowrap;
-			}
+    <link rel="stylesheet" href="{{asset('/assets/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{ asset('assets/vendor/linearicons/style.css') }}">
 
-			table tbody {
-				display: table;
-				width: 100%;
-			}
-		}
-		.menuicon {
-				visibility:hidden;
-				display: none;
-		}
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
+    <link rel="icon" type="{{ asset('image/png" sizes="96x96" href="assets/img/favicon.png') }}">
 
-		@media only screen and (max-width: 600px) {
-			.menuicon {
-				visibility:visible;
-				display: inline;
-			}
-		}
-        #cover {
-			background: url("{{asset('/images/ajax-loader.gif')}}") no-repeat scroll center center #CCC;
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			z-index: 999999999;
-			opacity: 0.8;
-		}
 
-		.tab-content hr{
-			border-top: 1px solid green;
-		}
+    <link rel="stylesheet" href="{{ asset('/css/jquery.dataTables.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css') }}">
 
-		.form-row{
-			border-bottom: 0.5px solid green;
-			margin-bottom: 5px;
-		}
 
-		label{
-			color: darkgreen;
-			font-size: small;
-		}
-
-		.tab-content span{
-			margin-right: 7px;
-			font-size: smaller;
-			vertical-align:text-top;
-		}
-		.btnNext{
-			float: right;
-		}
-	</style>
 </head>
 
 <body>
@@ -90,6 +50,9 @@
 
     </html>
 
+	<script src="{{ asset('/assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('/assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/assets/scripts/jquery-ui.js') }}"></script>
 
     <script src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
 
