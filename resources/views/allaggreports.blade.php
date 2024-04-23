@@ -4,8 +4,7 @@
     @php $pagetype="report"; @endphp
 
     <h3 class="page-title">All Aggregate Reports</h3>
-    <div class="row">
-                    <a href="aggregate-report" class="btn btn-primary pull-right" style="margin-bottom: 10px;">Add New</a>
+    <div class="row" style="width: 98%; margin: 3px !important">
                     <table class="table  responsive-table" id="products">
                         <thead>
                             <tr style="color: ">
