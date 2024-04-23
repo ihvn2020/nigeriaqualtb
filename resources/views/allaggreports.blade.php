@@ -4,6 +4,7 @@
     @php $pagetype="report"; @endphp
 
     <h3 class="page-title">All Aggregate Reports</h3>
+    {{var_dump($indicators)}}
     <div class="row" style="width: 98%; margin: 3px !important">
                     <table class="table  responsive-table" id="products">
                         <thead>
@@ -13,8 +14,8 @@
                                 <th>State</th>
                                 <th>From</th>
                                 <th>To</th>
-                                <th colspan="3">{{$indicators->where('ncode','ndstb2u15')->first()->indicator || ""}}</th>
                                 <th colspan="3">{{$indicators->where('ncode','ndstb1u15')->first()->indicator || ""}}</th>
+                                <th colspan="3">{{$indicators->where('ncode','ndstb2u15')->first()->indicator || ""}}</th>
                                 <th colspan="3">{{$indicators->where('ncode','ndstb3u')->first()->indicator || ""}}</th>
                                 <th colspan="3">{{$indicators->where('ncode','ndstb4u')->first()->indicator || ""}}</th>
                                 <th colspan="3">{{$indicators->where('ncode','ndstb5u')->first()->indicator || ""}}</th>
