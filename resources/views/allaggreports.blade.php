@@ -128,13 +128,16 @@
                             @php
                                 function generateReportString($from, $to) {
                                     $fromMonth = date('F', strtotime($from));
-                                    $toMonth = date('F', strtotime($to));
+                                        $toMonth = date('F', strtotime($to));
 
-                                    if ($fromMonth === $toMonth) {
-                                        return ucfirst($fromMonth) . ' Report';
-                                    } else {
-                                        return ucfirst($fromMonth) . ' to ' . ucfirst($toMonth) . ' Report';
-                                    }
+                                        $fromYear = date('Y', strtotime($from));
+                                        $toYear = date('Y', strtotime($to));
+
+                                        if ($fromMonth === $toMonth && $fromYear === $toYear) {
+                                            return ucfirst($fromMonth) . ' ' . $fromYear . ' Report';
+                                        } else {
+                                            return ucfirst($fromMonth) . ' ' . $fromYear . ' to ' . ucfirst($toMonth) . ' ' . $toYear . ' Report';
+                                        }
                                 }
                             @endphp
 
