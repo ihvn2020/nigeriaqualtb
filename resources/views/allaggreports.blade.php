@@ -125,9 +125,22 @@
                         </thead>
                         <tbody>
 
+                            @php
+                                function generateReportString($from, $to) {
+                                    $fromMonth = date('F', strtotime($from));
+                                    $toMonth = date('F', strtotime($to));
+
+                                    if ($fromMonth === $toMonth) {
+                                        return ucfirst($fromMonth) . ' Report';
+                                    } else {
+                                        return ucfirst($fromMonth) . ' to ' . ucfirst($toMonth) . ' Report';
+                                    }
+                                }
+                            @endphp
+
                             @foreach ($aggreports as $agr)
                                 <tr>
-                                    <td>{{$agr->title}}</td>
+                                    <td>{{generateReportString($agr->from, $agr->to)}}</td>
                                     <td>{{$agr->faciliti->facility_name}}</td>
                                     <td>{{$agr->faciliti->state}}</td>
                                     <td>{{$agr->from}}</td>
