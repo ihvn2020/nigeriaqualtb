@@ -368,8 +368,8 @@ class TasksController extends Controller
         'indicator_no'=>$request->indicatorNo,
         'issues'=>$request->issues,
         'entered_by'=>1,
-        'appid'=>$request->appid,
-        'created_at'=>strtotime($request->date)
+        'appid'=>$request->appid
+        // 'created_at'=>strtotime($request->date)
         ]);
 
       return redirect()->back()->with(['message'=>'Aggregate Report Issue Saved Successfully!']);
