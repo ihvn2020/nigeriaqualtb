@@ -336,7 +336,7 @@ class TasksController extends Controller
     public function adminComments()
     {
         // Retrieve distinct states from the facilities table
-        $comments = aggreportissues::select('comments', 'appid','reportId')
+        $comments = aggreportissues::select('comments', 'appid','aggreport_id')
         ->where('appid','!=','')
         ->get();
 
@@ -345,7 +345,7 @@ class TasksController extends Controller
             return [
                 'comments' => $com->comments, // Assuming your state model has a 'name' attribute
                 'appid' => $com->appid,
-                'reportId' => $com->reportId
+                'reportId' => $com->aggreport_id
             ];
         });
 
