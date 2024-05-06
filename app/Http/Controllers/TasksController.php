@@ -9,6 +9,9 @@ use App\Models\User;
 use App\Models\facilities;
 use App\Models\aggreport;
 use App\Models\ndrmatch;
+use App\Models\aggreportissues;
+use App\Models\aggreportactivities;
+
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
 
@@ -363,7 +366,7 @@ class TasksController extends Controller
         'aggreport_id'=>$request->reportId,
         'indicator_no'=>$request->indicatorNo,
         'issues'=>$request->issues,
-        'entered_by'=>5,
+        'entered_by'=>1,
         'appid'=>$request->appid,
         'created_at'=>strtotime($request->date)
         ]);
