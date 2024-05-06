@@ -333,6 +333,26 @@ class TasksController extends Controller
         return response()->json($formattedFacilities);
     }
 
+    public function adminComments()
+    {
+        // Retrieve distinct states from the facilities table
+        $comments = aggreportissues::select('comments', 'appid','reportId')
+        ->where('appid','!=','')
+        ->get();
+
+        // Format data as label and value pairs
+        $formattedComments = $comments->map(function ($com) {
+            return [
+                'comments' => $com->comments, // Assuming your state model has a 'name' attribute
+                'appid' => $com->appid,
+                'reportId' => $com->reportId
+            ];
+        });
+
+        return response()->json($formattedComments);
+    }
+
+
     // Helping NMRS Ministry
     public function ndrMatchStatus($pepfarid, $fdatimcode){
         // Retrieve distinct states from the facilities table
