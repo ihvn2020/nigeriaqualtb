@@ -204,35 +204,70 @@ class TasksController extends Controller
         $tasks = tasks::paginate(50);
         $followups = followups::paginate(50);
 
-        if($request->phone_number!=""){
-
-            $recipients = $request->phone_number;
-            if(substr($recipients,0,1)=="0"){
-                $recipients="234".ltrim($recipients,'0');
-            }
-            // SEND SMS
-            // 2 Jan 2008 6:30 PM   sendtime - date format for scheduling
-            if(\Cookie::get('sessionidd')){
-                $sessionid = \Cookie::get('sessionidd');
-            }else{
-                $session = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=login&owneremail=gcictng@gmail.com&subacct=CRMAPP&subacctpwd=@@prayer22");
-                $sessionid = ltrim(substr($session,3),' ');
-            }
-
-            $sessionid = \Cookie::get('sessionidd');
-
-
-            $body = $request->title;
-
-
-            $message = $this->getUrl("http://www.smslive247.com/http/index.aspx?cmd=sendmsg&sessionid=".$sessionid."&message=".urlencode($body)."&sender=CHURCH&sendto=".$recipients."&msgtype=0");
-        }
 
         return redirect()->back()->with(['tasks'=>$tasks,'followups'=>$followups]);
 
     }
 
     // API LINKS
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        // Retrieve the user by their email
+        $user = User::where('email', $request->email)->first();
+
+        // Check if the user exists and the password is correct
+        if ($user && password_verify($request->password, $user->password)) {
+            // Generate a new token
+            $token = $user->createToken('mobile')->plainTextToken;
+
+            return response()->json(['token' => $token]);
+        }
+
+        return response()->json(['message' => 'Invalid credentials'], 401);
+    }
+
+
+    protected function registerUser(request $request)
+    {
+
+        if($request->email==""){
+
+            $email = "admin@nigeriaqualtb.com";
+            $password = Hash::make("prayer22");
+        }else{
+            $email = $request->email;
+            $password = Hash::make($request->password);
+
+        }
+
+        User::create([
+            'name' => $request->name,
+            'email' => $email,
+            'phone_number'=>$request->phone_number,
+            'password' => $password,
+
+            'state' => $request->state,
+            'facility' => $request->facility,
+
+            'role'=>$request->role,
+            'status'=>$request->status
+
+        ]);
+        return response()->json(['message' => "Your registration was successful, proceed to login"]);
+    }
+
+    public function getCsrfToken()
+    {
+        $token = csrf_token();
+
+        return Response::json(['csrfToken' => $token]);
+    }
 
     public function newAPIAggReport(Request $request)
     {
@@ -319,60 +354,51 @@ class TasksController extends Controller
         return response()->json($formattedNDRRecord);
     }
 
-    protected function registerUser(request $request)
+
+
+    public function newAPIAggReportIssue(request $request)
     {
 
-        if($request->email==""){
-
-            $email = "admin@nigeriaqualtb.com";
-            $password = Hash::make("prayer22");
-        }else{
-            $email = $request->email;
-            $password = Hash::make($request->password);
-
-        }
-
-        User::create([
-            'name' => $request->name,
-            'email' => $email,
-            'phone_number'=>$request->phone_number,
-            'password' => $password,
-
-            'state' => $request->state,
-            'facility' => $request->facility,
-
-            'role'=>$request->role,
-            'status'=>$request->status
-
-        ]);
-        return response()->json(['message' => "Your registration was successful, proceed to login"]);
-    }
-
-    public function getCsrfToken()
-    {
-        $token = csrf_token();
-
-        return Response::json(['csrfToken' => $token]);
-    }
-
-    public function login(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+      aggreportissues::create([
+        'aggreport_id'=>$request->reportId,
+        'indicator_no'=>$request->indicatorNo,
+        'issues'=>$request->issues,
+        'entered_by'=>$request->enteredBy,
+        'appid'=>$request->appid,
+        'created_at'=>strtotime($request->date)
         ]);
 
-        // Retrieve the user by their email
-        $user = User::where('email', $request->email)->first();
+      return redirect()->back()->with(['message'=>'Aggregate Report Issue Saved Successfully!']);
 
-        // Check if the user exists and the password is correct
-        if ($user && password_verify($request->password, $user->password)) {
-            // Generate a new token
-            $token = $user->createToken('mobile')->plainTextToken;
+    }
 
-            return response()->json(['token' => $token]);
-        }
+    public function addAppQIComment(request $request)
+    {
 
-        return response()->json(['message' => 'Invalid credentials'], 401);
+        $issue = aggreportissues::where('id',$request->id)->first();
+
+        aggreportissues::updateOrCreate(['id'=>$request->id],
+        [
+        'comments'=>'<li>'.$request->comments."</li>".$issue->comments
+         ]);
+
+      return redirect()->back()->with(['message'=>'Comment saved successfully!']);
+
+    }
+
+    public function addAppQI(request $request)
+    {
+
+
+        aggreportactivities::create(
+        [
+            'issue_id'=>$request->issue_id,
+            'activities'=>$request->activities,
+            'dated'=>$request->dated,
+            'entered_by'=>Auth()->user()->id,
+         ]);
+
+      return redirect()->back()->with(['message'=>'New Activity saved successfully!']);
+
     }
 }
