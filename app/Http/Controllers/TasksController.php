@@ -14,6 +14,7 @@ use App\Models\aggreportactivities;
 
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 
 use Auth;
@@ -363,16 +364,23 @@ class TasksController extends Controller
     {
 
         $aggreportId = aggreport::select('id')->where('appid',$request->reportId)->first()->id;
-      aggreportissues::create([
+
+        Log::warning('This is appid: '.$request->reportId.', this is the Report ID: '.$aggreportId);
+
+        $thisReportId = aggreportissues::create([
         'aggreport_id'=>$aggreportId,
         'indicator_no'=>$request->indicatorNo,
         'issues'=>$request->issues,
         'entered_by'=>1,
         'appid'=>$request->appid
         // 'created_at'=>strtotime($request->date)
-        ]);
+        ])->id;
 
-      return redirect()->back()->with(['message'=>'Aggregate Report Issue Saved Successfully!']);
+         // Return response with message and ID
+         return response()->json([
+            'message' => 'Aggregate Report Issue Saved Successfully!',
+            'id' => $thisReportId
+        ]);
 
     }
 
