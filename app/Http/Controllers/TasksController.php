@@ -363,7 +363,7 @@ class TasksController extends Controller
         'aggreport_id'=>$request->reportId,
         'indicator_no'=>$request->indicatorNo,
         'issues'=>$request->issues,
-        'entered_by'=>1,
+        'entered_by'=>5,
         'appid'=>$request->appid,
         'created_at'=>strtotime($request->date)
         ]);
