@@ -362,7 +362,7 @@ class TasksController extends Controller
     public function newAPIAggReportIssue(request $request)
     {
 
-        $aggreportId = aggreport::select('id')->where('appid',$request->reportId)->pluck('id');
+        $aggreportId = aggreport::select('id')->where('appid',$request->reportId)->first()->id;
       aggreportissues::create([
         'aggreport_id'=>$aggreportId,
         'indicator_no'=>$request->indicatorNo,
