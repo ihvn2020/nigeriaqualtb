@@ -275,15 +275,17 @@ class TasksController extends Controller
 
     public function newAPIAggReport(Request $request)
     {
+        Log::warning("User ID: ".$request->user()->id);
         // Extract 'from', 'to', 'entered_by', 'status', 'state' from request data
-        $thisReportData = $request->except(['from', 'to', 'entered_by', 'status', 'state']);
+        $thisReportData = $request->except(['from', 'to', 'entered_by', 'status']);
         // Format 'from' and 'to' dates
         $thisReportData['from'] = date('Y-m-d', strtotime($request->from));
         $thisReportData['to'] = date('Y-m-d', strtotime($request->to));
         // Set additional properties
-        $thisReportData['entered_by'] = 1;
+        $thisReportData['entered_by'] = $request->user()->id;
         $thisReportData['status'] = 'Open';
-        $thisReportData['state'] = 1;
+        $state = facilities::select('state')->where('id',$request->facility)->first()->state;
+        $thisReportData['state'] = $state;
 
         // Update or create the record
         $thisReport = AggReport::updateOrCreate(['appid' => $request->appid], $thisReportData);
@@ -388,7 +390,7 @@ class TasksController extends Controller
 
         Log::warning('This is appid: '.$request->reportId.', this is the Report ID: '.$aggreportId);
 
-        $thisReportId = aggreportissues::create([
+        $thisReportId = aggreportissues::updateOrCreate(['appid'=>$request->appid],[
         'aggreport_id'=>$aggreportId,
         'indicator_no'=>$request->indicatorNo,
         'issues'=>$request->issues,
