@@ -383,6 +383,7 @@ class TasksController extends Controller
     public function newAPIAggReportIssue(request $request)
     {
 
+        Log::warning('This is appid: '.$request->reportId);
         $aggreportId = aggreport::select('id')->where('appid',$request->reportId)->first()->id;
 
         Log::warning('This is appid: '.$request->reportId.', this is the Report ID: '.$aggreportId);
