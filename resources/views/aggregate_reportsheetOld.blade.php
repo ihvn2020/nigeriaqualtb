@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="panel panel-default col-sm-6">
                             <div class="panel-heading">Proportion of hospital attendees within the review period who were
-                                symptomatically screened for TB - <small
+                                symptomatically screened for TB disaggregated by age U15 and 15+ - <small
                                     style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb1value">3</div>
                             </div>
@@ -137,9 +137,8 @@
                     <div class="row">
                         <div class="panel panel-default col-sm-6">
                             <div class="panel-heading">3. Proportion of presumptive TB cases identified within the review
-                                period whose sputum specimen were sent to GeneXpert Lab and had their results received
-                                within 72 hrs of sending sputum specimen to Lab.
-                                <div class="result"
+                                period whose sample (sputum/stool specimen) were sent to GeneXpert Lab and had their results
+                                received within 72 hrs of sending sputum specimen to Lab<div class="result"
                                     id="ndstb3value">3</div>
                             </div>
                             <div class="panel-body">
@@ -185,7 +184,8 @@
                         </div>
 
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">4. Proportion of DS-TB cases with positive baseline sputum smear or Xpert MTB/RIF started on treatment within the review period who are due for and with documented  (2, 5 or 6)  follow-up test<div class="result"
+                            <div class="panel-heading">4. Proportion of confirmed TB cases diagnosed within the review
+                                period that have initiated treatment for TB within two days of diagnosis<div class="result"
                                     id="ndstb4value">4</div>
                             </div>
                             <div class="panel-body">
@@ -233,7 +233,7 @@
 
                     <div class="row">
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">5. Proportion of patients (DS and DR) started on treatment  within the review period with complete documentation in the treatment card and the DR-TB facility (treatment) register
+                            <div class="panel-heading">5.  Proportion of DS-TB cases with positive baseline sputum smear or Xpert MTB/RIF started on treatment within the review period who are due for and with documented  (2, 5 or 6)  follow-up test
                                 <div class="result" id="ndstb5value">5</div>
                             </div>
                             <div class="panel-body">
@@ -279,7 +279,8 @@
                         </div>
 
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">6. Proportion of children under 15 years diagnosed with TB within the review period (Benchmark 15%)<div class="result" id="ndstb6value">6</div>
+                            <div class="panel-heading">6. Proportion of DS-TB patients started on treatment within the review period with complete documentation in the treatment card and the TB facility
+                                (treatment) register.<div class="result" id="ndstb6value">6</div>
                             </div>
                             <div class="panel-body">
                                 <table class="table">
@@ -326,8 +327,9 @@
 
                     <div class="row">
                         <div class="panel panel-default  col-sm-6">
-                            <div class="panel-heading">7. Proportion of TB notified cases tested for HIV within the review period
-                                <div class="result" id="ndstb7value">7</div>
+                            <div class="panel-heading">7. Proportion of bacteriologically diagnosed index TB patients during
+                                the review period who had their household contacts traced within one month of treatment
+                                initiation.<div class="result" id="ndstb7value">7</div>
                             </div>
                             <div class="panel-body">
                                 <table class="table">
@@ -374,7 +376,8 @@
                         </div>
                         <div class="panel panel-default col-sm-6">
 
-                            <div class="panel-heading">8. Proportion of bacteriologically diagnosed index TB patients during the review period who had their household contacts traced. <div class="result"
+                            <div class="panel-heading">8. Proportion of eligible contacts of
+                                bacteriologically positive TB cases who were initiated on TPT.<div class="result"
                                     id="ndstb8value">8</div>
                             </div>
                             <div class="panel-body">
@@ -423,10 +426,12 @@
                 </fieldset>
 
                 <fieldset>
+                    <h3>DRTB</h3>
                     <hr>
                     <div class="row">
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">9. Proportion of eligible contacts of bacteriologically positive TB cases who were initiated on TPT within the review period (Benchmark 100%) <div class="result"
+                            <div class="panel-heading">1. Proportion of all DR-TB cases diagnosed during the review period
+                                who initiated treatment for DR-TB within two weeks of diagnosis.<div class="result"
                                     id="ndstb9value">3</div>
                             </div>
                             <div class="panel-body">
@@ -472,7 +477,10 @@
                         </div>
 
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">10. Proportion of contact initiated on TPT who completed treatment <div class="result" id="ndstb10value">3</div>
+                            <div class="panel-heading">2. Proportion of patients started on second-line TB treatment during
+                                the 6 months review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr,
+                                Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented after 2
+                                weeks of sample collection.<div class="result" id="ndstb10value">3</div>
                             </div>
                             <div class="panel-body">
                                 <table class="table">
@@ -520,7 +528,10 @@
 
                     <div class="row">
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">11.  Proportion of all DR-TB cases diagnosed during the review period who were on initiated treatment within  48 hours of diagnosis who had  their baseline tests done  (LPA, Chest X-ray, AFB, Culture, DST, HIV test, EUCr, Pregnancy test, LFT, RBS, FBC, HBV, HCV, ECG). <div class="result" id="ndstb11value">3
+                            <div class="panel-heading">3. Proportion of patients started on second-line TB treatment 9 or
+                                12 months prior to the beginning of review period (i.e. 9 or 12 months after the closing day
+                                of the cohort) who have their follow-up examinations (AFB, Culture, EUCr, ECG done monthly
+                                during the intensive phase within the review period.<div class="result" id="ndstb11value">3
                                 </div>
                             </div>
                             <div class="panel-body">
@@ -567,7 +578,8 @@
                         </div>
 
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">12. Proportion of patients started on second-line TB treatment within the review period  who had their follow-up examinations done (weight, AFB, Culture, EUCr, FBC, LFT, RBS, ECG) within the review period. <div class="result" id="ndstb12value">3</div>
+                            <div class="panel-heading">4. Proportion of DR-TB patients started on treatment 6 months within the review period with complete documentation in the treatment card and the DR-TB
+                                facility (treatment) register.<div class="result" id="ndstb12value">3</div>
                             </div>
                             <div class="panel-body">
                                 <table class="table">
@@ -616,10 +628,13 @@
                 </fieldset>
 
                 <fieldset>
+                    <h3>PAEDIATRICS</h3>
                     <hr>
                     <div class="row">
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">13. Proportion of presumptive cases with result uploaded in the COMM TB App within the review period. <div class="result" id="ndstb13value">3</div>
+                            <div class="panel-heading">1. Proportion of presumptive paediatric TB cases under 15 years
+                                identified within the review period who had access to either chest X-ray and/or Xpert
+                                MTB?RIF and/or stool depending on the age<div class="result" id="ndstb13value">3</div>
                             </div>
                             <div class="panel-body">
                                 <table class="table">
@@ -665,53 +680,8 @@
                         </div>
 
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">14. Proportion of presumed pregnant women offered HTS in in unconventional settings leveraging community TB ACF activities. <div class="result" id="ndstb14value">3</div>
-                            </div>
-                            <div class="panel-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Percentage Value</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if (strval($report->ddstb14) > 0)
-                                            <tr>
-                                                <td>{{ strval($report->ndstb14u) }} / {{ strval($report->ddstb14) }} =
-                                                    {{ $pd2 = number_format($report->ndstb14u / $report->ddstb14, 2) * 100 }}%
-                                                </td>
-                                            </tr>
-                                        @else
-                                            <tr>
-                                                <td>
-                                                    0/0 = 0%
-                                                </td>
-                                            </tr>
-                                        @endif
-
-                                    </tbody>
-                                </table>
-                                @if (isset($report->issues))
-                                @if($report->issues->where('indicator_no',14)->count()>0)
-                                    <ul style="color: grey;">
-                                        @foreach ($report->issues->where('indicator_no',14) as $issue)
-                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
-                                        @endforeach
-                                    </ul>
-                                @else
-
-                                    @if (isset($pd2) && $pd2 < 14)
-                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 15%, please report
-                                                issue(s)</i></small>
-                                    @endif
-                                @endif
-                            @endif
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">15. Proportion of HIV positive presumed pregnant women from unconventional settings who were linked to care in the PMTCT sites <div class="result" id="ndstb15value">3</div>
+                            <div class="panel-heading">2. Proportion of children under 15 years diagnosed with TB within
+                                the review period.<div class="result" id="ndstb15value">3</div>
                             </div>
                             <div class="panel-body">
                                 <table class="table">
@@ -757,10 +727,161 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="panel panel-default col-sm-6">
+                            <div class="panel-heading">3. Proportion of patients under 15 years among confirmed TB cases
+                                diagnosed within the review period that have initiated treatment for TB within two days of
+                                diagnosis.<div class="result" id="ndstb16value">3</div>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Percentage Value</th>
 
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (strval($report->ddstb16) > 0)
+                                            <tr>
+                                                <td>{{ strval($report->ndstb16u) }} / {{ strval($report->ddstb16) }} =
+                                                    {{ $pd3 = number_format($report->ndstb16u / $report->ddstb16, 2) * 100 }}%
+                                                </td>
+                                            </tr>
+                                        @else
+                                            <tr>
+                                                <td>
+                                                    0/0 = 0%
+                                                </td>
+                                            </tr>
+                                        @endif
+
+                                    </tbody>
+                                </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',16)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no',16) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+
+                                    @if (isset($pd3) && $pd3 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
+                            </div>
+                        </div>
+
+
+                    </div>
 
                 </fieldset>
 
+                <fieldset>
+                    <h3>FACILITY PERFORMANCE</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="panel panel-default col-sm-6">
+                            <div class="panel-heading">1. Proportion of health care workers (HCW) in the DOT and Laboratory clinics who were screened for TB
+                                12 months prior to the review period.<div class="result" id="ndstb18value">3</div>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Percentage Value</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (strval($report->ddstb18) > 0)
+                                            <tr>
+                                                <td>{{ strval($report->ndstb18u) }} / {{ strval($report->ddstb18) }} =
+                                                    {{ $fa1 = number_format($report->ndstb18u / $report->ddstb18, 2) * 100 }}%
+                                                </td>
+                                            </tr>
+                                        @else
+                                            <tr>
+                                                <td>
+                                                    0/0 = 0%
+                                                </td>
+                                            </tr>
+                                        @endif
+
+                                    </tbody>
+                                </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',18)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no', 18) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+
+                                    @if (isset($fa1) && $fa1 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default col-sm-6">
+                            <div class="panel-heading">2. Proportion of infection control strategies in place at the
+                                facility (i.e. IPC plan and policy, IPC guidelines, IPC focal person, IPC committee [minutes
+                                of meeting], IEC materials, evidence of use of IPC checklist to monitor implementation
+                                monthly)<div class="result" id="ndstb19value">3</div>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Percentage Value</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (strval($report->ddstb19) > 0)
+                                            <tr>
+                                                <td>{{ strval($report->ndstb19u) }} / {{ strval($report->ddstb19) }} =
+                                                    {{ $fa2 = number_format($report->ndstb19u / $report->ddstb19, 2) * 100 }}%
+                                                </td>
+                                            </tr>
+                                        @else
+                                            <tr>
+                                                <td>
+                                                    0/0 = 0%
+                                                </td>
+                                            </tr>
+                                        @endif
+
+                                    </tbody>
+                                </table>
+                                @if (isset($report->issues))
+                                @if($report->issues->where('indicator_no',19)->count()>0)
+                                    <ul style="color: grey;">
+                                        @foreach ($report->issues->where('indicator_no', 19) as $issue)
+                                            <li>{{ $issue->issues }} - <small><i>C: {{ $issue->comment }}</i> </small></li>
+                                        @endforeach
+                                    </ul>
+                                @else
+
+                                    @if (isset($fa2) && $fa2 < 100)
+                                        <small style="color:red;"><i class="lnr lnr-warning"></i><i>Less than Benchmark 100%, please report
+                                                issue(s)</i></small>
+                                    @endif
+                                @endif
+                            @endif
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
 
 
                 <fieldset>
@@ -785,13 +906,16 @@
                                     <option value="7">DSTB Indicator 7</option>
                                     <option value="8">DSTB Indicator 8</option>
 
-                                    <option value="9"> Indicator 9</option>
-                                    <option value="10"> Indicator 10</option>
-                                    <option value="11"> Indicator 11</option>
-                                    <option value="12"> Indicator 12</option>
+                                    <option value="9">DRTB Indicator 1</option>
+                                    <option value="10">DRTB Indicator 2</option>
+                                    <option value="11">DRTB Indicator 3</option>
+                                    <option value="12">DRTB Indicator 4</option>
 
-                                    <option value="13"> Indicator 13</option>
-                                    <option value="14"> Indicator 14</option>
+                                    <option value="13">PAEDIATRICS Indicator 1</option>
+                                    <option value="15">PAEDIATRICS Indicator 2</option>
+                                    <option value="16">PAEDIATRICS Indicator 3</option>
+                                    <option value="18">FACILITY Indicator 1</option>
+                                    <option value="19">FACILITY Indicator 2</option>
 
                                 </select>
                             </div>

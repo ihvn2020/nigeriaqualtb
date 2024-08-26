@@ -86,7 +86,8 @@
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
                                         <b>Numerator: </b>Number of hospital attendees within the review period who were
-                                        symptomatically screened for TB (Facility OPD Register)
+                                        symptomatically screened for TB (Facility OPD
+                                        Register)
 
                                     </div>
                                     <div class="col-md-3">
@@ -186,15 +187,17 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">4. Proportion of DS-TB cases with positive baseline sputum smear or Xpert MTB/RIF started on treatment within the review period who are due for and with documented  (2, 5 or 6)  follow-up test -
-                                <small style="color:red;"><i>Benchmark: 100%</i></small>
+                            <div class="panel-heading">4. Proportion of confirmed TB cases diagnosed within the review
+                                period that have initiated treatment for TB within two days of diagnosis - <small
+                                    style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb4value">4</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of DS-TB cases with positive baseline sputum smear or Xpert MTB/RIF started on treatment  within the review period with documented follow-up sputum smear AFB test done (2,5 or 6 months) -
-                                        <small>(Treatment Register/Treatment Card)</small>
+                                        <b>Numerator: </b>Number of confirmed TB cases diagnosed within the review period
+                                        that have initiated treatment for TB within two days of diagnosis (Treatment
+                                        Register/Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb4u" value="{{ $report->ndstb4u }}"
@@ -205,8 +208,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of DS-TB cases with positive baseline sputum smear or Xpert MTB/RIF started on treatment in the 6 months prior to  within the review period -
-                                        <small>(Presumptive Register)</small>
+                                        <b>Denominator: </b>Total number of confirmed TB cases within the review
+                                        period. (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb4" id="ddstb4"
@@ -219,14 +222,19 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">5. Proportion of patients (DS and DR) started on treatment  within the review period with complete documentation in the treatment card and the DR-TB facility (treatment) register - <small style="color:red;"><i>Benchmark: 100%</i></small>
+                            <div class="panel-heading">5. Proportion of DS-TB cases with positive baseline sputum smear or
+                                Xpert MTB/RIF started on treatment within the review period who are due for and with
+                                documented (2,5 or 6 months) follow-up test.
+                                - <small style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb5value">5</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of DS and DR TB patients started on treatment within the review period with complete documentation in the treatment card and the TB facility (treatment) register. -
-                                        (DS/DR Treatment Register, DS/DR Treatment Card)
+                                        <b>Numerator: </b>Number of DS-TB cases with positive baseline sputum smear or Xpert
+                                        MTB/RIF started on treatment in the 6 months prior to the review period with
+                                        documented follow-up sputum smear AFB within the recommended time frame (2,5 & 6
+                                        months). (Treatment Register/Treatment Card)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb5u" id="ndstb5u"
@@ -237,8 +245,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total Number of DS and DRTB patients started on treatment within the review period. -
-                                        (DS /DR Treatment Register if applicable)
+                                        <b>Denominator: </b>Total number of DS-TB cases with positive baseline sputum smear
+                                        or Xpert MTB/RIF started on treatment in the 6 months prior to the review period. (Treatment Register/Treatment Card)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb5" id="ddstb5"
@@ -251,13 +259,17 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">6. Proportion of children under 15 years diagnosed with TB within the review period (Benchmark 15%)
+                            <div class="panel-heading">6. Proportion of DS-TB patients started on treatment within the
+                                review period with complete documentation in the treatment card and the TB facility
+                                (treatment) register. - <small style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb6value">6</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of children under 15 years diagnosed with TB within the review period - (Presumptive Register)
+                                        <b>Numerator: </b>Number of DS-TB patients started on treatment within
+                                        the review period with complete documentation in the treatment card and the TB
+                                        facility (treatment) register. (Treatment Card and Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb6u" id="ndstb6u"
@@ -268,7 +280,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total Number of diagnosed TB cases within the review period - (Presumptive Register)
+                                        <b>Denominator: </b>Number of DS-TB patients started on treatment within
+                                        the review period.(Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb6" id="ddstb6"
@@ -281,13 +294,18 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">7. Proportion of TB notified cases tested for HIV within the review period <small style="color:red;"><i>Benchmark: 100%</i></small>
+                            <div class="panel-heading">7. Proportion of bacteriologically diagnosed index TB patients during
+                                the review period who had their household contacts traced within one month of treatment
+                                initiation. - <small style="color:red;"><i>Benchmark:
+                                        100%</i></small>
                                 <div class="result" id="ndstb7value">7</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of TB notified cases tested for HIV within the review period - (Treatment Register)
+                                        <b>Numerator: </b>Number of bacteriologically diagnosed index TB patients during the
+                                        review period who had their household contacts traced within one month of treatment
+                                        initiation. (Contact Investigation Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb7u" id="ndstb7u"
@@ -299,7 +317,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total Number of TB notified cases within the review period - (Treatment Register)
+                                        <b>Denominator: </b>Total number of bacteriologically diagnosed index TB patients
+                                        during the review period. (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb7" id="ddstb7"
@@ -311,14 +330,16 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">8. Proportion of bacteriologically diagnosed index TB patients during the review period who had their household contacts traced - <small
-                                style="color:red;"><i>Benchmark: 100%</i></small>
+                            <div class="panel-heading">8. Proportion of eligible contacts of
+                                bacteriologically positive TB cases who were initiated on TPT - <small style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb8value">8</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of bacteriologically diagnosed index TB patients during the review period who had their household contacts traced (Presumptive register, Contact management  Register)
+                                        <b>Numerator: </b>Total number of eligible contacts of
+                                        bacteriologically positive TB cases
+                                        initiated on TPT (Contact Investigation Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb8u" id="ndstb8u"
@@ -329,7 +350,9 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of bacteriologically diagnosed index TB patients during the review period - (Presumptive register)
+                                        <b>Denominator: </b>Total number of contacts of bacteriologically
+                                        positive TB cases eligible
+                                        for TPT(Contact Investigation Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb8" id="ddstb8"
@@ -344,16 +367,19 @@
                     </fieldset>
 
                     <fieldset>
+                        <h3>DRTB</h3>
                         <hr>
                         <div class="panel panel-default">
-                            <div class="panel-heading">9. Proportion of eligible contacts of bacteriologically positive TB cases who were initiated on TPT within the review period (Benchmark 100%) - <small
-                                style="color:red;"><i>Benchmark: 100%</i></small>
+                            <div class="panel-heading">1. Proportion of all DR-TB cases diagnosed during the review period
+                                who initiated treatment for DR-TB within two weeks of diagnosis. - <small style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb9value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of eligible  contacts of bacteriologically positive TB cases  initiated on TPT - (Contact management  Register)
+                                        <b>Numerator: </b>Number of all DR-TB cases diagnosed during the review period who
+                                        initiated treatment for DR-TB within two weeks of diagnosis. (DRTB Treatment
+                                        Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb9u" id="ndstb9u"
@@ -364,8 +390,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of  contacts of bacteriologically positive TB cases eligible for TPT -
-                                        (Contact management  Register)
+                                        <b>Denominator: </b>Number of all DR-TB cases diagnosed during the review period.
+                                        (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb9" id="ddstb9"
@@ -378,13 +404,18 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">10. Proportion of contact initiated on TPT who completed treatment - <small style="color:red;"><i>Benchmark: 100%</i></small>
+                            <div class="panel-heading">2. Proportion of patients started on second-line TB treatment within the review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr,
+                                Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented after 2
+                                weeks of sample collection.- <small
+                                    style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb10value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of  contacts initiated on TPT who completed treatment  (Contact management  Register)
+                                        <b>Numerator: </b>Number of patients started on second-line TB treatment  within the review period who have their baseline (LPA, X-ray, AFB, HIV test, EUCr,
+                                        Pregnancy test, LFT, TFT, FBS, FBC, HBV, HCV, Urinalysis, ECG) results documented
+                                        after 2 weeks of sample collection. (DRTB Treatment Register/DRTB Treatment Card)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb10u" id="ndstb10u"
@@ -395,7 +426,7 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total Number of eligible  contacts of bacteriologically positive TB cases initiated on TPT. - (Contact management  Register)
+                                        <b>Denominator: </b>Number of patients started on second-line TB treatment  within the review period. (DRTB Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb10" id="ddstb10"
@@ -408,15 +439,21 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">11.  Proportion of all DR-TB cases diagnosed during the review period who were on initiated treatment within  48 hours of diagnosis who had  their baseline tests done  (LPA, Chest X-ray, AFB, Culture, DST, HIV test, EUCr, Pregnancy test, LFT, RBS, FBC, HBV, HCV, ECG) - <small
-                                style="color:red;"><i>Benchmark: 100%</i></small>
+                            <div class="panel-heading">3. Proportion of patients started on second-line TB treatment 9 or
+                                12 months  within the review period (i.e. 9 or 12 months after the closing day
+                                of the cohort) who have their follow-up examinations (AFB, Culture, EUCr, ECG done monthly
+                                during the intensive phase within the review period. - <small
+                                    style="color:red;"><i>Benchmark: 100%</i></small>
                                 <div class="result" id="ndstb11value">
                                     3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of all DR-TB cases diagnosed during the review period who initiated treatment for DR-TB within 48hrs  of diagnosis who had their baseline tests done. - (Presumptive register/ DRTB treatment register)
+                                        <b>Numerator: </b>Number of patients started on second-line TB treatment 19 or 12
+                                        months  within the review period (i.e. 9 or 12 months after the
+                                        closing day of the cohort) who have their follow-up examinations (AFB, Culture,
+                                        EUCr, ECG done monthly during the intensive phase within the review period. (DRTB Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb11u" id="ndstb11u"
@@ -427,7 +464,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Number of all DR-TB cases diagnosed during the review period  (Presumptive register)
+                                        <b>Denominator: </b>Number of patients started on second-line TB treatment 19 or 12
+                                        months  within the review period. (DRTB Treatment Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb11" id="ddstb11"
@@ -440,13 +478,16 @@
                         </div>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">12. Proportion of patients started on second-line TB treatment within the review period  who had their follow-up examinations done (weight, AFB, Culture, EUCr, FBC, LFT, RBS, ECG) within the review period - <small style="color:red;"><i>Benchmark: 100%</i></small> <div class="result" id="ndstb12value">3</div>
+                            <div class="panel-heading">4. Proportion of DR-TB patients started on treatment 6 months
+                                within the review period with complete documentation in the treatment card and the DR-TB
+                                facility (treatment) register.<div class="result" id="ndstb12value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of patients started on second-line TB treatment within the review period who have their follow-up examinations (weight, AFB, Culture, EUCr, FBC, LFT, RBS, ECG) done monthly within the review period.
-                                        (DRTB Treatment Register)
+                                        <b>Numerator: </b>Number of DR-TB patients started on treatment 6 months prior to
+                                        the review period with complete documentation in the treatment card and the DR-TB
+                                        facility (treatment) register. (DRTB Treatment Register/ DRTB Treatment Card)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb12u" id="ndstb12u"
@@ -457,7 +498,8 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of patients started on second-line TB treatment within the review period - (DRTB Treatment Register)
+                                        <b>Denominator: </b>Number of DR-TB patients started on treatment 6 months prior to
+                                        the review period.(DRTB Treatment Register/ DRTB Treatment Card)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb12" id="ddstb12"
@@ -475,13 +517,18 @@
                         <h3>PAEDIATRICS</h3>
                         <hr>
                         <div class="panel panel-default">
-                            <div class="panel-heading">13. Proportion of presumptive cases with result uploaded in the COMM TB App within the review period.
+                            <div class="panel-heading">1. Proportion of presumptive paediatric TB cases under 15 years
+                                identified within the review period who had access to either chest X-ray and/or Xpert
+                                MTB?RIF and/or stool depending on the age - <small style="color:red;"><i>Benchmark:
+                                        100%</i></small>
                                 <div class="result" id="ndstb13value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Total number of presumptive cases evaluated for TB from the community within the review period (Comm TB backend report)
+                                        <b>Numerator: </b>Number of presumptive paediatric TB cases under 15 years
+                                        identified within the review period who had access to either chest X-ray and/or
+                                        Xpert MTB/RIF and/or stool depending on the age.(Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb13u" id="ndstb13u"
@@ -504,46 +551,19 @@
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="ndstb14u">
 
+                        <input type="hidden" name="ddstb14">
                         <div class="panel panel-default">
-                            <div class="panel-heading">14. Proportion of presumed pregnant women offered HTS in in unconventional settings leveraging community TB ACF activities - <small style="color:red;"><i>Benchmark: 15%</i></small>
-                                <div class="result" id="ndstb14value">3</div>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row form-row">
-                                    <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of  presumed pregnant women offered HTS in in unconventional settings (PMTCT spoke register)
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="number" name="ndstb14u" id="ndstb14u"
-                                            value="{{ $report->ndstb14u }}" class="form-control">
-                                    </div>
-
-                                </div>
-
-                                <div class="row form-row">
-                                    <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of eligible presumed pregnant women screened in the unconventional setting
-                                        (Eligibility Checklist)
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="number" name="ddstb14" id="ddstb14"
-                                            value="{{ $report->ddstb14 }}" class="form-control"
-                                            onChange="compareDeno(14) ">
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">15. Proportion of HIV positive presumed pregnant women from unconventional settings who were linked to care in the PMTCT sites
+                            <div class="panel-heading">2. Proportion of children under 15 years diagnosed with TB within
+                                the review period. - <small style="color:red;"><i>Benchmark: 15%</i></small>
                                 <div class="result" id="ndstb15value">3</div>
                             </div>
                             <div class="panel-body">
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Numerator: </b>Number of HIV positive presumed pregnant women from unconventional settings who were linked to care in the PMTCT sites (PMTCT Register)
+                                        <b>Numerator: </b>Number of children under 15 years diagnosed with TB within the
+                                        review period.(Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ndstb15u" id="ndstb15u"
@@ -554,8 +574,7 @@
 
                                 <div class="row form-row">
                                     <div class="col-md-9" style="font-size: 0.7em !important;">
-                                        <b>Denominator: </b>Total number of HIV positive presumed pregnant women from unconventional settings within the review period.
-                                        (PMTCT spoke register)
+                                        <b>Denominator: </b>Total Number of diagnosed TB cases within the review period. (Presumptive Register)
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="ddstb15" id="ddstb15"
@@ -567,10 +586,125 @@
                             </div>
                         </div>
 
+                        <div class="panel panel-default">
+                            <div class="panel-heading">15. Proportion of patients under 15 years among confirmed TB cases
+                                diagnosed within the review period that have initiated treatment for TB within two days of
+                                diagnosis. - <small style="color:red;"><i>Benchmark: 100%</i></small>
+                                <div class="result" id="ndstb16value">3</div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row form-row">
+                                    <div class="col-md-9" style="font-size: 0.7em !important;">
+                                        <b>Numerator: </b>Number of patients under 15 years among confirmed TB cases
+                                        diagnosed within the review period that have initiated treatment for TB within two
+                                        days of diagnosis.(Presumptive Register/DSTB Treatment Register)
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="ndstb16u" id="ndstb16u"
+                                            value="{{ $report->ndstb16u }}" class="form-control">
+                                    </div>
+
+                                </div>
+
+                                <div class="row form-row">
+                                    <div class="col-md-9" style="font-size: 0.7em !important;">
+                                        <b>Denominator: </b>Number of patients under 15 years among confirmed TB cases
+                                        diagnosed within the review period.(Presumptive Register)
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="ddstb16" id="ddstb16"
+                                            value="{{ $report->ddstb16 }}" class="form-control"
+                                            onChange="compareDeno(16) ">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="ndstb17u" value="{{ $report->ndstb17u }}">
+                        <input type="hidden" name="ddstb17" value="{{ $report->ddstb17 }}">
 
                     </fieldset>
 
-                        <div class="form-row" style="text-align: right">
+                    <fieldset>
+                        <h3>FACILITY PERFORMANCE</h3>
+                        <hr>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">17. Proportion of health care workers (HCW) in the DOT and
+                                laboratory clinics who were screened for TB
+                                12 months within the review period. - <small style="color:red;"><i>Benchmark:
+                                        100%</i></small>
+                                <div class="result" id="ndstb18value">3</div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row form-row">
+                                    <div class="col-md-9" style="font-size: 0.7em !important;">
+                                        <b>Numerator: </b>Number of health care workers in the DOT and laboratory clinics
+                                        who were screened for TB 12 months
+                                        within the review period. (Facility OPD
+                                        Register)
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="ndstb18u" id="ndstb18u"
+                                            value="{{ $report->ndstb18u }}" class="form-control">
+                                    </div>
+
+                                </div>
+
+                                <div class="row form-row">
+                                    <div class="col-md-9" style="font-size: 0.7em !important;">
+                                        <b>Denominator: </b>Number of health care workers participating in review period.
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="ddstb18" id="ddstb18"
+                                            value="{{ $report->ddstb18 }}" class="form-control"
+                                            onChange="compareDeno(18) ">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">18. Proportion of infection control strategies in place at the
+                                facility (i.e. IPC plan and policy, IPC guidelines, IPC focal person, IPC committee [minutes
+                                of meeting], IEC materials, evidence of use of IPC checklist to monitor implementation
+                                monthly) - <small style="color:red;"><i>Benchmark: 100% (all 6 strategies should be in
+                                        place)</i></small>
+                                <div class="result" id="ndstb19value">3</div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row form-row">
+                                    <div class="col-md-9" style="font-size: 0.7em !important;">
+                                        <b>Numerator: </b>Number of infection control strategies in place at the facility
+                                        (i.e. IPC plan and policy, IPC guidelines, IPC focal person, IPC committee [minutes
+                                        of meeting], IEC materials, evidence of use of IPC checklist to monitor
+                                        implementation monthly).
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="ndstb19u" id="ndstb19u"
+                                            value="{{ $report->ndstb19u }}" class="form-control">
+                                    </div>
+
+                                </div>
+
+                                <div class="row form-row">
+                                    <div class="col-md-9" style="font-size: 0.7em !important;">
+                                        <b>Denominator: </b>Number of infection control strategies (i.e. IPC plan and
+                                        policy, IPC guidelines, IPC focal person, IPC committee [minutes of meeting], IEC
+                                        materials, evidence of use of IPC checklist to monitor implementation monthly).
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="ddstb19" id="ddstb19"
+                                            value="{{ $report->ddstb19 }}" class="form-control"
+                                            onChange="compareDeno(19)">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-row" style="text-align: right">
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
 

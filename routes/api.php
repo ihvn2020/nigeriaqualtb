@@ -41,3 +41,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/csrf-token', [App\Http\Controllers\TasksController::class, 'getCsrfToken']);
 
 });
+
+// GET INDICATORS
+Route::get('/indicators', [App\Http\Controllers\TasksController::class, 'getIndicators']);
+
