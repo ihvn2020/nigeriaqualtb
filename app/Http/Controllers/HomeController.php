@@ -208,10 +208,8 @@ class HomeController extends Controller
 
     public function newAggReport(request $request)
     {
-
       $lastrecord = aggreport::updateOrCreate(['id'=>$request->id],
           $request->all());
-
       return redirect()->back()->with(['message'=>'Aggregate Report Saved Successfully!']);
 
     }

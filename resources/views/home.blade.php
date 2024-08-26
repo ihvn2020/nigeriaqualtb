@@ -101,11 +101,9 @@
                                     <i class="fa fa-list" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-lg-12 col-sm-12 col-12 box-text-section">
-                                    <p>Aggregate Reports</p>
+                                    <p>Collect Aggregate Reports</p>
                                 </div>
                                 <div class="label">
-                                    <h3><span class="badge badge-pill bg-danger">{{ number_format($aggreports, 0) }}</span>
-                                    </h3>
                                 </div>
                                 <div class="newbtn">
                                     <a href="{{ url('aggregate-report') }}" class="btn btn-primary">Add New</a>
@@ -122,7 +120,7 @@
                                     <p>Saved Reports</p>
                                 </div>
                                 <div class="label">
-
+                                    <h3><span class="badge badge-pill bg-danger">{{ number_format($aggreports, 0) }}</span>
                                 </div>
                                 <div class="newbtn">
                                     <a href="{{ url('aggreports') }}" class="btn btn-primary">View All</a>
@@ -148,6 +146,25 @@
                             </div>
                             <div class="newbtn">
                                 <a href="{{ url('facilities') }}" class="btn btn-primary">View All</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6 text-center roledlink Super" style="visibility:hidden;">
+                        <div class="row main-box-layout img-thumbnail">
+                            <div class="col-lg-12 col-sm-12 col-12 box-icon-section bg-primary">
+                                <i class="fa fa-flag" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-lg-12 col-sm-12 col-12 box-text-section">
+                                <p>Indicators</p>
+                            </div>
+                            <div class="label">
+                                <h3><span
+                                        class="badge badge-pill bg-warning">{{ \App\Models\indicators::all()->count() }}</span>
+                                </h3>
+                            </div>
+                            <div class="newbtn">
+                                <a href="{{ url('indicators') }}" class="btn btn-primary">View All</a>
                             </div>
                         </div>
                     </div>

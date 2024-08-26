@@ -11,6 +11,7 @@ use App\Models\aggreport;
 use App\Models\ndrmatch;
 use App\Models\aggreportissues;
 use App\Models\aggreportactivities;
+use App\Models\indicators;
 
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
@@ -435,5 +436,11 @@ class TasksController extends Controller
 
       return redirect()->back()->with(['message'=>'New Activity saved successfully!']);
 
+    }
+
+    public function getIndicators()
+    {
+        $indicators = indicators::all();
+        return response()->json($indicators);
     }
 }

@@ -99,6 +99,10 @@ Route::get('users', function(){
     return View('users');
 })->name('users')->middleware('role:Super,Admin');
 
+// INDICATORS
+
+Route::resource('indicators', App\Http\Controllers\IndicatorController::class)->middleware('role:Super');
+
 // ARTISAN COMMANDS
 Route::get('/artisan1/{command}', [App\Http\Controllers\HomeController::class, 'Artisan1']);
 Route::get('/artisan2/{command}/{param}', [App\Http\Controllers\HomeController::class, 'Artisan2']);
