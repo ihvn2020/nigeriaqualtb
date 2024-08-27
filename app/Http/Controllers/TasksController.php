@@ -292,7 +292,7 @@ class TasksController extends Controller
         $data = $request->data;
         foreach ($data as $key => $value) {
             // Ensure the key corresponds to a valid column in the AggReport table
-            if (Schema::hasColumn('agg_reports', $key)) {
+            if (Schema::hasColumn('aggreports', $key)) {
                 $thisReportData[$key] = $value;
             }
         }
