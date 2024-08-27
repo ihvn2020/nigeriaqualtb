@@ -16,7 +16,7 @@ use App\Models\indicators;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
-
+use Illuminate\Support\Facades\Schema;
 
 use Auth;
 
