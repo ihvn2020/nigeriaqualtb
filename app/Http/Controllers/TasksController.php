@@ -285,8 +285,22 @@ class TasksController extends Controller
         // Set additional properties
         $thisReportData['entered_by'] = $request->user()->id;
         $thisReportData['status'] = 'Open';
-        $state = facilities::select('state')->where('id',$request->facility)->first()->state;
-        $thisReportData['state'] = $state;
+        // $state = facilities::select('state')->where('id',$request->facility)->first()->state;
+        // $facility = facilities::select('state')->where('id', $request->facility)->first();
+
+        // if ($facility) {
+        //     $thisReportData['state'] = $facility->state;
+        // } else {
+        //     $thisReportData['state'] = $state;
+        //     // Handle the case when no facility is found
+        //     return response()->json([
+        //         'message' => 'Facility not found.',
+        //     ], 404);
+        // }
+
+        // Log::info('Facility Query Result', ['facility' => $facility]);
+
+
 
         // Update or create the record
         $thisReport = AggReport::updateOrCreate(['appid' => $request->appid], $thisReportData);
@@ -440,7 +454,7 @@ class TasksController extends Controller
 
     public function getIndicators()
     {
-        $indicators = indicators::all();
+        $indicators = indicators::select('indicator','ncode','ntext','dcode','dtext')->get();
         return response()->json($indicators);
     }
 }
