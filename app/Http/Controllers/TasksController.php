@@ -278,7 +278,7 @@ class TasksController extends Controller
     {
         Log::warning("User ID: ".$request->user()->id);
         // Extract 'from', 'to', 'entered_by', 'status', 'state' from request data
-        $thisReportData = $request->except(['from', 'to', 'entered_by', 'status']);
+        $thisReportData = $request->except(['facility','from', 'to', 'entered_by', 'status','data']);
         // Format 'from' and 'to' dates
         $thisReportData['from'] = date('Y-m-d', strtotime($request->from));
         $thisReportData['to'] = date('Y-m-d', strtotime($request->to));
@@ -286,17 +286,25 @@ class TasksController extends Controller
         $thisReportData['entered_by'] = $request->user()->id;
         $thisReportData['status'] = 'Open';
         // $state = facilities::select('state')->where('id',$request->facility)->first()->state;
-        // $facility = facilities::select('state')->where('id', $request->facility)->first();
+        $facility = facilities::select('id')->where('facility_name', $request->facility)->first();
 
-        // if ($facility) {
-        //     $thisReportData['state'] = $facility->state;
-        // } else {
-        //     $thisReportData['state'] = $state;
-        //     // Handle the case when no facility is found
-        //     return response()->json([
-        //         'message' => 'Facility not found.',
-        //     ], 404);
-        // }
+        // Loop through 'data' to dynamically assign values to columns
+        $data = $request->data;
+        foreach ($data as $key => $value) {
+            // Ensure the key corresponds to a valid column in the AggReport table
+            if (Schema::hasColumn('agg_reports', $key)) {
+                $thisReportData[$key] = $value;
+            }
+        }
+        if ($facility) {
+            $thisReportData['facility'] = $facility->id;
+        } else {
+            $thisReportData['facility'] = 2;
+            // Handle the case when no facility is found
+            // return response()->json([
+            //     'message' => 'Facility not found.',
+            // ], 404);
+        }
 
         // Log::info('Facility Query Result', ['facility' => $facility]);
 
