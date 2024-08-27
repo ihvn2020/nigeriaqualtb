@@ -278,7 +278,7 @@ class TasksController extends Controller
     {
         Log::warning("User ID: ".$request->user()->id);
         // Extract 'from', 'to', 'entered_by', 'status', 'state' from request data
-        $thisReportData = $request->except(['facility','from', 'to', 'entered_by', 'status','data']);
+        $thisReportData = $request->except(['facility','from', 'to', 'entered_by', 'status','data','isSynced']);
         // Format 'from' and 'to' dates
         $thisReportData['from'] = date('Y-m-d', strtotime($request->from));
         $thisReportData['to'] = date('Y-m-d', strtotime($request->to));
