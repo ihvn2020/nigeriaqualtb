@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/newAPIAggReport', [App\Http\Controllers\TasksController::class, 'newAPIAggReport']);
     Route::post('/save-aggreport-issue', [App\Http\Controllers\TasksController::class, 'newAPIAggReportIssue']);
+    Route::post('/save-qi-activity', [App\Http\Controllers\TasksController::class, 'addAppQI']);
 
 });
 
