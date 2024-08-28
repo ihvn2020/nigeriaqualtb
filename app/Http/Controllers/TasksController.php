@@ -414,13 +414,12 @@ class TasksController extends Controller
         Log::warning('This is appid: '.$request->appid);
         $aggreportId = aggreport::select('id')->where('appid',$request->appid)->first()->id;
 
-
-        $thisReportId = aggreportissues::updateOrCreate(['appid'=>$request->issueId],[
+        $thisReportId = aggreportissues::updateOrCreate(['aggreport_id'=>$aggreportId,'indicator_no'=>$request->indicatorNo],[
         'aggreport_id'=>$aggreportId,
         'indicator_no'=>$request->indicatorNo,
         'issues'=>$request->issues,
         'entered_by'=>$request->user()->id,
-        'appid'=>$request->issueId
+        'appid'=>$request->appid
         // 'created_at'=>strtotime($request->date)
         ])->id;
 
