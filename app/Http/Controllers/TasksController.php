@@ -411,17 +411,16 @@ class TasksController extends Controller
     public function newAPIAggReportIssue(request $request)
     {
 
-        Log::warning('This is appid: '.$request->reportId);
-        $aggreportId = aggreport::select('id')->where('appid',$request->reportId)->first()->id;
+        Log::warning('This is appid: '.$request->appid);
+        $aggreportId = aggreport::select('id')->where('appid',$request->appid)->first()->id;
 
-        Log::warning('This is appid: '.$request->reportId.', this is the Report ID: '.$aggreportId);
 
-        $thisReportId = aggreportissues::updateOrCreate(['appid'=>$request->appid],[
+        $thisReportId = aggreportissues::updateOrCreate(['appid'=>$request->issueId],[
         'aggreport_id'=>$aggreportId,
         'indicator_no'=>$request->indicatorNo,
         'issues'=>$request->issues,
-        'entered_by'=>1,
-        'appid'=>$request->appid
+        'entered_by'=>$request->user()->id,
+        'appid'=>$request->issueId
         // 'created_at'=>strtotime($request->date)
         ])->id;
 
@@ -433,33 +432,21 @@ class TasksController extends Controller
 
     }
 
-    public function addAppQIComment(request $request)
-    {
-
-        $issue = aggreportissues::where('id',$request->id)->first();
-
-        aggreportissues::updateOrCreate(['id'=>$request->id],
-        [
-        'comments'=>'<li>'.$request->comments."</li>".$issue->comments
-         ]);
-
-      return redirect()->back()->with(['message'=>'Comment saved successfully!']);
-
-    }
-
     public function addAppQI(request $request)
     {
 
 
         aggreportactivities::create(
         [
-            'issue_id'=>$request->issue_id,
+            'issue_id'=>$request->issueId,
             'activities'=>$request->activities,
-            'dated'=>$request->dated,
-            'entered_by'=>Auth()->user()->id,
+            'dated'=>$request->dateDone,
+            'entered_by'=>$request->user()->id,
          ]);
 
-      return redirect()->back()->with(['message'=>'New Activity saved successfully!']);
+         return response()->json([
+            'message' => 'Quality Improvent Activity Synced to the Server Successfully!'
+        ]);
 
     }
 
