@@ -434,9 +434,7 @@ class TasksController extends Controller
 
     public function addAppQI(request $request)
     {
-
-
-        aggreportactivities::create(
+        aggreportactivities::updateOrCreate(['issue_id'=>$request->issueId],
         [
             'issue_id'=>$request->issueId,
             'activities'=>$request->activities,
