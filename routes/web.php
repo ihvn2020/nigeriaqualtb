@@ -86,9 +86,12 @@ Route::get('/delete-task/{id}/', [App\Http\Controllers\TasksController::class, '
 Route::get('/delete-followup/{id}/', [App\Http\Controllers\TasksController::class, 'deletefollowup'])->name('delete-followup')->middleware('role:Worker,Admin,Super');
 
 // COMMUNICATION
-Route::get('/communications', [App\Http\Controllers\HomeController::class, 'communications'])->name('communications')->middleware('role:Admin,Super,Pastor');
+Route::get('/communications', [App\Http\Controllers\HomeController::class, 'communications'])->name('communications')->middleware('role:Admin,Super');
 Route::post('/sendsms', [App\Http\Controllers\HomeController::class, 'sendSMS'])->name('sendsms')->middleware('role:Admin,Super,Pastor');
 Route::get('/sentmessages', [App\Http\Controllers\HomeController::class, 'sentSMS'])->name('sentmessages')->middleware('role:Admin,Super,Pastor');
+//  NOTIFICATIONS
+Route::get('/notifications', [App\Http\Controllers\HomeController::class, 'notifications'])->name('notifications')->middleware('role:Admin,Super');
+Route::post('/sendNotification', [App\Http\Controllers\HomeController::class, 'sendNotification'])->name('sendNotification')->middleware('role:Admin,Super');
 
 // HELP AND SECURITY
 Route::get('/help', [App\Http\Controllers\HomeController::class, 'help'])->name('help');

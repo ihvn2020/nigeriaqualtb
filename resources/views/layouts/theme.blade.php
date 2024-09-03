@@ -146,7 +146,7 @@
                                                     class="dot bg-warning"></span>{{ $ts->title }} | <i
                                                     class="lnr lnr-clock"></i>{{ $ts->date }}</a></li>
                                     @endforeach
-                                    <li><a href="tasks" class="more">See all notifications</a></li>
+                                    <li><a href="notifications" class="more">See all notifications</a></li>
                                 </ul>
                             </li>
                         @endauth
@@ -234,8 +234,6 @@
 
                         @if (auth()->user()->role=="Super")
 
-
-
                         <li class="roledlink Admin Super" style="visibility:hidden;">
                             <a href="#subPages7" data-toggle="collapse" class="collapsed"><i
                                     class="lnr lnr-home"></i> <span>Facilities</span> <i
@@ -244,6 +242,18 @@
                                 <ul class="nav">
                                     <li><a href="{{ url('facilities') }}" class="">Facilities</a></li>
                                     <li><a href="{{ url('new-facility') }}" class="">New Facility</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="roledlink Admin Super" style="visibility:hidden;">
+                            <a href="#subPages8" data-toggle="collapse" class="collapsed"><i
+                                    class="lnr lnr-home"></i> <span>Communication</span> <i
+                                    class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages8" class="collapse ">
+                                <ul class="nav">
+                                    <li><a href="{{ url('notifications') }}" class="">App Notifications</a></li>
+                                    <li><a href="{{ url('communications') }}" class="">SMS</a></li>
                                 </ul>
                             </div>
                         </li>

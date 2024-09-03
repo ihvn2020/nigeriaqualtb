@@ -19,6 +19,7 @@ use Artisan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use App\Events\AnnouncementEvent;
 
 
 class HomeController extends Controller
@@ -38,8 +39,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
+    public function index()    {
 
         // sleep(5);
 
@@ -349,7 +349,23 @@ class HomeController extends Controller
         return redirect()->back()->with(['message'=>$message]);
     }
 
+    // SEND NOTIFICATIONS
+    public function notifications()
+    {
+      return view('notifications');
+    }
 
+    public function sendNotification(Request $request)
+    {
+        $title = $request->input('title'); // The title to broadcast
+        $message = $request->input('message'); // The message to broadcast
+        $actionUrl = $request->input('actionUrl'); // The actionUrl to broadcast
+
+        // Dispatch the event
+        event(new AnnouncementEvent($title,$message,$actionUrl));
+        $message = 'The notification has been sent successfully!';
+        return redirect()->back()->with(['message'=>$message]);
+    }
 
     public function settings(request $request){
       $validateData = $request->validate([
