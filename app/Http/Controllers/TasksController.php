@@ -452,4 +452,5 @@ class TasksController extends Controller
         $indicators = indicators::select('indicator','ncode','ntext','dcode','dtext')->get();
         return response()->json($indicators);
     }
+
 }
